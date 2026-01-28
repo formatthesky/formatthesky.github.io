@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Format the Sky – Wipe Your Name (Single)</title>
+  <meta name="description" content="Format the Sky – Wipe Your Name. Beautiful hooks. Brutal breaks. Upcoming single release." />
+  <meta property="og:title" content="Format the Sky – Wipe Your Name" />
+  <meta property="og:description" content="Beautiful hooks. Brutal breaks. Upcoming single release." />
+  <meta property="og:image" content="cover.jpg" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <style>
+    :root{
+      --bg:#070a12;
+      --fg:#e9edf7;
+      --muted: rgba(233,237,247,.72);
+      --muted2: rgba(233,237,247,.55);
+      --shadow: 0 20px 70px rgba(0,0,0,.55);
+      --radius: 26px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--fg);
+      background: var(--bg);
+      overflow-x:hidden;
+    }
+    .bg{
+      position:fixed; inset:0;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(140,170,255,.20), transparent 60%),
+        radial-gradient(900px 700px at 80% 20%, rgba(255,160,220,.14), transparent 60%),
+        radial-gradient(900px 900px at 55% 80%, rgba(130,255,230,.10), transparent 60%),
+        linear-gradient(180deg, #050711 0%, #070a12 45%, #04050a 100%);
+      filter:saturate(1.03);
+      z-index:-3;
+    }
+    .bg::before{
+      content:"";
+      position:absolute; inset:-40px;
+      background: url("cover_blur.jpg") center/cover no-repeat;
+      opacity:.24;
+      filter: blur(10px) saturate(1.05) contrast(1.02);
+      transform: scale(1.05);
+      z-index:-2;
+    }
+    .bg::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.02) 0px,
+          rgba(255,255,255,.02) 1px,
+          transparent 2px,
+          transparent 6px
+        );
+      opacity:.20;
+      mix-blend-mode: overlay;
+      animation: drift 10s linear infinite;
+      z-index:-1;
+      pointer-events:none;
+    }
+    @keyframes drift { from{transform:translateX(0)} to{transform:translateX(30px)} }
+
+    .wrap{min-height:100%; display:flex; flex-direction:column;}
+    header{
+      padding: 22px clamp(18px, 4vw, 54px);
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;}
+    .brand img{
+      width:38px; height:38px; border-radius:999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.06);
+    }
+    .brand .name{
+      font-weight:650; letter-spacing:.10em; text-transform:uppercase;
+      font-size: 12px; color: rgba(233,237,247,.88);
+    }
+    .nav{display:flex; gap:10px; align-items:center; font-size:12px; color: rgba(233,237,247,.72);}
+    .nav a{
+      color: rgba(233,237,247,.72);
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .15s ease;
+    }
+    .nav a:hover{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+      color: rgba(233,237,247,.92);
+    }
+
+    main{
+      flex:1;
+      padding: 10px clamp(18px, 4vw, 54px) 46px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(16px, 3vw, 44px);
+      align-items:center;
+    }
+    .left{max-width: 720px;}
+    .tag{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 10px 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(233,237,247,.78);
+      font-size: 12px;
+      letter-spacing:.04em;
+      backdrop-filter: blur(8px);
+    }
+    .dot{
+      width:7px; height:7px; border-radius:999px;
+      background: rgba(180,210,255,.95);
+      box-shadow: 0 0 0 6px rgba(180,210,255,.12);
+    }
+    h1{
+      margin: 18px 0 12px;
+      font-size: clamp(40px, 6vw, 74px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+    h1 .sub{
+      display:block;
+      font-size: clamp(15px, 2vw, 18px);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color: rgba(233,237,247,.70);
+      margin-top: 10px;
+    }
+    .lede{
+      margin: 14px 0 22px;
+      font-size: 16px;
+      line-height: 1.55;
+      color: rgba(233,237,247,.72);
+      max-width: 54ch;
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap: 12px; align-items:center; margin-top: 10px;}
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: rgba(233,237,247,.92);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: .02em;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: .15s ease;
+      backdrop-filter: blur(10px);
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.26); background: rgba(255,255,255,.10);}
+    .btn.primary{background: rgba(180,210,255,.18); border-color: rgba(180,210,255,.32);}
+    .btn.primary:hover{background: rgba(180,210,255,.24); border-color: rgba(180,210,255,.40);}
+
+    .metaRow{display:flex; flex-wrap:wrap; gap: 14px; margin-top: 18px; color: rgba(233,237,247,.55); font-size: 12px;}
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .right{display:flex; justify-content:center;}
+    .artCard{
+      width: min(520px, 100%);
+      aspect-ratio: 1/1;
+      border-radius: var(--radius);
+      overflow:hidden;
+      position:relative;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.04);
+    }
+    .artCard img{width:100%; height:100%; object-fit: cover; transform: scale(1.02);}
+    .artCard::after{
+      content:"";
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(600px 280px at 50% 10%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(420px 420px at 20% 80%, rgba(180,210,255,.12), transparent 65%),
+        radial-gradient(520px 520px at 80% 75%, rgba(255,160,220,.10), transparent 65%);
+      mix-blend-mode: overlay;
+      pointer-events:none;
+    }
+    .scan{
+      position:absolute; inset:0;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(255,255,255,.05) 45%,
+        transparent 55%,
+        transparent 100%);
+      opacity:.18;
+      animation: scan 6.5s linear infinite;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+    }
+    @keyframes scan{from{transform: translateY(-35%)} to{transform: translateY(35%)}}
+
+    footer{
+      padding: 18px clamp(18px, 4vw, 54px) 26px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 14px; color: rgba(233,237,247,.55); font-size: 12px;
+    }
+    .social{display:flex; gap:10px; align-items:center;}
+    .social a{
+      color: rgba(233,237,247,.72);
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition:.15s ease;
+    }
+    .social a:hover{
+      border-color: rgba(255,255,255,.26);
+      background: rgba(255,255,255,.09);
+      color: rgba(233,237,247,.92);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 920px){
+      main{ grid-template-columns: 1fr; }
+      .right{ order:-1; }
+      .nav{ display:none; }
+      .left{ max-width: unset; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="Format the Sky">
+        <img src="avatar.png" alt="" />
+        <div class="name">FORMAT THE SKY</div>
+      </a>
+
+      <nav class="nav" aria-label="Social">
+        <a href="https://www.instagram.com/formatthesky/" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@formatthesky" rel="noopener">YouTube</a>
+        <!-- <a href="#" rel="noopener">Spotify</a> -->
+      </nav>
+    </header>
+
+    <main>
+      <section class="left">
+        <div class="tag">
+          <span class="dot" aria-hidden="true"></span>
+          <span>UPCOMING SINGLE</span>
+        </div>
+
+        <h1>
+          Wipe Your Name
+          <span class="sub">beautiful hooks / brutal breaks</span>
+        </h1>
+
+        <p class="lede">
+          A melodic, high-energy crossover where clean hooks collide with chaotic brutality.
+          Built for late-night drives and loud speakers.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="https://distrokid.com/hyperfollow/formatthesky/wipe-your-name" rel="noopener">Pre-save / Get Links</a>
+          <a class="btn" href="https://www.instagram.com/formatthesky/" rel="noopener">Follow on Instagram</a>
+          <a class="btn" href="https://www.instagram.com/formatthesky/" rel="noopener">Watch Teasers</a>
+        </div>
+
+        <div class="metaRow" aria-label="Release metadata">
+          <div class="pill" id="releasePill">Release: <strong>2026-02-20</strong></div>
+          <div class="pill">Artist: <strong>Format the Sky</strong></div>
+          <div class="pill">Single: <strong>Wipe Your Name</strong></div>
+        </div>
+      </section>
+
+      <aside class="right" aria-label="Artwork">
+        <div class="artCard">
+          <img src="cover.jpg" alt="Wipe Your Name cover artwork" />
+          <div class="scan"></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Format the Sky</div>
+      <div class="social">
+        <a href="https://www.instagram.com/formatthesky/" rel="noopener">IG</a>
+        <a href="https://www.youtube.com/@formatthesky" rel="noopener">YT</a>
+        <!-- <a href="#" rel="noopener">SP</a> -->
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const releaseDateISO = "2026-02-20";
+
+    const pill = document.getElementById('releasePill');
+    if (releaseDateISO){
+      const release = new Date(releaseDateISO + "T00:00:00");
+      const now = new Date();
+      const ms = release - now;
+      const days = Math.max(0, Math.ceil(ms / (1000*60*60*24)));
+      pill.innerHTML = `Release: <strong>${release.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}</strong> · <strong>${days} days</strong>`;
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

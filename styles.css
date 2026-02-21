@@ -149,7 +149,6 @@ a {
 .nav {
     display: flex;
     align-items: center;
-    gap: 14px;
     margin-left: auto;
     flex-shrink: 0;
 }
@@ -161,6 +160,10 @@ a {
     color: rgba(242, 242, 255, .85);
     padding: 8px 10px;
     border-radius: 12px;
+
+    &.nav__secondary {
+        display: none;
+    }
 }
 
 .nav a:hover {
@@ -170,6 +173,18 @@ a {
 .nav__pill {
     border: 1px solid rgba(255, 255, 255, .14);
     background: rgba(255, 255, 255, .04);
+}
+
+@media (min-width: 460px) {
+    .nav a.nav__secondary {
+        display: block;
+    }
+}
+
+@media (min-width: 600px) {
+    .nav {
+        gap: 14px;
+    }
 }
 
 @media (min-width: 980px) {

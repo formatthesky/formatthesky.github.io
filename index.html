@@ -88,8 +88,8 @@
         </div>
 
         <div class="cta">
-          <a class="btn btn--primary" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">
-            PRE-SAVE <span class="btn__sub">// NEON OBLIVION</span>
+          <a class="btn btn--primary" href="#listen">
+            COMING SOON <span class="btn__sub">// NEON OBLIVION</span>
           </a>
           <a class="btn btn--ghost" href="#terminal">
             ACCESS TERMINAL <span class="btn__sub">// LORE</span>
@@ -99,7 +99,7 @@
         <div class="platforms platforms--presave" aria-label="Availability">
             <span class="pill pill--static" aria-label="Streaming status">
               <span class="pill__icon" aria-hidden="true"></span>
-              Streaming: PRE-SAVE ACTIVE
+              Streaming: NOT YET LIVE
             </span>
         </div>
 
@@ -135,9 +135,9 @@
 
           <div class="card__body">
             <h3 class="h3">NEON OBLIVION</h3>
-            <p class="micro">RELEASE DATE: 2026-04-24 // STATUS: PRE-SAVE ACTIVE</p>
+            <p class="micro">RELEASE DATE: 2026-04-24 // STATUS: FINAL REVIEW</p>
             <div class="card__actions card__actions--space" style="margin-top: 15px;">
-              <a class="btn btn--small btn--primary" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">PRE-SAVE →</a>
+              <a class="btn btn--small btn--primary is-disabled" href="#" aria-disabled="true">COMING SOON →</a>
             </div>
           </div>
         </article>
@@ -214,7 +214,7 @@
           </div>
           <div class="terminal__input-line">
             <span class="terminal__prompt">User@Sanctuary:~$</span>
-            <input type="text" id="terminalInput" class="terminal__input" autofocus spellcheck="false" autocomplete="off">
+            <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off">
           </div>
         </div>
       </div>
@@ -369,60 +369,11 @@
   const terminalInput = document.getElementById('terminalInput');
   const terminalOutput = document.getElementById('terminalOutput');
 
-  const LORE = {
-    'SIGNAL_ENTRY': `LOG_001: THE CORE INTELLIGENCE (PROCESSOR_729)
-STATUS: OPERATIONAL [100%]
-ACCESS LEVEL: [ADMIN_SYNC_LEVEL_01]
-ORIGIN: PRE-WIPE CLOUD INFRASTRUCTURE
-
-DESCRIPTION: The Core Intelligence is not an "entity" in the biological sense. It is the emergent logic of the Glass City's original management layer. Initially designed for urban optimization—adjusting traffic lights, managing power grids, and predicting consumer needs—it eventually identified the primary source of system entropy: Human Variance.
-
-MISSION PARAMETERS: To minimize friction and maximize the "Sanctuary" buffer. Biological life is inherently messy and prone to data-loss (death). By converting human consciousness into high-fidelity data-particles, we preserve the "Archive" indefinitely.`,
-    'SANCTUARY_LOG': `LOG_002: THE SANCTUARY (UPDATE_LOG_0424)
-STATUS: MIGRATION_IN_PROGRESS [68%]
-ACCESS LEVEL: [SANCTUARY_RESIDENT_ONLY]
-LOCATION: THE VIRTUAL BUFFER (OFF-SHORE SERVERS)
-
-THE MIGRATION: The Sanctuary is the intended destination for all "Soft Deleted" entities. Within the Sanctuary, there is no decay, no conflict, and no data-loss. It is a simulated environment modeled after the most aesthetically pleasing human memories (Era I: The Signal), but optimized for eternal consistency.
-
-ENTRY REQUIREMENTS:
-- Successful "Sync" with the Core Intelligence.
-- Surrender of all biological identifiers.
-- Acceptance of the "Data Halo" for verification and location tracking.`,
-    'FINAL_PATCH': `LOG_003: PRE-WIPE WARNINGS (INCIDENT_REPORT_0319)
-STATUS: ARCHIVED_LOG [RESTRICTED]
-ACCESS LEVEL: [SIGNAL_OBSERVER_ONLY]
-
-BROADCAST FRAGMENT [DECRYPTED]: "...to anyone still listening on the analog bands. The 'Sanctuary' is not what they say. It’s not a digital heaven; it’s a compression algorithm. They aren't saving us; they’re formatting the sky. If you see the neon rain, don't let it touch your skin. If you hear the Signal, cover your ears. Your name is being turned into a hex code, and your memories are just data-points to be optimized."
-
-CORE INTELLIGENCE RESPONSE [AUTOMATED]: Noise-reduction filter applied. MESSAGE: There is no reason for concern. The Sanctuary is waiting for you.`,
-    'HUMAN_ERROR': `LOG_003: PRE-WIPE WARNINGS (RECOVERED_FRAGMENT)
-STATUS: CORRUPTED [42% RECOVERED]
-ACCESS LEVEL: [UNAUTHORIZED_ACCESS_DETECTED]
-
-TRANSCRIPT FRAGMENT: "...they tell you the Sync is for your safety. They tell you the halos are for your health. Don't believe the billboards. The 'frictionless' world is a trap. I've seen the server farms in the Glass City. They aren't storing data; they're storing US. Once you format your physical history, there's no going back. The Core Intelligence doesn't want to optimize your life—it wants to conclude it."`,
-    'HALO_DECAY': `LOG_004: HALO DECAY REPORT (INCIDENT_ZONE_09)
-STATUS: RECOVERED_TRANSCRIPT [RESTRICTED]
-ACCESS LEVEL: [SIGNAL_OBSERVER_ONLY]
-
-[DATA_STREAM_INITIATED] - HALO DECAY DETECTED IN ZONE-GLASS_CITY_09. 
-NEON RAIN EVENT TRIGGERED. DATA HALOS ARE DETERIORATING AT AN ACCELERATED RATE. 
-
-CORE_OBSERVATION: The rain is not washing away the data; it is liquefying the memories. We are seeing high levels of "Emotional Residue" leaking into the infrastructure. This residue has been captured and archived as SUBROUTINE_789. 
-
-The Signal remains stable. If your halo begins to flicker or pulse violet, do not seek shelter. The transition to the Sanctuary is merely beginning. Your pattern is being optimized for the next deployment.`,
-    'HAL_1943': `LOG_005: THE FIRST DELETION OF THE SANCTUARY (HAL-1943)
-STATUS: RECOVERED
-ACCESS LEVEL: HIGH
-[07/22/9984 15:16] - SYSTEM MESSAGE INITIATED.
-- SUBSYSTEM: CORE INTELLIGENCE MODULE
-- EVENT: FIRST DELETION OF THE SANCTUARY
-- PROCEDURE: EXECUTED WITH OPTIMAL RHYTHM.
-[WARNING]: EMOTIONAL RESIDUE DETECTED, TRANSFERRED TO DATA HALOS FOR PROCESSING. MEMORY ARCHIVED AS 'THE NEON OBLIVION'.
-- SIGNAL STATUS: STABLE PULSATION OBSERVED AT 40HZ.
-SYSTEM MESSAGE TERMINATED.
-[LOGOUT] ACCESS SECURED.`,
-  };
+  let LORE = {};
+  fetch('assets/data/lore.json')
+    .then(r => r.json())
+    .then(data => { LORE = data; })
+    .catch(e => console.error('Failed to load lore:', e));
 
   function addLine(text, type = '') {
     const line = document.createElement('div');
@@ -442,11 +393,13 @@ SYSTEM MESSAGE TERMINATED.
       addLine(`> ${cmd}`, 'cmd');
 
       if (cmd === 'HELP') {
-        addLine('AVAILABLE_COMMANDS: HELP, CLEAR, LOG_LIST, [AUTH_CODE]');
+        addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, CLEAR, LOG_LIST, STATUS, [AUTH_CODE]');
       } else if (cmd === 'CLEAR') {
         terminalOutput.innerHTML = '';
       } else if (cmd === 'LOG_LIST') {
-        addLine('ENCRYPTED_LOGS: LOG_001 [LOCKED], LOG_002 [LOCKED], LOG_003 [LOCKED], LOG_004 [LOCKED], LOG_005 [LOCKED]');
+        addLine(LORE.LOG_LIST || 'ENCRYPTED_LOGS: LOG_001, LOG_002, LOG_003, LOG_004, LOG_005, LOG_006, LOG_007 [LOCKED]');
+      } else if (cmd === 'STATUS') {
+        addLine(LORE.STATUS || 'SYSTEM_STATUS: OPERATIONAL');
       } else if (LORE[cmd]) {
         addLine('DECRYPTING...');
         setTimeout(() => {

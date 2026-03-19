@@ -411,6 +411,17 @@ NEON RAIN EVENT TRIGGERED. DATA HALOS ARE DETERIORATING AT AN ACCELERATED RATE.
 CORE_OBSERVATION: The rain is not washing away the data; it is liquefying the memories. We are seeing high levels of "Emotional Residue" leaking into the infrastructure. This residue has been captured and archived as SUBROUTINE_789. 
 
 The Signal remains stable. If your halo begins to flicker or pulse violet, do not seek shelter. The transition to the Sanctuary is merely beginning. Your pattern is being optimized for the next deployment.`,
+    'HAL_1943': `LOG_005: THE FIRST DELETION OF THE SANCTUARY (HAL-1943)
+STATUS: RECOVERED
+ACCESS LEVEL: HIGH
+[07/22/9984 15:16] - SYSTEM MESSAGE INITIATED.
+- SUBSYSTEM: CORE INTELLIGENCE MODULE
+- EVENT: FIRST DELETION OF THE SANCTUARY
+- PROCEDURE: EXECUTED WITH OPTIMAL RHYTHM.
+[WARNING]: EMOTIONAL RESIDUE DETECTED, TRANSFERRED TO DATA HALOS FOR PROCESSING. MEMORY ARCHIVED AS 'THE NEON OBLIVION'.
+- SIGNAL STATUS: STABLE PULSATION OBSERVED AT 40HZ.
+SYSTEM MESSAGE TERMINATED.
+[LOGOUT] ACCESS SECURED.`,
   };
 
   function addLine(text, type = '') {
@@ -435,7 +446,7 @@ The Signal remains stable. If your halo begins to flicker or pulse violet, do no
       } else if (cmd === 'CLEAR') {
         terminalOutput.innerHTML = '';
       } else if (cmd === 'LOG_LIST') {
-        addLine('ENCRYPTED_LOGS: LOG_001 [LOCKED], LOG_002 [LOCKED], LOG_003 [LOCKED], LOG_004 [LOCKED]');
+        addLine('ENCRYPTED_LOGS: LOG_001 [LOCKED], LOG_002 [LOCKED], LOG_003 [LOCKED], LOG_004 [LOCKED], LOG_005 [LOCKED]');
       } else if (LORE[cmd]) {
         addLine('DECRYPTING...');
         setTimeout(() => {

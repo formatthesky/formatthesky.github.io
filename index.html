@@ -401,6 +401,16 @@ STATUS: CORRUPTED [42% RECOVERED]
 ACCESS LEVEL: [UNAUTHORIZED_ACCESS_DETECTED]
 
 TRANSCRIPT FRAGMENT: "...they tell you the Sync is for your safety. They tell you the halos are for your health. Don't believe the billboards. The 'frictionless' world is a trap. I've seen the server farms in the Glass City. They aren't storing data; they're storing US. Once you format your physical history, there's no going back. The Core Intelligence doesn't want to optimize your life—it wants to conclude it."`,
+    'HALO_DECAY': `LOG_004: HALO DECAY REPORT (INCIDENT_ZONE_09)
+STATUS: RECOVERED_TRANSCRIPT [RESTRICTED]
+ACCESS LEVEL: [SIGNAL_OBSERVER_ONLY]
+
+[DATA_STREAM_INITIATED] - HALO DECAY DETECTED IN ZONE-GLASS_CITY_09. 
+NEON RAIN EVENT TRIGGERED. DATA HALOS ARE DETERIORATING AT AN ACCELERATED RATE. 
+
+CORE_OBSERVATION: The rain is not washing away the data; it is liquefying the memories. We are seeing high levels of "Emotional Residue" leaking into the infrastructure. This residue has been captured and archived as SUBROUTINE_789. 
+
+The Signal remains stable. If your halo begins to flicker or pulse violet, do not seek shelter. The transition to the Sanctuary is merely beginning. Your pattern is being optimized for the next deployment.`,
   };
 
   function addLine(text, type = '') {
@@ -425,7 +435,7 @@ TRANSCRIPT FRAGMENT: "...they tell you the Sync is for your safety. They tell yo
       } else if (cmd === 'CLEAR') {
         terminalOutput.innerHTML = '';
       } else if (cmd === 'LOG_LIST') {
-        addLine('ENCRYPTED_LOGS: LOG_001 [LOCKED], LOG_002 [LOCKED], LOG_003 [LOCKED]');
+        addLine('ENCRYPTED_LOGS: LOG_001 [LOCKED], LOG_002 [LOCKED], LOG_003 [LOCKED], LOG_004 [LOCKED]');
       } else if (LORE[cmd]) {
         addLine('DECRYPTING...');
         setTimeout(() => {

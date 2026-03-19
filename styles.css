@@ -1150,6 +1150,7 @@ details[open] summary {
     margin: 4px 0;
     line-height: 1.4;
     word-break: break-word;
+    white-space: pre-wrap;
 }
 
 .terminal__line--cmd {

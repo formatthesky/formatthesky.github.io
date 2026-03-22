@@ -220,7 +220,6 @@
             <button class="terminal__btn" data-cmd="HELP">HELP</button>
             <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
             <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
-            <button class="terminal__btn" data-cmd="CLEAR">CLEAR</button>
           </div>
         </div>
       </div>
@@ -448,18 +447,21 @@
   function processCommand(cmd) {
     addLine(`> ${cmd}`, 'cmd');
 
-    if (cmd === 'HELP') {
-      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, CLEAR, LOGS, STATUS, [AUTH_CODE]');
-    } else if (cmd === 'CLEAR') {
+    // Support bracketed codes like [INCIDENT]
+    const cleanCmd = cmd.replace(/^\[|\]$/g, '');
+
+    if (cleanCmd === 'HELP') {
+      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, LOGS, STATUS, [AUTH_CODE]');
+    } else if (cleanCmd === 'CLEAR') {
       terminalOutput.innerHTML = '';
-    } else if (cmd === 'LOGS') {
+    } else if (cleanCmd === 'LOGS') {
       addLine(LORE.LOGS || 'ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG004, LOG005, LOG006, LOG007 [LOCKED]');
-    } else if (cmd === 'STATUS') {
+    } else if (cleanCmd === 'STATUS') {
       addLine(LORE.STATUS || 'SYSTEM_STATUS: OPERATIONAL');
-    } else if (LORE[cmd]) {
+    } else if (LORE[cleanCmd]) {
       addLine('DECRYPTING...');
       setTimeout(() => {
-        addLine(LORE[cmd]);
+        addLine(LORE[cleanCmd]);
       }, 500);
     } else {
       addLine('ERROR: INVALID_AUTH_CODE. ACCESS_DENIED.', 'error');

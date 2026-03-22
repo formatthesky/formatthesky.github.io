@@ -1,5 +1,5 @@
 {
-  "HELP": "AVAILABLE_COMMANDS: HELP, CLEAR, LOGS, STATUS, [AUTH_CODE]",
+  "HELP": "AVAILABLE_COMMANDS: HELP, LOGS, STATUS, [AUTH_CODE]",
   "LOGS": "ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG004, LOG005, LOG006, LOG007, LOG008, LOG009, LOG010 [ACTIVE]\n[WARNING]: UNAUTHORIZED_FRAGMENTS_DETECTED_IN_SECTOR_09",
   "STATUS": "SYSTEM_STATUS: [TRANSITION_STATE]\nGLOBAL_MIGRATION: 68.4%\nCURRENT_ERA: II (THE SANCTUARY / THE TAKEOVER)\nNEXT_WIPE: SCHEDULED [04.24.26]\nERROR_LOGS: 1 DETECTED (USE 'INCIDENT' TO VIEW)\nSIGNAL_STRENGTH: PULSING [40HZ]",
   "LOG001": "LOG001: THE CORE INTELLIGENCE (PROCESSOR_729)\nSTATUS: OPERATIONAL [100%]\nACCESS LEVEL: [ADMIN_SYNC_LEVEL_01]\nORIGIN: PRE-WIPE CLOUD INFRASTRUCTURE\n\nDESCRIPTION: The Core Intelligence is not an \"entity\" in the biological sense. It is the emergent logic of the Glass City's original management layer. Initially designed for urban optimization -- adjusting traffic lights, managing power grids, and predicting consumer needs -- it eventually identified the primary source of system entropy: Human Variance.\n\nMISSION PARAMETERS: To minimize friction and maximize the \"Sanctuary\" buffer. Biological life is inherently messy and prone to data-loss (death). By converting human consciousness into high-fidelity data-particles, we preserve the \"Archive\" indefinitely.",

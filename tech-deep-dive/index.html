@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05040a" />
+  <title>Tech Deep-Dive // Format The Sky</title>
+  <meta name="description" content="Technical breakdown of the AGE Pipeline (Automated Glitch Era) - How we automated the visual identity of Format The Sky." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- TELEMETRY // GOATCOUNTER -->
+  <script data-goatcounter="https://formatthesky.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body class="is-deep-dive">
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="../#top" aria-label="Format The Sky">
+      <picture>
+        <source srcset="../assets/logo/logo.svg" type="image/svg+xml" />
+        <img class="brand__logo" src="../assets/logo/logo.png" alt="Format The Sky logo" />
+      </picture>
+    </a>
+
+    <div class="status">
+      <span class="status__dot"></span>
+      <span class="status__text">AGE_PIPELINE: v1.0.42</span>
+    </div>
+
+    <nav class="nav">
+      <a href="../#listen">Release</a>
+      <a href="../#terminal">Terminal</a>
+      <a href="../#sync">Social</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h1 class="h2 glitch-hover">TECH_DEEP_DIVE_01: AGE_PIPELINE</h1>
+        <p class="sub">"How we built the end of the world."</p>
+      </div>
+
+      <div class="article">
+        <div class="card card--article">
+          <div class="card__body">
+            <h2 class="h3">Background</h2>
+            <p class="body">
+              Format The Sky is not just a band; it's a living digital ecosystem. To maintain a consistent, high-frequency presence on short-form video platforms (TikTok, IG Reels, YT Shorts) without burning out the human producer, we built the <strong>AGE Pipeline</strong> (Automated Glitch Era).
+            </p>
+
+            <h2 class="h3">The Workflow: From Audio to Asset</h2>
+
+            <div class="grid grid--2" style="margin-top: 30px;">
+              <div>
+                <h3 class="h4">1. Section Inference (The "Pulse")</h3>
+                <p class="body small">
+                  The pipeline starts by analyzing the raw audio of our tracks. We use an LLM-based inference system to identify the song's structure:
+                </p>
+                <ul class="list">
+                  <li><strong>Timestamping:</strong> Chorus (Catchy/High Energy), Verse (Atmospheric/Low Energy), Breakdown (Intense/Chaotic).</li>
+                  <li><strong>BPM Sync:</strong> All visual pulses are calculated from the song's BPM to ensure perfect rhythmic alignment.</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="h4">2. CLIP Indexing (Semantic Discovery)</h3>
+                <p class="body small">
+                  We maintain a library of 100+ raw high-quality 4k video clips. These are pre-processed through <strong>OpenAI’s CLIP model</strong> to create a searchable semantic index using <strong>cosine similarity</strong> for high-precision visual retrieval.
+                </p>
+                <ul class="list">
+                  <li><strong>Searchable Attributes:</strong> "Neon rain," "Cybernetic eye," "Analog glitch," "Chrome textures."</li>
+                  <li><strong>AssetLibrary:</strong> A custom TypeScript class that manages these embeddings and allows for rapid visual retrieval.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 class="h3" style="margin-top: 40px;">3. SYSTEM_SYNTHESIS: Applying "The Erasure"</h3>
+            <p class="body">
+              This is where the latent space is shaped into our visual reality. We use <strong>ComfyUI</strong> workflows (via its API) to apply "The Erasure" aesthetic.
+            </p>
+            <ul class="list">
+              <li><strong>Image-to-Image / Video-to-Video:</strong> We take the indexed clips and run them through custom nodes (ControlNet, IP-Adapter, AnimateDiff).</li>
+              <li><strong>Style Injection:</strong> We inject "Format The Sky" brand elements (magenta/cyan color palettes, CRT scanlines, glitch displacement) into every frame.</li>
+              <li><strong>Model Orchestration:</strong> We use <code>VramOrchestrator</code> to swap between Flux (for high-fidelity stills) and SDXL (for fast video processing).</li>
+            </ul>
+
+            <h3 class="h3" style="margin-top: 40px;">4. Hybrid Vision QC (The "Gatekeeper")</h3>
+            <p class="body">
+              Automation requires accountability. Before any asset is finalized, it must pass a dual-model Quality Control check to ensure it meets our "Beauty + Threat" brand criteria:
+            </p>
+            <ul class="list">
+              <li><strong>Gemma 3:</strong> Generates a frame-by-frame objective description.</li>
+              <li><strong>Qwen 2.5:</strong> Acts as a "Devil's Advocate," reviewing the description for static imagery, brand inconsistency, or technical glitches that don't look "intentional."</li>
+            </ul>
+
+            <div class="box glitch-hover" style="margin-top: 40px; background: rgba(51, 214, 255, 0.05); border: 1px dashed var(--cyan); padding: 20px; border-radius: 12px;">
+              <h3 class="h4" style="color: var(--cyan);">Join the Erasure</h3>
+              <p class="body small">
+                If you're a developer or AI artist, we want to hear from you. The AGE Pipeline is evolving, and we're looking for new ways to "format the sky."
+              </p>
+              <a class="btn btn--small btn--primary" href="mailto:hello@formatthesky.com">CONTACT_SYSTEM →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__foot" style="margin-top: 60px; text-align: center;">
+        <a class="btn btn--ghost" href="../#terminal">RETURN_TO_TERMINAL</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p class="micro muted">© 2026 Format The Sky // THE_SYSTEM_PERSISTS</p>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

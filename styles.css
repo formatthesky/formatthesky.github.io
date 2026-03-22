@@ -1178,6 +1178,52 @@ details[open] summary {
     font-size: 16px;
     flex: 1;
     outline: none;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.terminal__quick-cmds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.terminal__btn {
+    background: rgba(51, 214, 255, 0.05);
+    border: 1px solid rgba(51, 214, 255, 0.3);
+    color: var(--cyan);
+    font-family: inherit;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.terminal__btn:hover {
+    background: rgba(51, 214, 255, 0.15);
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(51, 214, 255, 0.2);
+}
+
+.terminal__btn:active {
+    background: var(--cyan);
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .terminal {
+        padding: 16px;
+    }
+    .terminal__screen {
+        height: 350px;
+    }
+    .terminal__input {
+        font-size: 16px; /* Prevents iOS zoom */
+    }
 }
 
 .terminal__prompt {

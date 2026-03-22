@@ -214,7 +214,13 @@
           </div>
           <div class="terminal__input-line">
             <span class="terminal__prompt">User@Sanctuary:~$</span>
-            <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off">
+            <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off">
+          </div>
+          <div class="terminal__quick-cmds" id="terminalQuickCmds">
+            <button class="terminal__btn" data-cmd="HELP">HELP</button>
+            <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
+            <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
+            <button class="terminal__btn" data-cmd="CLEAR">CLEAR</button>
           </div>
         </div>
       </div>
@@ -383,31 +389,51 @@
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
   }
 
+  terminalInput.addEventListener('input', () => {
+    const start = terminalInput.selectionStart;
+    const end = terminalInput.selectionEnd;
+    // Auto-convert to uppercase and replace space/hyphen with underscore
+    terminalInput.value = terminalInput.value.toUpperCase().replace(/[\s-]/g, '_');
+    terminalInput.setSelectionRange(start, end);
+  });
+
   terminalInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-      const cmd = terminalInput.value.toUpperCase().trim();
+      const cmd = terminalInput.value.trim();
       terminalInput.value = '';
 
       if (!cmd) return;
 
-      addLine(`> ${cmd}`, 'cmd');
+      processCommand(cmd);
+    }
+  });
 
-      if (cmd === 'HELP') {
-        addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, CLEAR, LOG_LIST, STATUS, [AUTH_CODE]');
-      } else if (cmd === 'CLEAR') {
-        terminalOutput.innerHTML = '';
-      } else if (cmd === 'LOG_LIST') {
-        addLine(LORE.LOG_LIST || 'ENCRYPTED_LOGS: LOG_001, LOG_002, LOG_003, LOG_004, LOG_005, LOG_006, LOG_007 [LOCKED]');
-      } else if (cmd === 'STATUS') {
-        addLine(LORE.STATUS || 'SYSTEM_STATUS: OPERATIONAL');
-      } else if (LORE[cmd]) {
-        addLine('DECRYPTING...');
-        setTimeout(() => {
-          addLine(LORE[cmd]);
-        }, 500);
-      } else {
-        addLine('ERROR: INVALID_AUTH_CODE. ACCESS_DENIED.', 'error');
-      }
+  function processCommand(cmd) {
+    addLine(`> ${cmd}`, 'cmd');
+
+    if (cmd === 'HELP') {
+      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, CLEAR, LOGS, STATUS, [AUTH_CODE]');
+    } else if (cmd === 'CLEAR') {
+      terminalOutput.innerHTML = '';
+    } else if (cmd === 'LOGS') {
+      addLine(LORE.LOGS || 'ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG004, LOG005, LOG006, LOG007 [LOCKED]');
+    } else if (cmd === 'STATUS') {
+      addLine(LORE.STATUS || 'SYSTEM_STATUS: OPERATIONAL');
+    } else if (LORE[cmd]) {
+      addLine('DECRYPTING...');
+      setTimeout(() => {
+        addLine(LORE[cmd]);
+      }, 500);
+    } else {
+      addLine('ERROR: INVALID_AUTH_CODE. ACCESS_DENIED.', 'error');
+    }
+  }
+
+  // Quick Command Buttons
+  document.getElementById('terminalQuickCmds').addEventListener('click', (e) => {
+    if (e.target.classList.contains('terminal__btn')) {
+      const cmd = e.target.getAttribute('data-cmd');
+      processCommand(cmd);
     }
   });
 </script>

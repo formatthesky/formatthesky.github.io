@@ -1214,6 +1214,17 @@ details[open] summary {
     color: #000;
 }
 
+.terminal__link {
+    color: var(--cyan);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.terminal__link:hover {
+    text-shadow: 0 0 8px var(--cyan);
+    opacity: 0.8;
+}
+
 @media (max-width: 600px) {
     .terminal {
         padding: 16px;

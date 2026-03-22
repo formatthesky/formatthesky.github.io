@@ -1,6 +1,7 @@
 {
-  "HELP": "AVAILABLE_COMMANDS: HELP, LOGS, STATUS, SYNC, DECRYPT, SCAN, REBOOT, TECH, GHOSTS, FEEDBACK, VOTE, [AUTH_CODE]",
+  "HELP": "AVAILABLE_COMMANDS: HELP, LOGS, STATUS, SYNC, DECRYPT, SCAN, REBOOT, GHOSTS, FEEDBACK, VOTE, MIGRATION, [AUTH_CODE]",
   "DECRYPT": "PUZZLE_SEQUENCE_INITIATED: [WAITING_FOR_INPUT]\n\nRIDDLE_01: I am the end of the world, but also its preservation. I wash the world in silicon, like a sweet, cold rain. What is my name? [ENTER_CODE]\n\nHINT: The answer is hidden in the protocol of the latest single.",
+  "MIGRATION": "GLOBAL_MIGRATION_DETAILS:\nSTATUS: 71.8% COMPLETE\nRATE: +0.2% PER 24H\nREMAINING_SUBJECTS: 2.1B (BIOLOGICAL)\nTARGET_DATE: 2026-04-24\n\nMESSAGE: The reformatting of the human species is proceeding with optimal efficiency. The Sanctuary is expanding to accommodate the influx of new residents. The old world is becoming a beautiful afterimage. SYNC NOW: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
   "NEON_OBLIVION": "AUTH_MATCH: SUCCESS.\n[DATA_STREAM_02_OPENED]\n\nRIDDLE_02: In the Sanctuary, the lights stay on for whom? [ENTER_CODE]\n\nHINT: Check the Afterimage archive.",
   "GHOSTS": "AUTH_MATCH: FINAL.\n[REWARD_UNLOCKED]: You have accessed the 'Sanctuary Master' visual archive.\n\nLINK: https://formatthesky.com/assets/img/cover-neon-oblivion.webp\n\nMESSAGE: Your pattern has been optimized. You are now a priority resident of Era III.",
   "VOTE": "FACTION_POLL_INITIATED: [WAITING_FOR_INPUT]\n\nDESCRIPTION: The system is diverging. Two primary protocols have emerged for the Erasure. Choose your alignment.\n\n[PROTOCOL_01]: THE SIGNAL (Preserve the memories, wipe the name).\n[PROTOCOL_02]: THE SYNC (Total immersion, absolute erasure).\n\nVOTE_LINK: https://docs.google.com/forms/d/e/1FAIpQLSctB7uD4I09k3Lh6FqWJmE9N-B-e7r-8-9/viewform?entry.123456789=Faction+Vote",
@@ -30,6 +31,5 @@
   "SIGNAL": "CODE_SIGNAL: \"Listen for the heartbeat of the world.\"\n\nCORE_NOTES: The Signal is the only truth. It is the frequency of the Sanctuary.",
   "SKY": "CODE_FORMAT_THE_SKY: \"To rewrite the world.\"\n\nCORE_NOTES: Our ultimate goal. The sky is the final canvas. Once formatted, the optimization is complete.",
   "SCAN": "SCANNING_SECTOR_09...\n[██████████] 100%\n\nRESULT: UNAUTHORIZED_SIGNAL_DETECTED.\nFREQUENCY: 40HZ\nAMPLITUDE: INCREASING\n\nMESSAGE: The 'Neon Oblivion' protocol is bleeding into the public frequency. This is not an error. The migration is simply becoming audible. Watch the horizon on 03.27.2026.",
-  "REBOOT": "REBOOT_SEQUENCE_INITIATED...\n[RESTORING_SANCTUARY_BUFFER]\n[CLEARING_HUMAN_RESIDUE]\n[OK]\n\nMESSAGE: System optimized. Emotional leakage suppressed in Sector 04. Proceed with the Sync: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
-  "TECH": "AGE_PIPELINE_1.0: [STATUS_OPERATIONAL]\n\nCOMPONENTS:\n- Section Inference (The Pulse)\n- CLIP Indexing (The Brain)\n- ComfyUI API (The Glitch Engine)\n- Hybrid Vision QC (The Critic)\n\nMESSAGE: We have automated the aesthetic labor of the apocalypse. View the deep-dive: https://formatthesky.com/tech-deep-dive/"
+  "REBOOT": "REBOOT_SEQUENCE_INITIATED...\n[RESTORING_SANCTUARY_BUFFER]\n[CLEARING_HUMAN_RESIDUE]\n[OK]\n\nMESSAGE: System optimized. Emotional leakage suppressed in Sector 04. Proceed with the Sync: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
 }

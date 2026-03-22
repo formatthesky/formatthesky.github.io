@@ -1241,3 +1241,45 @@ details[open] summary {
     font-weight: bold;
     color: var(--magenta);
 }
+
+/* Deep Dive Specific Enhancements */
+.is-deep-dive .nav a {
+    color: var(--cyan);
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(51, 214, 255, 0.4);
+}
+
+.is-deep-dive .h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--magenta);
+    text-shadow: 0 0 10px rgba(255, 61, 212, 0.3);
+}
+
+.is-deep-dive .h3 {
+    color: var(--cyan);
+    border-bottom: 1px solid rgba(51, 214, 255, 0.2);
+    padding-bottom: 4px;
+    margin-top: 32px;
+}
+
+.is-deep-dive .box {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.is-deep-dive .box:hover {
+    transform: scale(1.005);
+    box-shadow: 0 0 20px rgba(51, 214, 255, 0.1);
+}
+
+@keyframes glitch-text {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.glitch-hover:hover {
+    animation: glitch-text 0.1s infinite;
+}

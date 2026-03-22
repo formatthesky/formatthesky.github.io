@@ -13,6 +13,10 @@
   <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
+  
+  <!-- TELEMETRY // GOATCOUNTER (Privacy-friendly analytics) -->
+  <script data-goatcounter="https://formatthesky.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 
 <body>
@@ -446,18 +450,40 @@
 
   function processCommand(cmd) {
     addLine(`> ${cmd}`, 'cmd');
+    
+    // TELEMETRY: Track command usage
+    trackEvent('terminal', 'cmd_input', cmd);
 
     // Support bracketed codes like [INCIDENT]
     const cleanCmd = cmd.replace(/^\[|\]$/g, '');
 
     if (cleanCmd === 'HELP') {
-      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, LOGS, STATUS, [AUTH_CODE]');
+      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, LOGS, STATUS, SYNC, DECRYPT, [AUTH_CODE]');
     } else if (cleanCmd === 'CLEAR') {
       terminalOutput.innerHTML = '';
     } else if (cleanCmd === 'LOGS') {
       addLine(LORE.LOGS || 'ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG004, LOG005, LOG006, LOG007 [LOCKED]');
     } else if (cleanCmd === 'STATUS') {
       addLine(LORE.STATUS || 'SYSTEM_STATUS: OPERATIONAL');
+    } else if (cleanCmd === 'DECRYPT') {
+      addLine('INITIATING_PUZZLE_SEQUENCE...');
+      setTimeout(() => {
+        addLine(LORE.DECRYPT || 'QUERY: "What is the first thing you would Format?"');
+      }, 500);
+    } else if (cleanCmd === 'PAST' || cleanCmd === 'SILICON') {
+      addLine('AUTH_MATCH: FOUND.');
+      addLine('DECRYPTING_REWARD...');
+      setTimeout(() => {
+        addLine(LORE[cleanCmd] || 'SUCCESS.');
+        trackEvent('puzzle', 'solved', `DECRYPT_${cleanCmd}`);
+      }, 1000);
+    } else if (cleanCmd === 'FEEDBACK') {
+      addLine('OPENING_FEEDBACK_CHANNEL...');
+      setTimeout(() => {
+        window.open('https://docs.google.com/forms/d/e/1FAIpQLSctB7uD4I09k3Lh6FqWJmE9N-B-e7r-8-9/viewform?entry.123456789=' + encodeURIComponent('Terminal Feedback'), '_blank');
+        addLine('CHANNEL_OPENED_IN_NEW_TAB.');
+        trackEvent('engagement', 'feedback_opened');
+      }, 500);
     } else if (LORE[cleanCmd]) {
       addLine('DECRYPTING...');
       setTimeout(() => {
@@ -475,6 +501,41 @@
       processCommand(cmd);
     }
   });
+
+  // CUSTOM TELEMETRY SHIM (Tracks engagement patterns)
+  function trackEvent(category, action, label = '') {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({
+        path:  `${category}/${action}/${label}`,
+        title: `${category}: ${action}`,
+        event: true,
+      });
+    }
+  }
+
+  // TRACK INITIAL PAGEVIEW WITH UTM
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get('utm_source') || 'direct';
+    const medium = params.get('utm_medium') || 'none';
+    const campaign = params.get('utm_campaign') || 'none';
+    
+    trackEvent('visit', 'landing', `${source}_${medium}_${campaign}`);
+    
+    // Track CTA clicks
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        trackEvent('conversion', 'cta_click', btn.textContent.trim().split('\n')[0]);
+      });
+    });
+    
+    // Track social links
+    document.querySelectorAll('.socialPill').forEach(link => {
+      link.addEventListener('click', () => {
+        trackEvent('outbound', 'social_click', link.getAttribute('aria-label'));
+      });
+    });
+  })();
 </script>
 </body>
 </html>

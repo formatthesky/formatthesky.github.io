@@ -297,7 +297,8 @@
             <button class="terminal__btn" data-cmd="HELP">HELP</button>
             <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
             <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
-            <button class="terminal__btn terminal__btn--accent" data-cmd="DECRYPT">DECRYPT_FRAGMENTS</button>
+            <button class="terminal__btn terminal__btn--accent" data-cmd="SYNC">SYNC_PROFILE</button>
+            <button class="terminal__btn" data-cmd="DECRYPT">DECRYPT_FRAGMENTS</button>
           </div>
         </div>
       </div>
@@ -594,12 +595,32 @@
       link.download = 'formatted_profile.png';
       link.className = 'terminal__link';
       link.textContent = 'DOWNLOAD_FORMATTED_IMAGE.png';
-      
+
       const line = document.createElement('div');
       line.className = 'terminal__line terminal__line--success';
       line.appendChild(document.createTextNode('RESULT: '));
       line.appendChild(link);
       terminalOutput.appendChild(line);
+
+      // ADD PRE-SAVE PROMPT AFTER SYNC
+      setTimeout(() => {
+          addLine('SIGNAL_SYNCHRONIZED. YOUR_AVATAR_IS_READY.');
+          addLine('SUPPORT_THE_ERASURE: PRE-SAVE NEON OBLIVION.');
+          const preSaveLink = document.createElement('a');
+          preSaveLink.href = 'https://distrokid.com/hyperfollow/formatthesky/neon-oblivion';
+          preSaveLink.className = 'terminal__link terminal__link--accent';
+          preSaveLink.textContent = 'CLICK_HERE_TO_PRE-SAVE_NOW';
+          preSaveLink.target = '_blank';
+          preSaveLink.onclick = () => trackEvent('conversion', 'post_sync_pre_save');
+
+          const preSaveLine = document.createElement('div');
+          preSaveLine.className = 'terminal__line terminal__line--accent';
+          preSaveLine.appendChild(document.createTextNode('>>> '));
+          preSaveLine.appendChild(preSaveLink);
+          terminalOutput.appendChild(preSaveLine);
+          terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      }, 1000);
+
       terminalOutput.scrollTop = terminalOutput.scrollHeight;
       
       trackEvent('engagement', 'sync_complete');

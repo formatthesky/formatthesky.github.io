@@ -1484,10 +1484,10 @@ details[open] summary {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 60px;
-    background: linear-gradient(to bottom, transparent, rgba(51, 214, 255, 0.08), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(51, 214, 255, 0.03), transparent);
     pointer-events: none;
     z-index: 3;
-    animation: scanlineMove 6s linear infinite;
+    animation: scanlineMove 12s linear infinite;
 }
 
 .terminal::after {

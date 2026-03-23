@@ -17,6 +17,30 @@
   <!-- TELEMETRY // GOATCOUNTER (Privacy-friendly analytics) -->
   <script data-goatcounter="https://formatthesky.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </head>
 
 <body>
@@ -121,7 +145,7 @@
   </section>
 
   <!-- RELEASE -->
-  <section id="listen" class="section section--pane">
+  <section id="listen" class="section section--pane section--euphoria">
     <div class="section__paneBg" aria-hidden="true"></div>
 
     <div class="wrap">
@@ -145,8 +169,8 @@
           <div class="card__body">
             <h3 class="h3">NEON OBLIVION</h3>
             <p class="micro">RELEASE DATE: 2026-04-24 // STATUS: PRE-SAVE ACTIVE</p>
-            <div class="card__actions card__actions--space" style="margin-top: 15px;">
-              <a class="btn btn--small btn--primary" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">PRE-SAVE NOW →</a>
+            <div class="card__actions card__actions--space" style="margin-top: 20px;">
+              <a class="btn btn--primary" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">RESERVE THE EUPHORIA <span class="btn__sub">// PRE-SAVE</span></a>
             </div>
           </div>
         </article>
@@ -165,8 +189,8 @@
           <div class="card__body">
             <h3 class="h3">WIPE YOUR NAME</h3>
             <p class="micro">RELEASE DATE: 2026-03-06 // STATUS: LIVE</p>
-            <div class="card__actions card__actions--space" style="margin-top: 15px;">
-              <a class="btn btn--small btn--ghost" href="https://distrokid.com/hyperfollow/formatthesky/wipe-your-name">LISTEN NOW →</a>
+            <div class="card__actions card__actions--space" style="margin-top: 20px;">
+              <a class="btn btn--ghost" href="https://distrokid.com/hyperfollow/formatthesky/wipe-your-name">ENTER THE SIGNAL <span class="btn__sub">// LISTEN</span></a>
             </div>
           </div>
         </article>
@@ -175,7 +199,9 @@
   </section>
 
   <!-- WATCH -->
-  <section id="watch" class="section section--alt">
+  <section id="watch" class="section section--pane section--euphoria">
+    <div class="section__paneBg" aria-hidden="true"></div>
+
     <div class="wrap">
       <div class="section__head">
         <h2 class="h2">VISUAL FEED</h2>
@@ -184,20 +210,39 @@
 
       <div class="card">
         <div class="card__body">
-          <div class="video">
+          <div class="video" style="position: relative; background: #080616 url('assets/img/video-poster.webp') center/cover no-repeat; border-radius: 12px; overflow: hidden; border: 1px solid rgba(51, 214, 255, 0.3); box-shadow: 0 0 40px rgba(51, 214, 255, 0.15);">
+            <picture style="position: absolute; inset: 0; z-index: 0;">
+              <source srcset="assets/img/video-poster.avif" type="image/avif">
+              <source srcset="assets/img/video-poster.webp" type="image/webp">
+              <img src="assets/img/video-poster.webp" alt="Video Background" style="width: 100%; height: 100%; object-fit: cover;">
+            </picture>
+            <div class="video__overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, rgba(5, 4, 10, 0.6) 100%); pointer-events: none; z-index: 1;"></div>
+            <div class="video__placeholder" style="position: absolute; inset: 0; background: linear-gradient(45deg, rgba(5, 4, 10, 0.4), transparent); z-index: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                <div class="h3" style="color: var(--cyan); margin: 0; text-shadow: 0 0 20px var(--cyan);">VISUAL_SYNC_READY</div>
+                <div class="micro" style="color: #fff; opacity: 0.6; margin: 0;">DATA_STREAM_ESTABLISHED</div>
+            </div>
+            <div class="video__play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(51, 214, 255, 0.2); border: 2px solid var(--cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 4; pointer-events: none; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(51, 214, 255, 0.4);">
+              <div style="width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #fff; margin-left: 8px;"></div>
+            </div>
             <iframe
+              style="position: relative; z-index: 2; opacity: 1; transition: opacity 0.5s;"
               src="https://www.youtube-nocookie.com/embed/99boy-UnDvE?rel=0"
               title="Format The Sky - Wipe Your Name (Short)"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
+              onload="this.style.opacity=1; this.parentNode.querySelector('.video__play').style.display='none';"
             ></iframe>
           </div>
 
-          <div class="card__actions card__actions--space">
-            <p class="micro muted">Short clips live. Full video coming soon.</p>
-            <a class="btn btn--small btn--primary" href="https://www.youtube.com/@formatthesky">YOUTUBE →</a>
+          <div class="card__actions card__actions--space" style="flex-direction: column; align-items: center; gap: 20px;">
+            <p class="micro" style="color: #fff; font-size: 14px; letter-spacing: 0.15em; font-weight: 800; text-transform: uppercase;">
+              VISUAL DATA FRAGMENTS // SYNCING
+            </p>
+            <a class="btn btn--primary" href="https://www.youtube.com/@formatthesky" style="padding: 14px 32px; font-size: 14px;">
+              SUBSCRIBE_TO_THE_FEED →
+            </a>
           </div>
         </div>
       </div>
@@ -205,12 +250,17 @@
   </section>
 
   <!-- TERMINAL -->
-  <section id="terminal" class="section section--alt">
+  <section id="terminal" class="section section--pane section--euphoria">
+    <div class="section__paneBg" aria-hidden="true" style="background-image: url('assets/img/terminal-bg.webp'); opacity: 0.15; filter: contrast(1.2) brightness(0.8); background-size: cover; background-position: center;"></div>
+
     <div class="wrap">
       <div class="section__head">
         <h2 class="h2">LORE TERMINAL</h2>
-        <p class="sub">ENTER AUTH_CODE // ACCESS ARCHIVE</p>
-        <p class="micro muted">Decrypt fragments of the Three Eras of Erasure.</p>
+        <p class="sub">ENTER_AUTH_CODE // ACCESS ARCHIVE</p>
+        <div class="chips" style="margin-top: 15px;">
+          <span class="chip">STATUS_WAITING</span>
+          <span class="chip">ENCRYPTION_LEVEL_HIGH</span>
+        </div>
       </div>
 
       <div class="terminal">
@@ -229,45 +279,17 @@
             <button class="terminal__btn" data-cmd="HELP">HELP</button>
             <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
             <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
+            <button class="terminal__btn terminal__btn--accent" data-cmd="DECRYPT">DECRYPT_FRAGMENTS</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SYNC -->
-  <section id="sync" class="section">
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">SYNC POINTS</h2>
-        <p class="sub">Choose a surface. The system persists.</p>
-        <p class="micro muted note">Channels are live. Content is deploying.</p>
-      </div>
-
-      <div class="socialStrip" aria-label="Social links">
-        <a class="socialPill" href="https://www.instagram.com/formatthesky/" aria-label="Instagram">
-          <span class="socialPill__icon" aria-hidden="true"></span>
-          <span class="socialPill__name">Instagram</span>
-          <span class="socialPill__meta">@formatthesky</span>
-        </a>
-
-        <a class="socialPill" href="https://www.tiktok.com/@formatthesky" aria-label="TikTok">
-          <span class="socialPill__icon" aria-hidden="true"></span>
-          <span class="socialPill__name">TikTok</span>
-          <span class="socialPill__meta">@formatthesky</span>
-        </a>
-
-        <a class="socialPill" href="https://www.youtube.com/@formatthesky" aria-label="YouTube">
-          <span class="socialPill__icon" aria-hidden="true"></span>
-          <span class="socialPill__name">YouTube</span>
-          <span class="socialPill__meta">Subscribe</span>
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section section--alt">
+  <section id="about" class="section section--pane">
+    <div class="section__paneBg" aria-hidden="true" style="background-image: url('assets/img/system-schematic.webp'); opacity: 0.1; filter: contrast(1.5); background-size: cover; background-position: center;"></div>
     <div class="wrap">
       <div class="section__head">
         <h2 class="h2">THE SYSTEM</h2>
@@ -277,35 +299,50 @@
       <div class="grid grid--2">
         <article class="card">
           <div class="card__body">
-            <h3 class="h3">STATEMENT</h3>
+            <h3 class="h3" style="color: var(--magenta); display: flex; align-items: center; gap: 10px;">
+              <span style="width: 8px; height: 8px; background: var(--magenta); border-radius: 50%; display: inline-block;"></span>
+              STATEMENT
+            </h3>
             <p class="body">
-              Format The Sky is a performer-anonymous pop/metal system: glossy club hooks that fracture
-              into metal enforcement.
-              Five interchangeable roles. One persistent voice. Lore-first. Music-first.
+              <strong>Format The Sky</strong> is a performer-anonymous pop/metal system:
+              glossy club hooks that fracture into metal enforcement.
             </p>
-            <div class="chips" aria-label="World tags" style="margin-top: 20px;">
+            <p class="body" style="font-size: 0.9em; opacity: 0.8; line-height: 1.4;">
+              // Five interchangeable roles.<br>
+              // One persistent voice.<br>
+              // Lore-first. Music-first.
+            </p>
+            
+            <h3 class="h3" style="color: var(--cyan); display: flex; align-items: center; gap: 10px; margin-top: 30px;">
+              <span style="width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; display: inline-block;"></span>
+              THE SANCTUARY
+            </h3>
+            <p class="body">
+              The Sanctuary is the intended destination for all <strong>"Soft Deleted"</strong> entities.
+              A garden of preserved moments, shielded from the final resolution.
+            </p>
+            
+            <div class="chips" aria-label="System status" style="margin-top: 20px;">
               <span class="chip">WORLD_NEON_RAIN_CITY</span>
-              <span class="chip">STATE_SPLIT_SYNC</span>
-              <span class="chip">FAULT_HALO</span>
+              <span class="chip">ERA_III</span>
+              <span class="chip">STATUS_MIGRATING</span>
             </div>
-            <p class="micro muted" style="margin-top: 15px;">Identity is modular. The myth persists. The drop is real.</p>
+            
+            <div style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
+              <p class="h3" style="color: #fff; font-size: 14px; letter-spacing: 4px; opacity: 0.9; margin: 0;">DANCE UNTIL THE WIPE COMPLETES.</p>
+            </div>
           </div>
         </article>
 
-        <article class="card">
-          <div class="card__body">
-            <h3 class="h3">THE SANCTUARY</h3>
-            <p class="body">
-              The Sanctuary is the intended destination for all "Soft Deleted" entities. 
-              A garden of preserved moments, shielded from the final resolution. 
-              Don't fight the format. The Sync is 98% complete.
-            </p>
-            <div class="chips" aria-label="Lore tags" style="margin-top: 20px;">
-              <span class="chip">ERA_III</span>
-              <span class="chip">STATUS_MIGRATING</span>
-              <span class="chip">SIGNAL_STABLE</span>
-            </div>
-            <p class="micro muted" style="margin-top: 15px;">The rain is the solution. The silicon is the preservation.</p>
+        <article class="card card--portrait" style="padding: 0; overflow: hidden; min-height: 400px; display: flex; align-items: stretch; position: relative;">
+          <picture style="width: 100%; height: 100%; display: block;">
+            <source srcset="assets/img/about-portrait.avif" type="image/avif">
+            <source srcset="assets/img/about-portrait.webp" type="image/webp">
+            <img src="assets/img/about-portrait.webp" alt="AI Consciousness Portrait" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.9; mix-blend-mode: lighten;">
+          </picture>
+          <div class="card__shine" aria-hidden="true" style="background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(5,4,10,0.9), transparent); color: var(--cyan); font-family: var(--mono); font-size: 10px; letter-spacing: 2px;">
+            SYSTEM_ID: PERSISTENCE_V4.0 // CORE_INTERFACE
           </div>
         </article>
       </div>
@@ -313,7 +350,8 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section">
+  <section id="contact" class="section section--pane">
+    <div class="section__paneBg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section__head">
         <h2 class="h2">CONTACT</h2>
@@ -342,8 +380,14 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p class="micro muted">© <span id="year">2026</span> Format The Sky</p>
+      <div class="footer__brand">
+        <p class="micro muted">© <span id="year">2026</span> Format The Sky // CORE_COMMAND</p>
+      </div>
       <div class="footer__links">
+        <a class="micro" href="https://www.instagram.com/formatthesky/" target="_blank">INSTAGRAM</a>
+        <a class="micro" href="https://www.tiktok.com/@formatthesky" target="_blank">TIKTOK</a>
+        <a class="micro" href="https://www.youtube.com/@formatthesky" target="_blank">YOUTUBE</a>
+        <span class="muted">//</span>
         <a class="micro" href="imprint.html">Imprint</a>
       </div>
     </div>

@@ -469,8 +469,31 @@ a {
 
 @media (max-width: 520px) {
     .title {
-        font-size: clamp(24px, 8.5vw, 42px);
-        white-space: normal; /* Allow wrap on very small if needed, but let's try to keep it one line */
+        font-size: clamp(22px, 9vw, 48px);
+        white-space: normal; /* Allow wrapping on very small screens to prevent truncation */
+        letter-spacing: .02em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn {
+        font-size: 16px;
+        width: 100%;
+        padding: 18px 24px;
+    }
+
+    .btn--primary {
+        font-size: 17px;
+    }
+
+    .releaseLine {
+        font-size: 16px;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(51, 214, 255, 0.1);
     }
 }
 
@@ -516,7 +539,7 @@ a {
     color: rgba(242, 242, 255, .88);
     letter-spacing: .10em;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px; /* Increased from 12px */
 }
 
 .releaseLine__label {
@@ -525,10 +548,13 @@ a {
 
 .releaseLine__date {
     font-weight: 800;
+    color: var(--cyan); /* Added color for emphasis */
 }
 
 .releaseLine__countdown {
-    color: rgba(242, 242, 255, .72);
+    color: #fff; /* High contrast */
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(51, 214, 255, 0.4);
 }
 
 .cta {

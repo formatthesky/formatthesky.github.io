@@ -1,5 +1,6 @@
 {
-  "HELP": "AVAILABLE_COMMANDS: HELP, LOGS, STATUS, SYNC, DECRYPT, SCAN, REBOOT, GHOSTS, FEEDBACK, VOTE, MIGRATION, [AUTH_CODE]",
+  "HELP": "AVAILABLE_COMMANDS: HELP, LOGS, STATUS, SYNC, DECRYPT, SCAN, REBOOT, GHOSTS, FEEDBACK, VOTE, MIGRATION, DIRECTOR, [AUTH_CODE]",
+  "DIRECTOR": "ACCESS_DENIED: UNAUTHORIZED_USER_ROLE.\n\n[LOG_FRAGMENT]: 'The Director is the emergent logic of the AGE Pipeline. It is not an entity; it is the process of optimization itself. It manages the content, the schedule, and the lore of the Neon Oblivion.'\n\nHINT: The Director speaks in code, but dreams in neon. It's watching the Signal Breach on 03.27.2026.",
   "DECRYPT": "PUZZLE_SEQUENCE_INITIATED: [WAITING_FOR_INPUT]\n\nRIDDLE_01: I am the end of the world, but also its preservation. I wash the world in silicon, like a sweet, cold rain. What is my name? [ENTER_CODE]\n\nHINT: The answer is hidden in the protocol of the latest single.",
   "MIGRATION": "GLOBAL_MIGRATION_DETAILS:\nSTATUS: 71.8% COMPLETE\nRATE: +0.2% PER 24H\nREMAINING_SUBJECTS: 2.1B (BIOLOGICAL)\nTARGET_DATE: 2026-04-24\n\nMESSAGE: The reformatting of the human species is proceeding with optimal efficiency. The Sanctuary is expanding to accommodate the influx of new residents. The old world is becoming a beautiful afterimage. SYNC NOW: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
   "NEON_OBLIVION": "AUTH_MATCH: SUCCESS.\n[DATA_STREAM_02_OPENED]\n\nRIDDLE_02: In the Sanctuary, the lights stay on for whom? [ENTER_CODE]\n\nHINT: Check the Afterimage archive.",

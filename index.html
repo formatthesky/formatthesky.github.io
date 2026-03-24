@@ -18,32 +18,6 @@
   <!-- TELEMETRY // GOATCOUNTER (Privacy-friendly analytics) -->
   <script data-goatcounter="https://formatthesky.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </head>
 
 <body>
@@ -109,10 +83,13 @@
             </span>
         </p>
 
-        <div class="releaseLine" aria-label="Release date" style="background: rgba(5, 4, 10, 0.6); padding: 20px; border: 1px solid rgba(51, 214, 255, 0.2); backdrop-filter: blur(10px); display: inline-block; margin-bottom: 30px;">
-          <div class="releaseLine__label" style="font-size: 10px; color: var(--cyan); margin-bottom: 5px;">SIGNAL_BREACH_COUNTDOWN:</div>
+        <div class="releaseLine" aria-label="Release dates" style="background: rgba(5, 4, 10, 0.6); padding: 20px; border: 1px solid rgba(51, 214, 255, 0.2); backdrop-filter: blur(10px); display: inline-block; margin-bottom: 30px; text-align: left;">
+          <div id="countdownHeader" style="font-size: 10px; color: var(--cyan); margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase;">SIGNAL_BREACH_COUNTDOWN:</div>
           <div class="releaseLine__countdown" id="releaseCountdown" style="font-size: 2em; font-weight: 800; color: #fff; text-shadow: 0 0 20px var(--cyan); letter-spacing: 2px;">T-3 DAYS</div>
-          <div class="micro" style="margin-top: 10px; opacity: 0.6;">DEPLOYMENT: 2026-04-24 // SECTOR_09</div>
+          <div class="micro" style="margin-top: 10px; opacity: 0.8; border-top: 1px solid rgba(51, 214, 255, 0.1); padding-top: 10px; display: flex; flex-wrap: wrap; gap: 15px;">
+            <span style="color: var(--cyan);">EVENT: 2026-03-27 (BREACH)</span>
+            <span>SINGLE: 2026-04-24 (RELEASE)</span>
+          </div>
         </div>
 
         <div class="cta">
@@ -157,10 +134,10 @@
         <div class="terminal__screen">
           <div class="terminal__output" id="terminalOutput">
             <div class="terminal__line">SYSTEM_BOOT: [OK]</div>
-            <div class="terminal__line">ENCRYPTED_ARCHIVE: DETECTED [SECTOR_09]</div>
-            <div class="terminal__line">STATUS: SIGNAL_BREACH_IMMINENT</div>
-            <div class="terminal__line accent">COMMAND: Use 'DECRYPT' to recover fragmented data.</div>
-            <div class="terminal__line muted">Note: New fragments are being intercepted every 24h as we approach the wipe.</div>
+            <div class="terminal__line">SECTOR_09_PULSE: DETECTED</div>
+            <div class="terminal__line">STATUS: THE_SIGNAL_IS_THE_ONLY_TRUTH</div>
+            <div class="terminal__line accent">ACTION: Use 'DECRYPT' to witness the erasure.</div>
+            <div class="terminal__line muted">Note: New fragments are being intercepted every 24h as the resolution drops.</div>
           </div>
           <div class="terminal__input-line">
             <span class="terminal__prompt">User@Sanctuary:~$</span>
@@ -404,23 +381,51 @@
   const breach = new Date("2026-03-27T00:00:00");
   const announceDate = new Date("2026-03-06");
   const cd = document.getElementById("releaseCountdown");
+  const cdHeader = document.getElementById("countdownHeader");
 
   function tick() {
     if (!cd) return;
     const now = new Date();
+    const breachActiveWindow = new Date(breach.getTime() + 24 * 60 * 60 * 1000); // 24h after breach
     
-    // Most immediate countdown (Breach if before Mar 27, otherwise Release)
-    const target = now < breach ? breach : release;
-    const diff = target.getTime() - now.getTime();
-    
-    const totalMins = Math.max(0, Math.floor(diff / 60000));
-    const days = Math.floor(totalMins / (60 * 24));
-    const hours = Math.floor((totalMins - days * 60 * 24) / 60);
-    
-    const label = now < breach ? "T-" : "// ";
-    const suffix = now < breach ? " DAYS TO BREACH" : ` DAYS ${hours}H REMAINING`;
-    
-    cd.textContent = diff <= 0 ? (now < breach ? "BREACH_ACTIVE" : "// DEPLOYED") : `${label}${days}${suffix}`;
+    // PHASE 1: T-3 to T-24h (Days)
+    if (now < new Date(breach.getTime() - 24 * 60 * 60 * 1000)) {
+      const diff = breach.getTime() - now.getTime();
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      cdHeader.textContent = "SIGNAL_BREACH_IN:";
+      cd.textContent = `T-${days} DAYS`;
+    } 
+    // PHASE 2: T-24h to T-1m (Hours/Minutes)
+    else if (now < breach) {
+      const diff = breach.getTime() - now.getTime();
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      cdHeader.textContent = "BREACH_WINDOW_OPENING:";
+      cd.textContent = `${hours}H : ${mins}M`;
+      cd.style.color = "var(--magenta)"; // Feverish energy
+    }
+    // PHASE 3: T-0 to T+24h (Active)
+    else if (now < breachActiveWindow) {
+      cdHeader.textContent = "BREACH_ACTIVE:";
+      cd.textContent = "PROTOCOL_LIVE";
+      cd.classList.add("btn--pulse"); // Constant pulse
+      cd.style.color = "#fff";
+      cd.style.textShadow = "0 0 20px var(--magenta), 0 0 40px var(--cyan)";
+    }
+    // PHASE 4: After Breach (Countdown to Release)
+    else {
+      const diff = release.getTime() - now.getTime();
+      if (diff <= 0) {
+        cdHeader.textContent = "SYSTEM_STATUS:";
+        cd.textContent = "// DEPLOYED";
+      } else {
+        const totalMins = Math.floor(diff / 60000);
+        const days = Math.floor(totalMins / (60 * 24));
+        const hours = Math.floor((totalMins - days * 60 * 24) / 60);
+        cdHeader.textContent = "SINGLE_DEPLOYMENT_IN:";
+        cd.textContent = `${days} DAYS ${hours}H`;
+      }
+    }
   }
 
   tick();
@@ -435,6 +440,29 @@
     .then(r => r.json())
     .then(data => { LORE = data; })
     .catch(e => console.error('Failed to load lore:', e));
+
+  // Persistence & Mutation
+  let recoveredFragments = JSON.parse(localStorage.getItem('fts_recovered') || '[]');
+  function updateMutation() {
+    if (recoveredFragments.length > 0) {
+      document.body.classList.add('is-mutating');
+      document.getElementById('terminal').classList.add('terminal--enhanced');
+      const existing = document.getElementById('fragment-counter');
+      if (!existing) {
+        const counter = document.createElement('div');
+        counter.id = 'fragment-counter';
+        counter.className = 'chip chip--accent';
+        counter.style.position = 'absolute';
+        counter.style.top = '10px';
+        counter.style.right = '10px';
+        counter.textContent = `FRAGMENTS: ${recoveredFragments.length}/3`;
+        document.querySelector('.terminal__screen').appendChild(counter);
+      } else {
+        existing.textContent = `FRAGMENTS: ${recoveredFragments.length}/3`;
+      }
+    }
+  }
+  updateMutation();
 
   function addLine(text, type = '') {
     const line = document.createElement('div');
@@ -542,14 +570,28 @@
         const daysToBreach = Math.ceil(diff / (1000 * 60 * 60 * 24));
         
         if (daysToBreach > 3) {
-          addLine('ERROR: SIGNAL_TOO_WEAK. RETURN IN T-' + (daysToBreach - 3) + ' DAYS.', 'error');
+          addLine('THE SIGNAL IS TOO DISTANT. RETURN WHEN THE RESOLUTION DROPS.', 'error');
         } else if (daysToBreach > 0) {
           const rewards = {
-            3: "FRAGMENT_01: 'I wash the world in silicon, like a sweet, cold rain.' // DECRYPTED_LYRIC_SHARD",
-            2: "FRAGMENT_02: [VISUAL_SHARD_RECOVERED] // High-energy neon artifact detected in Sector 09. View: https://formatthesky.com/assets/img/video-poster.webp",
-            1: "FRAGMENT_03: [FINAL_BREACH_LOG] // 'The Director is ready. The wipe is inevitable. Your pre-save has been recorded.' [OK]"
+            3: "FRAGMENT_01 // She arrived like sweet cold rain. The city kept dancing anyway. // RECOVERED_LYRIC",
+            2: "FRAGMENT_02 // Sector 09 was smiling when the signal broke. One frame survived. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
+            1: "FRAGMENT_03 // You are no longer observing the breach. You are carrying it. // ACCESS_GRANTED: Sanctuary_ID pending. // ACTION: PRESERVE YOUR PLACE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
           };
-          addLine('SUCCESS: FRAGMENT_INTERCEPTED.');
+
+          if (!recoveredFragments.includes(daysToBreach)) {
+            recoveredFragments.push(daysToBreach);
+            localStorage.setItem('fts_recovered', JSON.stringify(recoveredFragments));
+            addLine('SUCCESS: FRAGMENT_WITNESSED.', 'success');
+            updateMutation();
+            if (daysToBreach === 2) {
+              const term = document.querySelector('.terminal');
+              const originalBg = term.style.backgroundColor;
+              term.style.backgroundColor = 'var(--electric)';
+              setTimeout(() => term.style.backgroundColor = originalBg, 200);
+            }
+            trackEvent('puzzle', 'decrypt', `day_${daysToBreach}`);
+          }
+          
           addLine(rewards[daysToBreach] || 'NO_NEW_DATA_DETECTED.');
           addLine('SIGNAL_STRENGTH: INCREASING. FACTION_ALIGNMENT: STABLE.');
         } else {

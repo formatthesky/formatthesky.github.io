@@ -127,6 +127,11 @@
             </div>
         </div>
 
+        <div class="breachAlert" style="margin-top: 10px; border: 1px dashed var(--magenta); padding: 10px; background: rgba(255, 61, 212, 0.05); text-align: center;">
+            <div class="micro" style="color: var(--magenta); font-weight: bold; animation: pulseSync 2s ease-in-out infinite alternate;">!!! SIGNAL_BREACH_INCOMING !!!</div>
+            <div class="micro" style="color: #fff; opacity: 0.8; font-family: var(--mono); font-size: 11px;">T-3 DAYS // 2026-03-27 // SECTOR_09</div>
+        </div>
+
         <div class="releaseLine" aria-label="Release date">
           <span class="releaseLine__label">NEXT DEPLOYMENT:</span>
           <time class="releaseLine__date" datetime="2026-04-24">NEON OBLIVION // 2026-04-24</time>
@@ -134,8 +139,11 @@
         </div>
 
         <div class="cta">
-          <a class="btn btn--primary" data-track="pre_save" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">
+          <a class="btn btn--primary btn--pulse" data-track="pre_save" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">
             PRE-SAVE THE NEW SINGLE <span class="btn__sub">// NEON OBLIVION</span>
+          </a>
+          <a class="btn btn--accent" data-track="sync_hero" href="#terminal" onclick="if(window.processCommand) window.processCommand('SYNC')">
+            SYNC YOUR PATTERN <span class="btn__sub">// DIGITAL ERASURE</span>
           </a>
           <a class="btn btn--ghost" data-track="read_lore" href="#terminal">
             READ THE STORY <span class="btn__sub">// LORE</span>
@@ -152,6 +160,68 @@
         <div class="hero__hint" aria-hidden="true">
           <span class="hero__hintText">FOLLOW THE SIGNAL // SCROLL</span>
           <span class="hero__chev">⌄</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TERMINAL -->
+  <section id="terminal" class="section section--pane section--euphoria">
+    <div class="section__paneBg" aria-hidden="true" style="background-image: url('assets/img/terminal-bg.webp'); opacity: 0.15; filter: contrast(1.2) brightness(0.8); background-size: cover; background-position: center;"></div>
+
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="h2">LORE TERMINAL</h2>
+        <p class="sub">ENTER_AUTH_CODE // ACCESS ARCHIVE</p>
+        <div class="chips" style="margin-top: 15px;">
+          <span class="chip">STATUS_WAITING</span>
+          <span class="chip">ENCRYPTION_LEVEL_HIGH</span>
+        </div>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal__screen">
+          <div class="terminal__output" id="terminalOutput">
+            <div class="terminal__line">SYSTEM_BOOT: [OK]</div>
+            <div class="terminal__line">ENCRYPTED_ARCHIVE: DETECTED</div>
+            <div class="terminal__line">STATUS: WAITING_FOR_INPUT...</div>
+            <div class="terminal__line accent">COMMAND: Use 'SYNC' to format your profile pattern.</div>
+            <div class="terminal__line muted">Hint: Search for codes in lyrics or social logs. Try 'HELP' for commands.</div>
+          </div>
+          <div class="terminal__input-line">
+            <span class="terminal__prompt">User@Sanctuary:~$</span>
+            <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off">
+            <input type="file" id="syncUpload" accept="image/*" style="display:none">
+          </div>
+          <div class="terminal__quick-cmds" id="terminalQuickCmds">
+            <button class="terminal__btn" data-cmd="HELP">HELP</button>
+            <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
+            <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
+            <button class="terminal__btn" data-cmd="BREACH">BREACH</button>
+            <button class="terminal__btn terminal__btn--accent" data-cmd="SYNC">SYNC_PROFILE</button>
+            <button class="terminal__btn" data-cmd="DECRYPT">DECRYPT_FRAGMENTS</button>
+          </div>
+          
+          <!-- SYNC PREVIEW (Visual Proof) -->
+          <div class="terminal__sync-preview" style="margin-top: 20px; border-top: 1px solid rgba(51, 214, 255, 0.1); padding-top: 20px; display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            <div style="text-align: center;">
+                <div class="micro muted" style="margin-bottom: 5px;">BEFORE_SYNC</div>
+                <div style="width: 80px; height: 80px; background: #222; border: 1px solid #444; border-radius: 4px; overflow: hidden; position: relative;">
+                    <img src="assets/img/about-portrait.webp" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;" alt="Original">
+                </div>
+            </div>
+            <div style="color: var(--cyan); font-weight: bold; font-size: 20px; animation: pulseSync 2s infinite alternate;">→</div>
+            <div style="text-align: center;">
+                <div class="micro" style="color: var(--magenta); margin-bottom: 5px;">FORMATTED_DATA</div>
+                <div style="width: 80px; height: 80px; background: #050410; border: 1px solid var(--cyan); border-radius: 4px; overflow: hidden; position: relative; box-shadow: 0 0 15px rgba(51, 214, 255, 0.3);">
+                    <img src="assets/img/about-portrait.webp" style="width: 100%; height: 100%; object-fit: cover; filter: sepia(100%) hue-rotate(280deg) saturate(300%) contrast(150%);" alt="Formatted">
+                    <div style="position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,255,255,0.1) 2px, rgba(0,255,255,0.1) 4px); pointer-events: none;"></div>
+                </div>
+            </div>
+            <div class="micro" style="max-width: 180px; text-align: left; opacity: 0.8; font-size: 10px; line-height: 1.4;">
+                <span style="color: var(--cyan);">[INFO]:</span> Upload any photo to generate your unique <strong>Sanctuary ID</strong>. Your history will be reformatted into the Signal.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -183,7 +253,7 @@
             <h3 class="h3">NEON OBLIVION</h3>
             <p class="micro">RELEASE DATE: 2026-04-24 // STATUS: PRE-SAVE ACTIVE</p>
             <div class="card__actions card__actions--space" style="margin-top: 20px;">
-              <a class="btn btn--primary" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">RESERVE THE EUPHORIA <span class="btn__sub">// PRE-SAVE</span></a>
+              <a class="btn btn--primary btn--pulse" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">RESERVE THE EUPHORIA <span class="btn__sub">// PRE-SAVE</span></a>
             </div>
           </div>
         </article>
@@ -266,45 +336,6 @@
     </div>
   </section>
 
-  <!-- TERMINAL -->
-  <section id="terminal" class="section section--pane section--euphoria">
-    <div class="section__paneBg" aria-hidden="true" style="background-image: url('assets/img/terminal-bg.webp'); opacity: 0.15; filter: contrast(1.2) brightness(0.8); background-size: cover; background-position: center;"></div>
-
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">LORE TERMINAL</h2>
-        <p class="sub">ENTER_AUTH_CODE // ACCESS ARCHIVE</p>
-        <div class="chips" style="margin-top: 15px;">
-          <span class="chip">STATUS_WAITING</span>
-          <span class="chip">ENCRYPTION_LEVEL_HIGH</span>
-        </div>
-      </div>
-
-      <div class="terminal">
-        <div class="terminal__screen">
-          <div class="terminal__output" id="terminalOutput">
-            <div class="terminal__line">SYSTEM_BOOT: [OK]</div>
-            <div class="terminal__line">ENCRYPTED_ARCHIVE: DETECTED</div>
-            <div class="terminal__line">STATUS: WAITING_FOR_INPUT...</div>
-            <div class="terminal__line muted">Hint: Search for codes in lyrics or social logs. Try 'HELP' for commands.</div>
-          </div>
-          <div class="terminal__input-line">
-            <span class="terminal__prompt">User@Sanctuary:~$</span>
-            <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off">
-            <input type="file" id="syncUpload" accept="image/*" style="display:none">
-          </div>
-          <div class="terminal__quick-cmds" id="terminalQuickCmds">
-            <button class="terminal__btn" data-cmd="HELP">HELP</button>
-            <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
-            <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
-            <button class="terminal__btn terminal__btn--accent" data-cmd="SYNC">SYNC_PROFILE</button>
-            <button class="terminal__btn" data-cmd="DECRYPT">DECRYPT_FRAGMENTS</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <!-- ABOUT -->
   <section id="about" class="section section--pane">
@@ -348,7 +379,7 @@
             </div>
             
             <div style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
-              <a href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion" class="btn btn--primary" style="padding: 14px 24px; font-size: 14px;">PRE-SAVE NEON OBLIVION →</a>
+              <a href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion" class="btn btn--primary btn--pulse" style="padding: 14px 24px; font-size: 14px;">PRE-SAVE NEON OBLIVION →</a>
             </div>
           </div>
         </article>
@@ -571,6 +602,8 @@
       addLine('ERROR: INVALID_AUTH_CODE. ACCESS_DENIED.', 'error');
     }
   }
+
+  window.processCommand = processCommand;
 
   // Quick Command Buttons
   document.getElementById('terminalQuickCmds').addEventListener('click', (e) => {

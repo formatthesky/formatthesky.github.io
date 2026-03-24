@@ -9,6 +9,7 @@
     --magenta: #ff3dd4;
     --accent: #7b2cff;
     --electric: #f9ff00;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     --shadow: 0 24px 60px rgba(0, 0, 0, .65);
     --radius: 12px;
@@ -644,6 +645,16 @@ a {
     0% { left: -100%; }
     20% { left: 100%; }
     100% { left: 100%; }
+}
+
+.btn--pulse {
+    animation: btnPulse 3s infinite ease-in-out;
+}
+
+@keyframes btnPulse {
+    0% { transform: scale(1); box-shadow: 0 0 40px rgba(51, 214, 255, .2); }
+    50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(51, 214, 255, .6); }
+    100% { transform: scale(1); box-shadow: 0 0 40px rgba(51, 214, 255, .2); }
 }
 
 .btn--ghost {

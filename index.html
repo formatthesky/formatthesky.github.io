@@ -78,12 +78,10 @@
         </h1>
 
         <p class="tagline" style="margin-bottom: 30px; opacity: 0.9;">
-            <span class="tagline__inner">
-                <span>The world is ending—let's dance! Digital euphoria in Sector 09.</span>
-            </span>
+          The world is ending—let's dance! Digital euphoria in Sector 09.
         </p>
 
-        <div class="releaseLine" aria-label="Release dates" style="background: rgba(5, 4, 10, 0.6); padding: 20px; border: 1px solid rgba(51, 214, 255, 0.2); backdrop-filter: blur(10px); display: inline-block; margin-bottom: 30px; text-align: left;">
+        <div class="releaseLine" aria-label="Release dates" style="background: rgba(5, 4, 10, 0.6); padding: 20px; border: 1px solid rgba(51, 214, 255, 0.2); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); display: inline-block; margin-bottom: 30px; text-align: left;">
           <div id="countdownHeader" style="font-size: 10px; color: var(--cyan); margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase;">SIGNAL_BREACH_COUNTDOWN:</div>
           <div class="releaseLine__countdown" id="releaseCountdown" style="font-size: 2em; font-weight: 800; color: #fff; text-shadow: 0 0 20px var(--cyan); letter-spacing: 2px;">T-3 DAYS</div>
           <div class="micro" style="margin-top: 10px; opacity: 0.8; border-top: 1px solid rgba(51, 214, 255, 0.1); padding-top: 10px; display: flex; flex-wrap: wrap; gap: 15px;">
@@ -394,6 +392,11 @@
       const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
       cdHeader.textContent = "SIGNAL_BREACH_IN:";
       cd.textContent = `T-${days} DAYS`;
+      
+      // Reset styles
+      cd.classList.remove("btn--pulse");
+      cd.style.color = "";
+      cd.style.textShadow = "";
     } 
     // PHASE 2: T-24h to T-1m (Hours/Minutes)
     else if (now < breach) {
@@ -403,6 +406,10 @@
       cdHeader.textContent = "BREACH_WINDOW_OPENING:";
       cd.textContent = `${hours}H : ${mins}M`;
       cd.style.color = "var(--magenta)"; // Feverish energy
+      
+      // Reset other styles
+      cd.classList.remove("btn--pulse");
+      cd.style.textShadow = "";
     }
     // PHASE 3: T-0 to T+24h (Active)
     else if (now < breachActiveWindow) {
@@ -415,6 +422,12 @@
     // PHASE 4: After Breach (Countdown to Release)
     else {
       const diff = release.getTime() - now.getTime();
+      
+      // Reset Phase 3 styles
+      cd.classList.remove("btn--pulse");
+      cd.style.color = "";
+      cd.style.textShadow = "";
+
       if (diff <= 0) {
         cdHeader.textContent = "SYSTEM_STATUS:";
         cd.textContent = "// DEPLOYED";
@@ -444,9 +457,16 @@
   // Persistence & Mutation
   let recoveredFragments = JSON.parse(localStorage.getItem('fts_recovered') || '[]');
   function updateMutation() {
-    if (recoveredFragments.length > 0) {
+    const count = recoveredFragments.length;
+    if (count > 0) {
       document.body.classList.add('is-mutating');
-      document.getElementById('terminal').classList.add('terminal--enhanced');
+      // Progressive mutation classes
+      document.body.classList.remove('mut-1', 'mut-2', 'mut-3');
+      document.body.classList.add(`mut-${count}`);
+
+      const term = document.querySelector('.terminal');
+      if (term) term.classList.add('terminal--enhanced');
+
       const existing = document.getElementById('fragment-counter');
       if (!existing) {
         const counter = document.createElement('div');
@@ -455,10 +475,10 @@
         counter.style.position = 'absolute';
         counter.style.top = '10px';
         counter.style.right = '10px';
-        counter.textContent = `FRAGMENTS: ${recoveredFragments.length}/3`;
+        counter.textContent = `FRAGMENTS: ${count}/3`;
         document.querySelector('.terminal__screen').appendChild(counter);
       } else {
-        existing.textContent = `FRAGMENTS: ${recoveredFragments.length}/3`;
+        existing.textContent = `FRAGMENTS: ${count}/3`;
       }
     }
   }
@@ -549,12 +569,13 @@
         trackEvent('engagement', 'playful_cmd', cleanCmd);
       }, 500);
     } else if (cleanCmd === 'STATUS') {
-      const statusLine = LORE.STATUS || 'SYSTEM_STATUS [TIMESTAMP: 2026-03-24T09:46]: [TRANSITION_STATE] // MIGRATION: 71.8%';
-      addLine(statusLine);
+      const ts = new Date().toISOString().slice(0,16).replace('T', ' ');
+      addLine(`SYSTEM_STATUS [TIMESTAMP: ${ts}]: [TRANSITION_STATE] // MIGRATION: 71.8%`);
       addLine('CURRENT_PHASE: SIGNAL_LEAK [ESTIMATED_BREACH: 03.27]');
       addLine('FACTION_LEAD: PROTOCOL_01 (THE_SIGNAL) @ 54%');
     } else if (cleanCmd === 'BREACH' || cleanCmd === 'BREACH_DETAILS') {
-      addLine('SIGNAL_BREACH_LOG [TIMESTAMP: 2026-03-24T09:46]: SECTOR_09');
+      const ts = new Date().toISOString().slice(0,16).replace('T', ' ');
+      addLine(`SIGNAL_BREACH_LOG [TIMESTAMP: ${ts}]: SECTOR_09`);
       addLine('PHASE_1_BREACH: 2026-03-27');
       addLine('FINAL_SYNC: 2026-04-24');
       addLine('DESCRIPTION: Unauthorized access detected in the Sanctuary core. Protocol NEON_OBLIVION is active.');
@@ -574,7 +595,7 @@
         } else if (daysToBreach > 0) {
           const rewards = {
             3: "FRAGMENT_01 // She arrived like sweet cold rain. The city kept dancing anyway. // RECOVERED_LYRIC",
-            2: "FRAGMENT_02 // Sector 09 was smiling when the signal broke. One frame survived. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
+            2: "FRAGMENT_02 // Sector 09 opened like a mouth full of light. One frame still remembers you. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
             1: "FRAGMENT_03 // You are no longer observing the breach. You are carrying it. // ACCESS_GRANTED: Sanctuary_ID pending. // ACTION: PRESERVE YOUR PLACE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
           };
 

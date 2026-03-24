@@ -1723,3 +1723,29 @@ details[open] summary {
 .glitch-hover:hover {
     animation: glitch-text 0.1s infinite;
 }
+
+/* Mutation Styles for ARG */
+.is-mutating .hero__interface-line {
+    background: var(--electric) !important;
+    box-shadow: 0 0 15px var(--electric);
+}
+
+.terminal--enhanced {
+    border-color: var(--electric) !important;
+    box-shadow: 0 0 30px rgba(249, 255, 0, 0.2);
+}
+
+.terminal--enhanced .terminal__prompt {
+    color: var(--electric);
+}
+
+.chip--accent {
+    background: var(--electric);
+    color: #000;
+    font-weight: 900;
+}
+
+.terminal__line--success {
+    color: var(--electric);
+    font-weight: bold;
+}

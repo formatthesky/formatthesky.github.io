@@ -14,7 +14,6 @@
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
   
-  <script src="assets/js/sync-engine.js"></script>
   
   <!-- TELEMETRY // GOATCOUNTER (Privacy-friendly analytics) -->
   <script data-goatcounter="https://formatthesky.goatcounter.com/count"
@@ -61,9 +60,9 @@
 
     <div class="status" aria-label="System status">
       <span class="status__dot" aria-hidden="true"></span>
-      <span class="status__text">SYSTEM: ONLINE</span>
+      <span class="status__text">SYSTEM: EUPHORIC</span>
       <span class="status__sep" aria-hidden="true"> //</span>
-      <span class="status__text">MIGRATION: 71.8%</span>
+      <span class="status__text">MIGRATION: 71.8% (FEELS GOOD)</span>
     </div>
 
     <nav class="nav" aria-label="Primary">
@@ -106,7 +105,7 @@
 
         <p class="tagline" style="margin-bottom: 30px; opacity: 0.9;">
             <span class="tagline__inner">
-                <span>The final sync begins. Digital erasure in Sector 09.</span>
+                <span>The world is ending—let's dance! Digital euphoria in Sector 09.</span>
             </span>
         </p>
 
@@ -166,14 +165,14 @@
           <div class="terminal__input-line">
             <span class="terminal__prompt">User@Sanctuary:~$</span>
             <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off">
-            <input type="file" id="syncUpload" accept="image/*" style="display:none">
           </div>
           <div class="terminal__quick-cmds" id="terminalQuickCmds">
             <button class="terminal__btn" data-cmd="HELP">HELP</button>
-            <button class="terminal__btn" data-cmd="LOGS">LOGS</button>
             <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
+            <button class="terminal__btn" data-cmd="DANCE">DANCE</button>
+            <button class="terminal__btn" data-cmd="SMILE">SMILE</button>
+            <button class="terminal__btn" data-cmd="CONFETTI">CONFETTI</button>
             <button class="terminal__btn terminal__btn--accent" data-cmd="DECRYPT">DECRYPT_FRAGMENT</button>
-            <button class="terminal__btn" data-cmd="BREACH">BREACH_DETAILS</button>
           </div>
         </div>
       </div>
@@ -510,11 +509,17 @@
     const cleanCmd = cmd.replace(/^\[|\]$/g, '');
 
     if (cleanCmd === 'HELP') {
-      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, LOGS, STATUS, SYNC_PROFILE, DECRYPT_FRAGMENTS, BREACH, [AUTH_CODE]');
+      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, LOGS, STATUS, DECRYPT_FRAGMENTS, BREACH, [AUTH_CODE]');
     } else if (cleanCmd === 'CLEAR') {
       terminalOutput.innerHTML = '';
     } else if (cleanCmd === 'LOGS') {
       addLine(LORE.LOGS || 'ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG011 [ACTIVE]');
+    } else if (cleanCmd === 'DANCE' || cleanCmd === 'SMILE' || cleanCmd === 'CONFETTI') {
+      addLine('SUBROUTINE_INITIATED...');
+      setTimeout(() => {
+        addLine(LORE[cleanCmd] || 'SUCCESS.');
+        trackEvent('engagement', 'playful_cmd', cleanCmd);
+      }, 500);
     } else if (cleanCmd === 'STATUS') {
       const statusLine = LORE.STATUS || 'SYSTEM_STATUS [TIMESTAMP: 2026-03-24T09:46]: [TRANSITION_STATE] // MIGRATION: 71.8%';
       addLine(statusLine);
@@ -526,6 +531,9 @@
       addLine('FINAL_SYNC: 2026-04-24');
       addLine('DESCRIPTION: Unauthorized access detected in the Sanctuary core. Protocol NEON_OBLIVION is active.');
       addLine('ACTION: MONITOR FREQUENCY 40HZ. PRE-SAVE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion');
+    } else if (cleanCmd === 'SYNC' || cleanCmd === 'SYNC_PROFILE') {
+      addLine('SYNC_PROTOCOL: DEPRECATED in favor of the Signal Breach.', 'error');
+      addLine('ACTION: Use DECRYPT_FRAGMENTS to uncover the true nature of the Sanctuary.');
     } else if (cleanCmd === 'DECRYPT' || cleanCmd === 'DECRYPT_FRAGMENT' || cleanCmd === 'DECRYPT_FRAGMENTS') {
       addLine('INTERCEPTING_SIGNAL...');
       setTimeout(() => {
@@ -549,9 +557,6 @@
           addLine('RESULT: NEON OBLIVION PROTOCOL IS NOW LIVE.');
         }
       }, 1000);
-    } else if (cleanCmd === 'SYNC' || cleanCmd === 'SYNC_PROFILE') {
-      addLine('SYNC_PROTOCOL: DEPRECATED in favor of the Signal Breach.', 'error');
-      addLine('ACTION: Use DECRYPT_FRAGMENTS to uncover the true nature of the Sanctuary.');
     } else if (cleanCmd === 'PAST' || cleanCmd === 'SILICON' || cleanCmd === 'RAIN') {
       addLine('AUTH_MATCH: FOUND.');
       addLine('DECRYPTING_REWARD...');
@@ -583,56 +588,6 @@
     if (e.target.classList.contains('terminal__btn')) {
       const cmd = e.target.getAttribute('data-cmd');
       processCommand(cmd);
-    }
-  });
-
-  // Sync Engine Integration
-  document.getElementById('syncUpload').addEventListener('change', async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    addLine('PROCESSING_IMAGE_DATA...');
-    try {
-      const result = await window.SyncEngine.processSync(file);
-      addLine('ENCRYPTION_COMPLETE.');
-      
-      const link = document.createElement('a');
-      link.href = result;
-      link.download = 'formatted_profile.png';
-      link.className = 'terminal__link';
-      link.textContent = 'DOWNLOAD_FORMATTED_IMAGE.png';
-
-      const line = document.createElement('div');
-      line.className = 'terminal__line terminal__line--success';
-      line.appendChild(document.createTextNode('RESULT: '));
-      line.appendChild(link);
-      terminalOutput.appendChild(line);
-
-      // ADD PRE-SAVE PROMPT AFTER SYNC
-      setTimeout(() => {
-          addLine('SIGNAL_SYNCHRONIZED. YOUR_AVATAR_IS_READY.');
-          addLine('SUPPORT_THE_ERASURE: PRE-SAVE NEON OBLIVION.');
-          const preSaveLink = document.createElement('a');
-          preSaveLink.href = 'https://distrokid.com/hyperfollow/formatthesky/neon-oblivion';
-          preSaveLink.className = 'terminal__link terminal__link--accent';
-          preSaveLink.textContent = 'CLICK_HERE_TO_PRE-SAVE_NOW';
-          preSaveLink.target = '_blank';
-          preSaveLink.onclick = () => trackEvent('conversion', 'post_sync_pre_save');
-
-          const preSaveLine = document.createElement('div');
-          preSaveLine.className = 'terminal__line terminal__line--accent';
-          preSaveLine.appendChild(document.createTextNode('>>> '));
-          preSaveLine.appendChild(preSaveLink);
-          terminalOutput.appendChild(preSaveLine);
-          terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      }, 1000);
-
-      terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      
-      trackEvent('engagement', 'sync_complete');
-    } catch (err) {
-      addLine('ERROR: SYNC_FAILED. DATA_CORRUPTED.', 'error');
-      console.error(err);
     }
   });
 

@@ -1726,8 +1726,10 @@ details[open] summary {
 }
 
 .mut-3 .hero__flare {
-    background: radial-gradient(circle at 50% 50%, rgba(249, 255, 0, 0.1) 0%, transparent 70%);
+    display: block;
+    background: radial-gradient(circle at 50% 50%, rgba(249, 255, 0, 0.2) 0%, transparent 70%);
     mix-blend-mode: screen;
+    animation: flareFloat 10s infinite ease-in-out;
 }
 
 .terminal--enhanced {

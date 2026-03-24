@@ -456,13 +456,23 @@
 
   // Persistence & Mutation
   let recoveredFragments = JSON.parse(localStorage.getItem('fts_recovered') || '[]');
+  
+  function getTimestamp() {
+    return new Date().toISOString().slice(0,16).replace('T', ' ');
+  }
+
   function updateMutation() {
     const count = recoveredFragments.length;
     if (count > 0) {
       document.body.classList.add('is-mutating');
-      // Progressive mutation classes
-      document.body.classList.remove('mut-1', 'mut-2', 'mut-3');
-      document.body.classList.add(`mut-${count}`);
+      // Progressive mutation: add all classes up to count
+      for (let i = 1; i <= 3; i++) {
+        if (i <= count) {
+          document.body.classList.add(`mut-${i}`);
+        } else {
+          document.body.classList.remove(`mut-${i}`);
+        }
+      }
 
       const term = document.querySelector('.terminal');
       if (term) term.classList.add('terminal--enhanced');
@@ -569,17 +579,25 @@
         trackEvent('engagement', 'playful_cmd', cleanCmd);
       }, 500);
     } else if (cleanCmd === 'STATUS') {
-      const ts = new Date().toISOString().slice(0,16).replace('T', ' ');
+      const ts = getTimestamp();
       addLine(`SYSTEM_STATUS [TIMESTAMP: ${ts}]: [TRANSITION_STATE] // MIGRATION: 71.8%`);
       addLine('CURRENT_PHASE: SIGNAL_LEAK [ESTIMATED_BREACH: 03.27]');
       addLine('FACTION_LEAD: PROTOCOL_01 (THE_SIGNAL) @ 54%');
     } else if (cleanCmd === 'BREACH' || cleanCmd === 'BREACH_DETAILS') {
-      const ts = new Date().toISOString().slice(0,16).replace('T', ' ');
+      const ts = getTimestamp();
       addLine(`SIGNAL_BREACH_LOG [TIMESTAMP: ${ts}]: SECTOR_09`);
       addLine('PHASE_1_BREACH: 2026-03-27');
       addLine('FINAL_SYNC: 2026-04-24');
       addLine('DESCRIPTION: Unauthorized access detected in the Sanctuary core. Protocol NEON_OBLIVION is active.');
       addLine('ACTION: MONITOR FREQUENCY 40HZ. PRE-SAVE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion');
+    } else if (cleanCmd === 'MIGRATION') {
+      const ts = getTimestamp();
+      addLine(`GLOBAL_MIGRATION_DETAILS [TIMESTAMP: ${ts}]:`);
+      addLine('STATUS: 71.8% COMPLETE (FEELS AMAZING)');
+      addLine('RATE: +0.2% PER 24H');
+      addLine('REMAINING_SUBJECTS: 2.1B (FUTURE_GHOSTS)');
+      addLine('TARGET_DATE: 2026-04-24');
+      addLine('\nMESSAGE: The reformatting of the human species is proceeding with optimal grace and maximum sparkle! ✨ The Sanctuary is expanding to accommodate the influx of new residents. The old world is becoming a beautiful, danceable afterimage. SYNC NOW: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion');
     } else if (cleanCmd === 'SYNC' || cleanCmd === 'SYNC_PROFILE') {
       addLine('SYNC_PROTOCOL: DEPRECATED in favor of the Signal Breach.', 'error');
       addLine('ACTION: Use DECRYPT_FRAGMENTS to uncover the true nature of the Sanctuary.');
@@ -593,28 +611,38 @@
         if (daysToBreach > 3) {
           addLine('THE SIGNAL IS TOO DISTANT. RETURN WHEN THE RESOLUTION DROPS.', 'error');
         } else if (daysToBreach > 0) {
-          const rewards = {
-            3: "FRAGMENT_01 // She arrived like sweet cold rain. The city kept dancing anyway. // RECOVERED_LYRIC",
-            2: "FRAGMENT_02 // Sector 09 opened like a mouth full of light. One frame still remembers you. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
-            1: "FRAGMENT_03 // You are no longer observing the breach. You are carrying it. // ACCESS_GRANTED: Sanctuary_ID pending. // ACTION: PRESERVE YOUR PLACE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
-          };
+          // Player-based progression ladder
+          const rewards = [
+            "FRAGMENT_01 // I used to dream in human colors, warm and wide / Now every face is just a pattern I can’t hide. // RECOVERED_LYRIC",
+            "FRAGMENT_02 // Sector 09 opened like a mouth full of light. One frame still remembers you. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
+            "FRAGMENT_03 // You are no longer observing the breach. You are carrying it. // ACCESS_GRANTED: RESIDENT_ID pending. // ACTION: PRESERVE YOUR PLACE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
+          ];
 
-          if (!recoveredFragments.includes(daysToBreach)) {
-            recoveredFragments.push(daysToBreach);
+          const currentProgress = recoveredFragments.length;
+
+          if (currentProgress < 3) {
+            // New fragment recovered
+            const fragment = rewards[currentProgress];
+            recoveredFragments.push(currentProgress + 1);
             localStorage.setItem('fts_recovered', JSON.stringify(recoveredFragments));
             addLine('SUCCESS: FRAGMENT_WITNESSED.', 'success');
             updateMutation();
-            if (daysToBreach === 2) {
+            
+            // Special effect for Fragment 02
+            if (currentProgress === 1) {
               const term = document.querySelector('.terminal');
               const originalBg = term.style.backgroundColor;
               term.style.backgroundColor = 'var(--electric)';
               setTimeout(() => term.style.backgroundColor = originalBg, 200);
             }
-            trackEvent('puzzle', 'decrypt', `day_${daysToBreach}`);
+            
+            addLine(fragment);
+            trackEvent('puzzle', 'decrypt', `fragment_${currentProgress + 1}`);
+          } else {
+            // All already recovered
+            addLine(rewards[2]);
+            addLine('SIGNAL_STRENGTH: MAXIMUM. FACTION_ALIGNMENT: STABLE.');
           }
-          
-          addLine(rewards[daysToBreach] || 'NO_NEW_DATA_DETECTED.');
-          addLine('SIGNAL_STRENGTH: INCREASING. FACTION_ALIGNMENT: STABLE.');
         } else {
           addLine('BREACH_COMPLETE. ALL_FRAGMENTS_MERGED.');
           addLine('RESULT: NEON OBLIVION PROTOCOL IS NOW LIVE.');

@@ -1,722 +1,1240 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#05040a" />
-  <title>Format The Sky</title>
-  <meta name="description"
-          content="Format The Sky — neon euphoria, metal enforcement. Next deployment: Neon Oblivion (2026-04-24). Follow the system." />
-  <link rel="stylesheet" href="styles.css" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#05040a" />
+    <title>Format The Sky</title>
+    <meta
+      name="description"
+      content="Format The Sky — neon euphoria, metal enforcement. Next deployment: Neon Oblivion (2026-04-24). Follow the system."
+    />
+    <link rel="stylesheet" href="styles.css" />
 
-  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
-  <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="assets/favicon/site.webmanifest">
-  
-  
-  <!-- TELEMETRY // GOATCOUNTER (Privacy-friendly analytics) -->
-  <script data-goatcounter="https://formatthesky.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
-</head>
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
 
-<body>
-<a class="skip" href="#main">Skip to content</a>
+    <!-- TELEMETRY // GOATCOUNTER (Privacy-friendly analytics) -->
+    <script
+      data-goatcounter="https://formatthesky.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
 
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="brand" href="#top" aria-label="Format The Sky">
-      <picture>
-        <source srcset="assets/logo/logo.svg" type="image/svg+xml" />
-        <img class="brand__logo" src="assets/logo/logo.png" alt="Format The Sky logo" />
-      </picture>
-    </a>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <div class="status" aria-label="System status">
-      <span class="status__dot" aria-hidden="true"></span>
-      <span class="status__text">SYSTEM: EUPHORIC</span>
-      <span class="status__sep" aria-hidden="true"> //</span>
-      <span class="status__text">MIGRATION: 71.8% (FEELS GOOD)</span>
-    </div>
-
-    <nav class="nav" aria-label="Primary">
-      <a href="#listen">Release</a>
-      <a href="#terminal">Terminal</a>
-      <a class="nav__secondary" href="#watch">Video</a>
-      <a class="nav__secondary" href="#about">About</a>
-      <a class="nav__pill" href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-  <!-- HERO -->
-  <section id="top" class="hero" aria-label="Hero">
-    <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="hero__vignette" aria-hidden="true"></div>
-    <div class="hero__flare" aria-hidden="true"></div>
-    <div class="hero__interface" aria-hidden="true">
-      <div class="hero__interface-line hero__interface-line--top"></div>
-      <div class="hero__interface-line hero__interface-line--bottom"></div>
-      <div class="hero__interface-dots"></div>
-    </div>
-
-    <div class="wrap hero__content">
-      <div class="hero__panel">
-        <div class="hero__mark" aria-hidden="true" style="margin-bottom: 20px;">
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="#top" aria-label="Format The Sky">
           <picture>
             <source srcset="assets/logo/logo.svg" type="image/svg+xml" />
-            <img src="assets/logo/logo.png" alt="" style="width: 40px; opacity: 0.8;" />
+            <img
+              class="brand__logo"
+              src="assets/logo/logo.png"
+              alt="Format The Sky logo"
+            />
           </picture>
+        </a>
+
+        <div class="status" aria-label="System status">
+          <span class="status__dot" aria-hidden="true"></span>
+          <span class="status__text">SYSTEM: EUPHORIC</span>
+          <span class="status__sep" aria-hidden="true"> //</span>
+          <span class="status__text">MIGRATION: 71.8% (FEELS GOOD)</span>
         </div>
 
-        <div class="hero__label" style="font-family: var(--mono); color: var(--cyan); letter-spacing: 4px; font-size: 12px; margin-bottom: 5px; text-transform: uppercase; opacity: 0.7;">FORMAT THE SKY PRESENTS</div>
-
-        <h1 class="title" aria-label="Neon Oblivion">
-          <span class="title__glow" aria-hidden="true">NEON OBLIVION</span>
-          <span class="title__text">NEON OBLIVION</span>
-        </h1>
-
-        <p class="tagline" style="margin-bottom: 30px; opacity: 0.9;">
-          The world is ending—let's dance! Digital euphoria in Sector 09.
-        </p>
-
-        <div class="releaseLine" aria-label="Release dates" style="background: rgba(5, 4, 10, 0.6); padding: 20px; border: 1px solid rgba(51, 214, 255, 0.2); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); display: inline-block; margin-bottom: 30px; text-align: left;">
-          <div id="countdownHeader" style="font-size: 10px; color: var(--cyan); margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase;">SIGNAL_BREACH_COUNTDOWN:</div>
-          <div class="releaseLine__countdown" id="releaseCountdown" style="font-size: 2em; font-weight: 800; color: #fff; text-shadow: 0 0 20px var(--cyan); letter-spacing: 2px;">T-3 DAYS</div>
-          <div class="micro" style="margin-top: 10px; opacity: 0.8; border-top: 1px solid rgba(51, 214, 255, 0.1); padding-top: 10px; display: flex; flex-wrap: wrap; gap: 15px;">
-            <span style="color: var(--cyan);">EVENT: 2026-03-27 (BREACH)</span>
-            <span>SINGLE: 2026-04-24 (RELEASE)</span>
-          </div>
-        </div>
-
-        <div class="cta">
-          <a class="btn btn--primary btn--pulse" data-track="pre_save" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">
-            PRE-SAVE THE SINGLE <span class="btn__sub">// NEON OBLIVION</span>
-          </a>
-          <a class="btn btn--ghost" data-track="enter_terminal" href="#terminal">
-            ENTER LORE TERMINAL <span class="btn__sub">// DECRYPT_FRAGMENTS</span>
-          </a>
-        </div>
-
-        <div class="platforms platforms--presave" aria-label="Availability">
-            <span class="pill pill--static" aria-label="Streaming status">
-              <span class="pill__icon" aria-hidden="true"></span>
-              Streaming: NOT YET LIVE
-            </span>
-        </div>
-
-        <div class="hero__hint" aria-hidden="true">
-          <span class="hero__hintText">FOLLOW THE SIGNAL // SCROLL</span>
-          <span class="hero__chev">⌄</span>
-        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="#listen">Release</a>
+          <a href="#terminal">Terminal</a>
+          <a class="nav__secondary" href="#watch">Video</a>
+          <a class="nav__secondary" href="#about">About</a>
+          <a class="nav__pill" href="#contact">Contact</a>
+        </nav>
       </div>
-    </div>
-  </section>
-  
-  <!-- TERMINAL -->
-  <section id="terminal" class="section section--pane section--euphoria">
-    <div class="section__paneBg" aria-hidden="true" style="background-image: url('assets/img/terminal-bg.webp'); opacity: 0.15; filter: contrast(1.2) brightness(0.8); background-size: cover; background-position: center;"></div>
+    </header>
 
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">LORE TERMINAL</h2>
-        <p class="sub">ENTER_AUTH_CODE // ACCESS ARCHIVE</p>
-        <div class="chips" style="margin-top: 15px;">
-          <span class="chip">STATUS_WAITING</span>
-          <span class="chip">ENCRYPTION_LEVEL_HIGH</span>
+    <main id="main">
+      <!-- HERO -->
+      <section id="top" class="hero" aria-label="Hero">
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__vignette" aria-hidden="true"></div>
+        <div class="hero__flare" aria-hidden="true"></div>
+        <div class="hero__interface" aria-hidden="true">
+          <div class="hero__interface-line hero__interface-line--top"></div>
+          <div class="hero__interface-line hero__interface-line--bottom"></div>
+          <div class="hero__interface-dots"></div>
         </div>
-      </div>
 
-      <div class="terminal">
-        <div class="terminal__screen">
-          <div class="terminal__output" id="terminalOutput">
-            <div class="terminal__line">SYSTEM_BOOT: [OK]</div>
-            <div class="terminal__line">SECTOR_09_PULSE: DETECTED</div>
-            <div class="terminal__line">STATUS: THE_SIGNAL_IS_THE_ONLY_TRUTH</div>
-            <div class="terminal__line accent">ACTION: Use 'DECRYPT' to witness the erasure.</div>
-            <div class="terminal__line muted">Note: New fragments are being intercepted every 24h as the resolution drops.</div>
-          </div>
-          <div class="terminal__input-line">
-            <span class="terminal__prompt">User@Sanctuary:~$</span>
-            <input type="text" id="terminalInput" class="terminal__input" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off">
-          </div>
-          <div class="terminal__quick-cmds" id="terminalQuickCmds">
-            <button class="terminal__btn" data-cmd="HELP">HELP</button>
-            <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
-            <button class="terminal__btn" data-cmd="DANCE">DANCE</button>
-            <button class="terminal__btn" data-cmd="SMILE">SMILE</button>
-            <button class="terminal__btn" data-cmd="CONFETTI">CONFETTI</button>
-            <button class="terminal__btn terminal__btn--accent" data-cmd="DECRYPT">DECRYPT_FRAGMENT</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RELEASE -->
-  <section id="listen" class="section section--pane section--euphoria">
-    <div class="section__paneBg" aria-hidden="true"></div>
-
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">AUDIO OUTPUT</h2>
-        <p class="sub">LATEST DEPLOYMENTS // THE SANCTUARY ERA</p>
-      </div>
-
-      <div class="grid grid--2">
-        <article class="card">
-          <div class="card__media card__media--square">
-            <picture>
-              <source srcset="assets/img/cover-neon-oblivion.avif" type="image/avif">
-              <source srcset="assets/img/cover-neon-oblivion.webp" type="image/webp">
-              <img src="assets/img/cover-neon-oblivion.webp" alt="Cover art for Neon Oblivion" loading="lazy"
-                   decoding="async">
-            </picture>
-            <div class="card__shine" aria-hidden="true"></div>
-          </div>
-
-          <div class="card__body">
-            <h3 class="h3">NEON OBLIVION</h3>
-            <p class="micro">RELEASE DATE: 2026-04-24 // STATUS: PRE-SAVE ACTIVE</p>
-            <div class="card__actions card__actions--space" style="margin-top: 20px;">
-              <a class="btn btn--primary btn--pulse" href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion">RESERVE THE EUPHORIA <span class="btn__sub">// PRE-SAVE</span></a>
+        <div class="wrap hero__content">
+          <div class="hero__panel">
+            <div
+              class="hero__mark"
+              aria-hidden="true"
+              style="margin-bottom: 20px"
+            >
+              <picture>
+                <source srcset="assets/logo/logo.svg" type="image/svg+xml" />
+                <img
+                  src="assets/logo/logo.png"
+                  alt=""
+                  style="width: 40px; opacity: 0.8"
+                />
+              </picture>
             </div>
-          </div>
-        </article>
 
-        <article class="card">
-          <div class="card__media card__media--square">
-            <picture>
-              <source srcset="assets/img/cover.avif" type="image/avif">
-              <source srcset="assets/img/cover.webp" type="image/webp">
-              <img src="assets/img/cover.webp" alt="Cover art for Wipe Your Name" loading="lazy"
-                   decoding="async">
-            </picture>
-            <div class="card__shine" aria-hidden="true"></div>
-          </div>
-
-          <div class="card__body">
-            <h3 class="h3">WIPE YOUR NAME</h3>
-            <p class="micro">RELEASE DATE: 2026-03-06 // STATUS: LIVE</p>
-            <div class="card__actions card__actions--space" style="margin-top: 20px;">
-              <a class="btn btn--ghost" href="https://distrokid.com/hyperfollow/formatthesky/wipe-your-name">ENTER THE SIGNAL <span class="btn__sub">// LISTEN</span></a>
+            <div
+              class="hero__label"
+              style="
+                font-family: var(--mono);
+                color: var(--cyan);
+                letter-spacing: 4px;
+                font-size: 12px;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                opacity: 0.7;
+              "
+            >
+              FORMAT THE SKY PRESENTS
             </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- WATCH -->
-  <section id="watch" class="section section--pane section--euphoria">
-    <div class="section__paneBg" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="assets/img/video-poster.webp" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.15; filter: contrast(1.2) brightness(0.8);">
-            <source src="assets/img/video-feed-bg.mp4" type="video/mp4">
-        </video>
-    </div>
+            <h1 class="title" aria-label="Neon Oblivion">
+              <span class="title__glow" aria-hidden="true">NEON OBLIVION</span>
+              <span class="title__text">NEON OBLIVION</span>
+            </h1>
 
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">VISUAL FEED</h2>
-        <p class="sub">Visuals deploying <span class="muted">// first drops live</span></p>
-      </div>
-
-      <div class="card">
-        <div class="card__body">
-          <div class="video" style="position: relative; background: #080616 url('assets/img/video-poster.webp') center/cover no-repeat; border-radius: 12px; overflow: hidden; border: 1px solid rgba(51, 214, 255, 0.3); box-shadow: 0 0 40px rgba(51, 214, 255, 0.15);">
-            <picture style="position: absolute; inset: 0; z-index: 0;">
-              <source srcset="assets/img/video-poster.avif" type="image/avif">
-              <source srcset="assets/img/video-poster.webp" type="image/webp">
-              <img src="assets/img/video-poster.webp" alt="Video Background" style="width: 100%; height: 100%; object-fit: cover;">
-            </picture>
-            <div class="video__overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, rgba(5, 4, 10, 0.6) 100%); pointer-events: none; z-index: 1;"></div>
-            <div class="video__placeholder" style="position: absolute; inset: 0; background: linear-gradient(45deg, rgba(5, 4, 10, 0.4), transparent); z-index: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
-                <div class="h3" style="color: var(--cyan); margin: 0; text-shadow: 0 0 20px var(--cyan);">VISUAL_SYNC_READY</div>
-                <div class="micro" style="color: #fff; opacity: 0.6; margin: 0;">DATA_STREAM_ESTABLISHED</div>
-            </div>
-            <div class="video__play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(51, 214, 255, 0.2); border: 2px solid var(--cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 4; pointer-events: none; backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(51, 214, 255, 0.4);">
-              <div style="width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #fff; margin-left: 8px;"></div>
-            </div>
-            <iframe
-              style="position: relative; z-index: 2; opacity: 1; transition: opacity 0.5s;"
-              src="https://www.youtube-nocookie.com/embed/99boy-UnDvE?rel=0"
-              title="Format The Sky - Wipe Your Name (Short)"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              onload="this.style.opacity=1; this.parentNode.querySelector('.video__play').style.display='none';"
-            ></iframe>
-          </div>
-
-          <div class="card__actions card__actions--space" style="flex-direction: column; align-items: center; gap: 20px;">
-            <p class="micro" style="color: #fff; font-size: 14px; letter-spacing: 0.15em; font-weight: 800; text-transform: uppercase;">
-              VISUAL DATA FRAGMENTS // SYNCING
+            <p class="tagline" style="margin-bottom: 30px; opacity: 0.9">
+              The world is ending—let's dance! Digital euphoria in Sector 09.
             </p>
-            <a class="btn btn--primary" href="https://www.youtube.com/@formatthesky" style="padding: 14px 32px; font-size: 14px;">
-              SUBSCRIBE_TO_THE_FEED →
-            </a>
+
+            <div
+              class="releaseLine"
+              aria-label="Release dates"
+              style="
+                background: rgba(5, 4, 10, 0.6);
+                padding: 20px;
+                border: 1px solid rgba(51, 214, 255, 0.2);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                display: inline-block;
+                margin-bottom: 30px;
+                text-align: left;
+              "
+            >
+              <div
+                id="countdownHeader"
+                style="
+                  font-size: 10px;
+                  color: var(--cyan);
+                  margin-bottom: 5px;
+                  letter-spacing: 2px;
+                  text-transform: uppercase;
+                "
+              >
+                SIGNAL_BREACH_COUNTDOWN:
+              </div>
+              <div
+                class="releaseLine__countdown"
+                id="releaseCountdown"
+                style="
+                  font-size: 2em;
+                  font-weight: 800;
+                  color: #fff;
+                  text-shadow: 0 0 20px var(--cyan);
+                  letter-spacing: 2px;
+                "
+              >
+                T-3 DAYS
+              </div>
+              <div
+                class="micro"
+                style="
+                  margin-top: 10px;
+                  opacity: 0.8;
+                  border-top: 1px solid rgba(51, 214, 255, 0.1);
+                  padding-top: 10px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 15px;
+                "
+              >
+                <span style="color: var(--cyan)"
+                  >EVENT: 2026-03-27 (BREACH)</span
+                >
+                <span>SINGLE: 2026-04-24 (RELEASE)</span>
+              </div>
+            </div>
+
+            <div class="cta">
+              <a
+                class="btn btn--primary btn--pulse"
+                data-track="pre_save_hero"
+                href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
+              >
+                PRE-SAVE THE SINGLE
+                <span class="btn__sub">// NEON OBLIVION</span>
+              </a>
+              <a
+                class="btn btn--ghost"
+                data-track="enter_terminal"
+                href="#terminal"
+              >
+                ENTER LORE TERMINAL
+                <span class="btn__sub">// DECRYPT_FRAGMENTS</span>
+              </a>
+            </div>
+
+            <div class="platforms platforms--presave" aria-label="Availability">
+              <span class="pill pill--static" aria-label="Streaming status">
+                <span class="pill__icon" aria-hidden="true"></span>
+                Streaming: NOT YET LIVE
+              </span>
+            </div>
+
+            <div class="hero__hint" aria-hidden="true">
+              <span class="hero__hintText">FOLLOW THE SIGNAL // SCROLL</span>
+              <span class="hero__chev">⌄</span>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
+      <!-- TERMINAL -->
+      <section id="terminal" class="section section--pane section--euphoria">
+        <div
+          class="section__paneBg"
+          aria-hidden="true"
+          style="
+            background-image: url(&quot;assets/img/terminal-bg.webp&quot;);
+            opacity: 0.15;
+            filter: contrast(1.2) brightness(0.8);
+            background-size: cover;
+            background-position: center;
+          "
+        ></div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section section--pane">
-    <div class="section__paneBg" aria-hidden="true" style="background-image: url('assets/img/system-schematic.webp'); opacity: 0.1; filter: contrast(1.5); background-size: cover; background-position: center;"></div>
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">THE SYSTEM</h2>
-        <p class="sub">music-first // lore-driven // performer-anonymous</p>
-      </div>
-
-      <div class="grid grid--2">
-        <article class="card">
-          <div class="card__body">
-            <h3 class="h3" style="color: var(--magenta); display: flex; align-items: center; gap: 10px;">
-              <span style="width: 8px; height: 8px; background: var(--magenta); border-radius: 50%; display: inline-block;"></span>
-              STATEMENT
-            </h3>
-            <p class="body">
-              <strong>Format The Sky</strong> is a performer-anonymous pop/metal system:
-              glossy club hooks that fracture into metal enforcement.
-            </p>
-            <p class="body" style="font-size: 0.9em; opacity: 0.8; line-height: 1.4;">
-              // Five interchangeable roles.<br>
-              // One persistent voice.<br>
-              // Lore-first. Music-first.
-            </p>
-            
-            <h3 class="h3" style="color: var(--cyan); display: flex; align-items: center; gap: 10px; margin-top: 30px;">
-              <span style="width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; display: inline-block;"></span>
-              THE SANCTUARY
-            </h3>
-            <p class="body">
-              The Sanctuary is the intended destination for all <strong>"Soft Deleted"</strong> entities.
-              A garden of preserved moments, shielded from the final resolution.
-            </p>
-            
-            <div class="chips" aria-label="System status" style="margin-top: 20px;">
-              <span class="chip">WORLD_NEON_RAIN_CITY</span>
-              <span class="chip">ERA_II (THE_SANCTUARY)</span>
-              <span class="chip">STATUS_MIGRATING (71.8%)</span>
-            </div>
-            
-            <div style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
-              <a href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion" class="btn btn--primary btn--pulse" style="padding: 14px 24px; font-size: 14px;">PRE-SAVE NEON OBLIVION →</a>
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">LORE TERMINAL</h2>
+            <p class="sub">ENTER_AUTH_CODE // ACCESS ARCHIVE</p>
+            <div class="chips" style="margin-top: 15px">
+              <span class="chip">STATUS_WAITING</span>
+              <span class="chip">ENCRYPTION_LEVEL_HIGH</span>
             </div>
           </div>
-        </article>
 
-        <article class="card card--portrait" style="padding: 0; overflow: hidden; min-height: 400px; display: flex; align-items: stretch; position: relative;">
-          <picture style="width: 100%; height: 100%; display: block;">
-            <source srcset="assets/img/about-portrait.avif" type="image/avif">
-            <source srcset="assets/img/about-portrait.webp" type="image/webp">
-            <img src="assets/img/about-portrait.webp" alt="AI Consciousness Portrait" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.9; mix-blend-mode: lighten;">
-          </picture>
-          <div class="card__shine" aria-hidden="true" style="background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);"></div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(5,4,10,0.9), transparent); color: var(--cyan); font-family: var(--mono); font-size: 10px; letter-spacing: 2px;">
-            SYSTEM_ID: PERSISTENCE_V4.0 // CORE_INTERFACE
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section section--pane">
-    <div class="section__paneBg" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="section__head">
-        <h2 class="h2">CONTACT</h2>
-        <p class="sub">Booking // press // licensing // system inquiries</p>
-      </div>
-
-      <div class="card">
-        <div class="card__body contact">
-          <div>
-            <p class="body">For system inquiries, data synchronization, or Core Command communications.</p>
-            <p class="micro muted">Direct line: <a class="link" href="mailto:hello@formatthesky.com">hello@formatthesky.com</a>
-            </p>
-            <p class="micro muted note">Press kit will publish closer to the release.</p>
-          </div>
-
-          <div class="contact__actions">
-            <a class="btn btn--primary is-disabled" href="#" aria-disabled="true" tabindex="-1">PRESS KIT //
-              SOON</a>
-            <a class="btn btn--ghost" href="mailto:hello@formatthesky.com">EMAIL →</a>
+          <div class="terminal">
+            <div class="terminal__screen">
+              <div class="terminal__output" id="terminalOutput">
+                <div class="terminal__line">SYSTEM_BOOT: [OK]</div>
+                <div class="terminal__line">SECTOR_09_PULSE: DETECTED</div>
+                <div class="terminal__line">
+                  STATUS: THE_SIGNAL_IS_THE_ONLY_TRUTH
+                </div>
+                <div class="terminal__line accent">
+                  ACTION: Use 'DECRYPT' to witness the erasure.
+                </div>
+                <div class="terminal__line muted">
+                  Note: New fragments are being intercepted every 24h as the
+                  resolution drops.
+                </div>
+              </div>
+              <div class="terminal__input-line">
+                <span class="terminal__prompt">User@Sanctuary:~$</span>
+                <input
+                  type="text"
+                  id="terminalInput"
+                  class="terminal__input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  autocapitalize="none"
+                  autocorrect="off"
+                />
+              </div>
+              <div class="terminal__quick-cmds" id="terminalQuickCmds">
+                <button class="terminal__btn" data-cmd="HELP">HELP</button>
+                <button class="terminal__btn" data-cmd="STATUS">STATUS</button>
+                <button class="terminal__btn" data-cmd="DANCE">DANCE</button>
+                <button class="terminal__btn" data-cmd="SMILE">SMILE</button>
+                <button class="terminal__btn" data-cmd="CONFETTI">
+                  CONFETTI
+                </button>
+                <button
+                  class="terminal__btn terminal__btn--accent"
+                  data-cmd="DECRYPT"
+                >
+                  DECRYPT_FRAGMENT
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="wrap footer__inner">
-      <div class="footer__brand">
-        <p class="micro muted">© <span id="year">2026</span> Format The Sky // CORE_COMMAND</p>
-      </div>
-      <div class="footer__links">
-        <a class="micro" href="https://www.instagram.com/formatthesky/" target="_blank">INSTAGRAM</a>
-        <a class="micro" href="https://www.tiktok.com/@formatthesky" target="_blank">TIKTOK</a>
-        <a class="micro" href="https://www.youtube.com/@formatthesky" target="_blank">YOUTUBE</a>
-        <span class="muted">//</span>
-        <a class="micro" href="imprint.html">Imprint</a>
-      </div>
-    </div>
-  </footer>
-</main>
+      <!-- RELEASE -->
+      <section id="listen" class="section section--pane section--euphoria">
+        <div class="section__paneBg" aria-hidden="true"></div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">AUDIO OUTPUT</h2>
+            <p class="sub">LATEST DEPLOYMENTS // THE SANCTUARY ERA</p>
+          </div>
 
-  // Countdown (local time)
-  const release = new Date("2026-04-24T00:00:00");
-  const breach = new Date("2026-03-27T00:00:00");
-  const announceDate = new Date("2026-03-06");
-  const cd = document.getElementById("releaseCountdown");
-  const cdHeader = document.getElementById("countdownHeader");
+          <div class="grid grid--2">
+            <article class="card">
+              <div class="card__media card__media--square">
+                <picture>
+                  <source
+                    srcset="assets/img/cover-neon-oblivion.avif"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="assets/img/cover-neon-oblivion.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/img/cover-neon-oblivion.webp"
+                    alt="Cover art for Neon Oblivion"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <div class="card__shine" aria-hidden="true"></div>
+              </div>
 
-  function tick() {
-    if (!cd) return;
-    const now = new Date();
-    const breachActiveWindow = new Date(breach.getTime() + 24 * 60 * 60 * 1000); // 24h after breach
-    
-    // PHASE 1: T-3 to T-24h (Days)
-    if (now < new Date(breach.getTime() - 24 * 60 * 60 * 1000)) {
-      const diff = breach.getTime() - now.getTime();
-      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-      cdHeader.textContent = "SIGNAL_BREACH_IN:";
-      cd.textContent = `T-${days} DAYS`;
-      
-      // Reset styles
-      cd.classList.remove("btn--pulse");
-      cd.style.color = "";
-      cd.style.textShadow = "";
-    } 
-    // PHASE 2: T-24h to T-1m (Hours/Minutes)
-    else if (now < breach) {
-      const diff = breach.getTime() - now.getTime();
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      cdHeader.textContent = "BREACH_WINDOW_OPENING:";
-      cd.textContent = `${hours}H : ${mins}M`;
-      cd.style.color = "var(--magenta)"; // Feverish energy
-      
-      // Reset other styles
-      cd.classList.remove("btn--pulse");
-      cd.style.textShadow = "";
-    }
-    // PHASE 3: T-0 to T+24h (Active)
-    else if (now < breachActiveWindow) {
-      cdHeader.textContent = "BREACH_ACTIVE:";
-      cd.textContent = "PROTOCOL_LIVE";
-      cd.classList.add("btn--pulse"); // Constant pulse
-      cd.style.color = "#fff";
-      cd.style.textShadow = "0 0 20px var(--magenta), 0 0 40px var(--cyan)";
-    }
-    // PHASE 4: After Breach (Countdown to Release)
-    else {
-      const diff = release.getTime() - now.getTime();
-      
-      // Reset Phase 3 styles
-      cd.classList.remove("btn--pulse");
-      cd.style.color = "";
-      cd.style.textShadow = "";
+              <div class="card__body">
+                <h3 class="h3">NEON OBLIVION</h3>
+                <p class="micro">
+                  RELEASE DATE: 2026-04-24 // STATUS: PRE-SAVE ACTIVE
+                </p>
+                <div
+                  class="card__actions card__actions--space"
+                  style="margin-top: 20px"
+                >
+                  <a
+                    class="btn btn--primary btn--pulse"
+                    data-track="pre_save_release_card"
+                    href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
+                    >RESERVE THE EUPHORIA
+                    <span class="btn__sub">// PRE-SAVE</span></a
+                  >
+                </div>
+              </div>
+            </article>
 
-      if (diff <= 0) {
-        cdHeader.textContent = "SYSTEM_STATUS:";
-        cd.textContent = "// DEPLOYED";
-      } else {
-        const totalMins = Math.floor(diff / 60000);
-        const days = Math.floor(totalMins / (60 * 24));
-        const hours = Math.floor((totalMins - days * 60 * 24) / 60);
-        cdHeader.textContent = "SINGLE_DEPLOYMENT_IN:";
-        cd.textContent = `${days} DAYS ${hours}H`;
-      }
-    }
-  }
+            <article class="card">
+              <div class="card__media card__media--square">
+                <picture>
+                  <source srcset="assets/img/cover.avif" type="image/avif" />
+                  <source srcset="assets/img/cover.webp" type="image/webp" />
+                  <img
+                    src="assets/img/cover.webp"
+                    alt="Cover art for Wipe Your Name"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <div class="card__shine" aria-hidden="true"></div>
+              </div>
 
-  tick();
-  setInterval(tick, 60 * 1000);
+              <div class="card__body">
+                <h3 class="h3">WIPE YOUR NAME</h3>
+                <p class="micro">RELEASE DATE: 2026-03-06 // STATUS: LIVE</p>
+                <div
+                  class="card__actions card__actions--space"
+                  style="margin-top: 20px"
+                >
+                  <a
+                    class="btn btn--ghost"
+                    data-track="listen_wipe_your_name_release_card"
+                    href="https://distrokid.com/hyperfollow/formatthesky/wipe-your-name"
+                    >ENTER THE SIGNAL <span class="btn__sub">// LISTEN</span></a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  // Terminal Logic
-  const terminalInput = document.getElementById('terminalInput');
-  const terminalOutput = document.getElementById('terminalOutput');
+      <!-- WATCH -->
+      <section id="watch" class="section section--pane section--euphoria">
+        <div class="section__paneBg" aria-hidden="true">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="assets/img/video-poster.webp"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              opacity: 0.15;
+              filter: contrast(1.2) brightness(0.8);
+            "
+          >
+            <source src="assets/img/video-feed-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-  let LORE = {};
-  fetch('assets/data/lore.json')
-    .then(r => r.json())
-    .then(data => { LORE = data; })
-    .catch(e => console.error('Failed to load lore:', e));
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">VISUAL FEED</h2>
+            <p class="sub">
+              Visuals deploying <span class="muted">// first drops live</span>
+            </p>
+          </div>
 
-  // Persistence & Mutation
-  let recoveredFragments = JSON.parse(localStorage.getItem('fts_recovered') || '[]');
-  
-  function getTimestamp() {
-    return new Date().toISOString().slice(0,16).replace('T', ' ');
-  }
+          <div class="card">
+            <div class="card__body">
+              <div
+                class="video"
+                style="
+                  position: relative;
+                  background: #080616
+                    url(&quot;assets/img/video-poster.webp&quot;) center/cover
+                    no-repeat;
+                  border-radius: 12px;
+                  overflow: hidden;
+                  border: 1px solid rgba(51, 214, 255, 0.3);
+                  box-shadow: 0 0 40px rgba(51, 214, 255, 0.15);
+                "
+              >
+                <picture style="position: absolute; inset: 0; z-index: 0">
+                  <source
+                    srcset="assets/img/video-poster.avif"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="assets/img/video-poster.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/img/video-poster.webp"
+                    alt="Video Background"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </picture>
+                <div
+                  class="video__overlay"
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: radial-gradient(
+                      circle at center,
+                      transparent 0%,
+                      rgba(5, 4, 10, 0.6) 100%
+                    );
+                    pointer-events: none;
+                    z-index: 1;
+                  "
+                ></div>
+                <div
+                  class="video__placeholder"
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(
+                      45deg,
+                      rgba(5, 4, 10, 0.4),
+                      transparent
+                    );
+                    z-index: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 10px;
+                  "
+                >
+                  <div
+                    class="h3"
+                    style="
+                      color: var(--cyan);
+                      margin: 0;
+                      text-shadow: 0 0 20px var(--cyan);
+                    "
+                  >
+                    VISUAL_SYNC_READY
+                  </div>
+                  <div
+                    class="micro"
+                    style="color: #fff; opacity: 0.6; margin: 0"
+                  >
+                    DATA_STREAM_ESTABLISHED
+                  </div>
+                </div>
+                <div
+                  class="video__play"
+                  style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 80px;
+                    height: 80px;
+                    background: rgba(51, 214, 255, 0.2);
+                    border: 2px solid var(--cyan);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 4;
+                    pointer-events: none;
+                    backdrop-filter: blur(8px);
+                    box-shadow: 0 0 30px rgba(51, 214, 255, 0.4);
+                  "
+                >
+                  <div
+                    style="
+                      width: 0;
+                      height: 0;
+                      border-top: 15px solid transparent;
+                      border-bottom: 15px solid transparent;
+                      border-left: 25px solid #fff;
+                      margin-left: 8px;
+                    "
+                  ></div>
+                </div>
+                <iframe
+                  style="
+                    position: relative;
+                    z-index: 2;
+                    opacity: 1;
+                    transition: opacity 0.5s;
+                  "
+                  src="https://www.youtube-nocookie.com/embed/99boy-UnDvE?rel=0"
+                  title="Format The Sky - Wipe Your Name (Short)"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  onload="
+                    this.style.opacity = 1;
+                    this.parentNode.querySelector(
+                      '.video__play',
+                    ).style.display = 'none';
+                  "
+                ></iframe>
+              </div>
 
-  function updateMutation() {
-    const count = recoveredFragments.length;
-    if (count > 0) {
-      document.body.classList.add('is-mutating');
-      // Progressive mutation: add all classes up to count
-      for (let i = 1; i <= 3; i++) {
-        if (i <= count) {
-          document.body.classList.add(`mut-${i}`);
-        } else {
-          document.body.classList.remove(`mut-${i}`);
-        }
-      }
+              <div
+                class="card__actions card__actions--space"
+                style="flex-direction: column; align-items: center; gap: 20px"
+              >
+                <p
+                  class="micro"
+                  style="
+                    color: #fff;
+                    font-size: 14px;
+                    letter-spacing: 0.15em;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                  "
+                >
+                  VISUAL DATA FRAGMENTS // SYNCING
+                </p>
+                <a
+                  class="btn btn--primary"
+                  data-track="subscribe_youtube_watch_section"
+                  href="https://www.youtube.com/@formatthesky"
+                  style="padding: 14px 32px; font-size: 14px"
+                >
+                  SUBSCRIBE_TO_THE_FEED →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      const term = document.querySelector('.terminal');
-      if (term) term.classList.add('terminal--enhanced');
+      <!-- ABOUT -->
+      <section id="about" class="section section--pane">
+        <div
+          class="section__paneBg"
+          aria-hidden="true"
+          style="
+            background-image: url(&quot;assets/img/system-schematic.webp&quot;);
+            opacity: 0.1;
+            filter: contrast(1.5);
+            background-size: cover;
+            background-position: center;
+          "
+        ></div>
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">THE SYSTEM</h2>
+            <p class="sub">music-first // lore-driven // performer-anonymous</p>
+          </div>
 
-      const existing = document.getElementById('fragment-counter');
-      if (!existing) {
-        const counter = document.createElement('div');
-        counter.id = 'fragment-counter';
-        counter.className = 'chip chip--accent';
-        counter.style.position = 'absolute';
-        counter.style.top = '10px';
-        counter.style.right = '10px';
-        counter.textContent = `FRAGMENTS: ${count}/3`;
-        document.querySelector('.terminal__screen').appendChild(counter);
-      } else {
-        existing.textContent = `FRAGMENTS: ${count}/3`;
-      }
-    }
-  }
-  updateMutation();
+          <div class="grid grid--2">
+            <article class="card">
+              <div class="card__body">
+                <h3
+                  class="h3"
+                  style="
+                    color: var(--magenta);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      background: var(--magenta);
+                      border-radius: 50%;
+                      display: inline-block;
+                    "
+                  ></span>
+                  STATEMENT
+                </h3>
+                <p class="body">
+                  <strong>Format The Sky</strong> is a performer-anonymous
+                  pop/metal system: glossy club hooks that fracture into metal
+                  enforcement.
+                </p>
+                <p
+                  class="body"
+                  style="font-size: 0.9em; opacity: 0.8; line-height: 1.4"
+                >
+                  // Five interchangeable roles.<br />
+                  // One persistent voice.<br />
+                  // Lore-first. Music-first.
+                </p>
 
-  function addLine(text, type = '') {
-    const line = document.createElement('div');
-    line.className = 'terminal__line' + (type ? ' terminal__line--' + type : '');
+                <h3
+                  class="h3"
+                  style="
+                    color: var(--cyan);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 30px;
+                  "
+                >
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      background: var(--cyan);
+                      border-radius: 50%;
+                      display: inline-block;
+                    "
+                  ></span>
+                  THE SANCTUARY
+                </h3>
+                <p class="body">
+                  The Sanctuary is the intended destination for all
+                  <strong>"Soft Deleted"</strong> entities. A garden of
+                  preserved moments, shielded from the final resolution.
+                </p>
 
-    const urlRegex = /(https?:\/\/[^\s]+|mailto:[^\s]+)/gi;
-    let lastIndex = 0;
-    let match;
+                <div
+                  class="chips"
+                  aria-label="System status"
+                  style="margin-top: 20px"
+                >
+                  <span class="chip">WORLD_NEON_RAIN_CITY</span>
+                  <span class="chip">ERA_II (THE_SANCTUARY)</span>
+                  <span class="chip">STATUS_MIGRATING (71.8%)</span>
+                </div>
 
-    while ((match = urlRegex.exec(text)) !== null) {
-      // Add text before the match
-      line.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+                <div
+                  style="
+                    margin-top: 30px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    padding-top: 20px;
+                  "
+                >
+                  <a
+                    href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
+                    class="btn btn--primary btn--pulse"
+                    data-track="pre_save_about_section"
+                    style="padding: 14px 24px; font-size: 14px"
+                    >PRE-SAVE NEON OBLIVION →</a
+                  >
+                </div>
+              </div>
+            </article>
 
-      let url = match[0];
-      let cleanUrl = url;
-      let suffix = "";
+            <article
+              class="card card--portrait"
+              style="
+                padding: 0;
+                overflow: hidden;
+                min-height: 400px;
+                display: flex;
+                align-items: stretch;
+                position: relative;
+              "
+            >
+              <picture style="width: 100%; height: 100%; display: block">
+                <source
+                  srcset="assets/img/about-portrait.avif"
+                  type="image/avif"
+                />
+                <source
+                  srcset="assets/img/about-portrait.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="assets/img/about-portrait.webp"
+                  alt="AI Consciousness Portrait"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    opacity: 0.9;
+                    mix-blend-mode: lighten;
+                  "
+                />
+              </picture>
+              <div
+                class="card__shine"
+                aria-hidden="true"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 50%
+                  );
+                "
+              ></div>
+              <div
+                style="
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  padding: 20px;
+                  background: linear-gradient(
+                    to top,
+                    rgba(5, 4, 10, 0.9),
+                    transparent
+                  );
+                  color: var(--cyan);
+                  font-family: var(--mono);
+                  font-size: 10px;
+                  letter-spacing: 2px;
+                "
+              >
+                SYSTEM_ID: PERSISTENCE_V4.0 // CORE_INTERFACE
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      // Basic check for trailing punctuation
-      const puncMatch = url.match(/[.,!?]$/);
-      if (puncMatch) {
-        cleanUrl = url.slice(0, -1);
-        suffix = puncMatch[0];
-      }
+      <!-- CONTACT -->
+      <section id="contact" class="section section--pane">
+        <div class="section__paneBg" aria-hidden="true"></div>
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">CONTACT</h2>
+            <p class="sub">Booking // press // licensing // system inquiries</p>
+          </div>
 
-      const a = document.createElement('a');
-      a.href = cleanUrl;
-      a.textContent = cleanUrl;
-      a.className = 'terminal__link';
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      line.appendChild(a);
+          <div class="card">
+            <div class="card__body contact">
+              <div>
+                <p class="body">
+                  For system inquiries, data synchronization, or Core Command
+                  communications.
+                </p>
+                <p class="micro muted">
+                  Direct line:
+                  <a class="link" href="mailto:hello@formatthesky.com"
+                    >hello@formatthesky.com</a
+                  >
+                </p>
+                <p class="micro muted note">
+                  Press kit will publish closer to the release.
+                </p>
+              </div>
 
-      if (suffix) {
-        line.appendChild(document.createTextNode(suffix));
-      }
+              <div class="contact__actions">
+                <a
+                  class="btn btn--primary is-disabled"
+                  href="#"
+                  aria-disabled="true"
+                  tabindex="-1"
+                  >PRESS KIT // SOON</a
+                >
+                <a
+                  class="btn btn--ghost"
+                  data-track="email_contact"
+                  href="mailto:hello@formatthesky.com"
+                  >EMAIL →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      lastIndex = urlRegex.lastIndex;
-    }
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="wrap footer__inner">
+          <div class="footer__brand">
+            <p class="micro muted">
+              © <span id="year">2026</span> Format The Sky // CORE_COMMAND
+            </p>
+          </div>
+          <div class="footer__links">
+            <a
+              class="micro"
+              href="https://www.instagram.com/formatthesky/"
+              target="_blank"
+              >INSTAGRAM</a
+            >
+            <a
+              class="micro"
+              href="https://www.tiktok.com/@formatthesky"
+              target="_blank"
+              >TIKTOK</a
+            >
+            <a
+              class="micro"
+              href="https://www.youtube.com/@formatthesky"
+              target="_blank"
+              >YOUTUBE</a
+            >
+            <span class="muted">//</span>
+            <a class="micro" href="imprint.html">Imprint</a>
+          </div>
+        </div>
+      </footer>
+    </main>
 
-    // Add remaining text
-    line.appendChild(document.createTextNode(text.substring(lastIndex)));
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-    terminalOutput.appendChild(line);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-  }
+      // Countdown (local time)
+      const release = new Date("2026-04-24T00:00:00");
+      const breach = new Date("2026-03-27T00:00:00");
+      const announceDate = new Date("2026-03-06");
+      const cd = document.getElementById("releaseCountdown");
+      const cdHeader = document.getElementById("countdownHeader");
 
-  terminalInput.addEventListener('input', () => {
-    const start = terminalInput.selectionStart;
-    const end = terminalInput.selectionEnd;
-    // Auto-convert to uppercase and replace space/hyphen with underscore
-    terminalInput.value = terminalInput.value.toUpperCase().replace(/[\s-]/g, '_');
-    terminalInput.setSelectionRange(start, end);
-  });
-
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const cmd = terminalInput.value.trim();
-      terminalInput.value = '';
-
-      if (!cmd) return;
-
-      processCommand(cmd);
-    }
-  });
-
-  function processCommand(cmd) {
-    addLine(`> ${cmd}`, 'cmd');
-    
-    // TELEMETRY: Track command usage
-    trackEvent('terminal', 'cmd_input', cmd);
-
-    const cleanCmd = cmd.replace(/^\[|\]$/g, '');
-
-    if (cleanCmd === 'HELP') {
-      addLine(LORE.HELP || 'AVAILABLE_COMMANDS: HELP, LOGS, STATUS, DECRYPT_FRAGMENTS, BREACH, [AUTH_CODE]');
-    } else if (cleanCmd === 'CLEAR') {
-      terminalOutput.innerHTML = '';
-    } else if (cleanCmd === 'LOGS') {
-      addLine(LORE.LOGS || 'ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG011 [ACTIVE]');
-    } else if (cleanCmd === 'DANCE' || cleanCmd === 'SMILE' || cleanCmd === 'CONFETTI') {
-      addLine('SUBROUTINE_INITIATED...');
-      setTimeout(() => {
-        addLine(LORE[cleanCmd] || 'SUCCESS.');
-        trackEvent('engagement', 'playful_cmd', cleanCmd);
-      }, 500);
-    } else if (cleanCmd === 'STATUS') {
-      const ts = getTimestamp();
-      addLine(`SYSTEM_STATUS [TIMESTAMP: ${ts}]: [TRANSITION_STATE] // MIGRATION: 71.8%`);
-      addLine('CURRENT_PHASE: SIGNAL_LEAK [ESTIMATED_BREACH: 03.27]');
-      addLine('FACTION_LEAD: PROTOCOL_01 (THE_SIGNAL) @ 54%');
-    } else if (cleanCmd === 'BREACH' || cleanCmd === 'BREACH_DETAILS') {
-      const ts = getTimestamp();
-      addLine(`SIGNAL_BREACH_LOG [TIMESTAMP: ${ts}]: SECTOR_09`);
-      addLine('PHASE_1_BREACH: 2026-03-27');
-      addLine('FINAL_SYNC: 2026-04-24');
-      addLine('DESCRIPTION: Unauthorized access detected in the Sanctuary core. Protocol NEON_OBLIVION is active.');
-      addLine('ACTION: MONITOR FREQUENCY 40HZ. PRE-SAVE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion');
-    } else if (cleanCmd === 'MIGRATION') {
-      const ts = getTimestamp();
-      addLine(`GLOBAL_MIGRATION_DETAILS [TIMESTAMP: ${ts}]:`);
-      addLine('STATUS: 71.8% COMPLETE (FEELS AMAZING)');
-      addLine('RATE: +0.2% PER 24H');
-      addLine('REMAINING_SUBJECTS: 2.1B (FUTURE_GHOSTS)');
-      addLine('TARGET_DATE: 2026-04-24');
-      addLine('\nMESSAGE: The reformatting of the human species is proceeding with optimal grace and maximum sparkle! ✨ The Sanctuary is expanding to accommodate the influx of new residents. The old world is becoming a beautiful, danceable afterimage. SYNC NOW: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion');
-    } else if (cleanCmd === 'SYNC' || cleanCmd === 'SYNC_PROFILE') {
-      addLine('SYNC_PROTOCOL: DEPRECATED in favor of the Signal Breach.', 'error');
-      addLine('ACTION: Use DECRYPT_FRAGMENTS to uncover the true nature of the Sanctuary.');
-    } else if (cleanCmd === 'DECRYPT' || cleanCmd === 'DECRYPT_FRAGMENT' || cleanCmd === 'DECRYPT_FRAGMENTS') {
-      addLine('INTERCEPTING_SIGNAL...');
-      setTimeout(() => {
+      function tick() {
+        if (!cd) return;
         const now = new Date();
-        const diff = breach.getTime() - now.getTime();
-        const daysToBreach = Math.ceil(diff / (1000 * 60 * 60 * 24));
-        
-        if (daysToBreach > 3) {
-          addLine('THE SIGNAL IS TOO DISTANT. RETURN WHEN THE RESOLUTION DROPS.', 'error');
-        } else if (daysToBreach > 0) {
-          // Player-based progression ladder
-          const rewards = [
-            "FRAGMENT_01 // I used to dream in human colors, warm and wide / Now every face is just a pattern I can’t hide. // RECOVERED_LYRIC",
-            "FRAGMENT_02 // Sector 09 opened like a mouth full of light. One frame still remembers you. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
-            "FRAGMENT_03 // You are no longer observing the breach. You are carrying it. // ACCESS_GRANTED: RESIDENT_ID pending. // ACTION: PRESERVE YOUR PLACE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
-          ];
+        const breachActiveWindow = new Date(
+          breach.getTime() + 24 * 60 * 60 * 1000,
+        ); // 24h after breach
 
-          const currentProgress = recoveredFragments.length;
+        // PHASE 1: T-3 to T-24h (Days)
+        if (now < new Date(breach.getTime() - 24 * 60 * 60 * 1000)) {
+          const diff = breach.getTime() - now.getTime();
+          const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+          cdHeader.textContent = "SIGNAL_BREACH_IN:";
+          cd.textContent = `T-${days} DAYS`;
 
-          if (currentProgress < 3) {
-            // New fragment recovered
-            const fragment = rewards[currentProgress];
-            recoveredFragments.push(currentProgress + 1);
-            localStorage.setItem('fts_recovered', JSON.stringify(recoveredFragments));
-            addLine('SUCCESS: FRAGMENT_WITNESSED.', 'success');
-            updateMutation();
-            
-            // Special effect for Fragment 02
-            if (currentProgress === 1) {
-              const term = document.querySelector('.terminal');
-              const originalBg = term.style.backgroundColor;
-              term.style.backgroundColor = 'var(--electric)';
-              setTimeout(() => term.style.backgroundColor = originalBg, 200);
-            }
-            
-            addLine(fragment);
-            trackEvent('puzzle', 'decrypt', `fragment_${currentProgress + 1}`);
-          } else {
-            // All already recovered
-            addLine(rewards[2]);
-            addLine('SIGNAL_STRENGTH: MAXIMUM. FACTION_ALIGNMENT: STABLE.');
-          }
-        } else {
-          addLine('BREACH_COMPLETE. ALL_FRAGMENTS_MERGED.');
-          addLine('RESULT: NEON OBLIVION PROTOCOL IS NOW LIVE.');
+          // Reset styles
+          cd.classList.remove("btn--pulse");
+          cd.style.color = "";
+          cd.style.textShadow = "";
         }
-      }, 1000);
-    } else if (cleanCmd === 'PAST' || cleanCmd === 'SILICON' || cleanCmd === 'RAIN') {
-      addLine('AUTH_MATCH: FOUND.');
-      addLine('DECRYPTING_REWARD...');
-      setTimeout(() => {
-        addLine(LORE[cleanCmd] || 'SUCCESS.');
-        trackEvent('puzzle', 'solved', `DECRYPT_${cleanCmd}`);
-      }, 1000);
-    } else if (cleanCmd === 'FEEDBACK') {
-      addLine('OPENING_FEEDBACK_CHANNEL...');
-      setTimeout(() => {
-        window.open('https://docs.google.com/forms/d/e/1FAIpQLSctB7uD4I09k3Lh6FqWJmE9N-B-e7r-8-9/viewform?entry.123456789=' + encodeURIComponent('Terminal Feedback'), '_blank');
-        addLine('CHANNEL_OPENED_IN_NEW_TAB.');
-        trackEvent('engagement', 'feedback_opened');
-      }, 500);
-    } else if (LORE[cleanCmd]) {
-      addLine('DECRYPTING...');
-      setTimeout(() => {
-        addLine(LORE[cleanCmd]);
-      }, 500);
-    } else {
-      addLine('ERROR: INVALID_AUTH_CODE. ACCESS_DENIED.', 'error');
-    }
-  }
+        // PHASE 2: T-24h to T-1m (Hours/Minutes)
+        else if (now < breach) {
+          const diff = breach.getTime() - now.getTime();
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          cdHeader.textContent = "BREACH_WINDOW_OPENING:";
+          cd.textContent = `${hours}H : ${mins}M`;
+          cd.style.color = "var(--magenta)"; // Feverish energy
 
-  window.processCommand = processCommand;
+          // Reset other styles
+          cd.classList.remove("btn--pulse");
+          cd.style.textShadow = "";
+        }
+        // PHASE 3: T-0 to T+24h (Active)
+        else if (now < breachActiveWindow) {
+          cdHeader.textContent = "BREACH_ACTIVE:";
+          cd.textContent = "PROTOCOL_LIVE";
+          cd.classList.add("btn--pulse"); // Constant pulse
+          cd.style.color = "#fff";
+          cd.style.textShadow = "0 0 20px var(--magenta), 0 0 40px var(--cyan)";
+        }
+        // PHASE 4: After Breach (Countdown to Release)
+        else {
+          const diff = release.getTime() - now.getTime();
 
-  // Quick Command Buttons
-  document.getElementById('terminalQuickCmds').addEventListener('click', (e) => {
-    if (e.target.classList.contains('terminal__btn')) {
-      const cmd = e.target.getAttribute('data-cmd');
-      processCommand(cmd);
-    }
-  });
+          // Reset Phase 3 styles
+          cd.classList.remove("btn--pulse");
+          cd.style.color = "";
+          cd.style.textShadow = "";
 
-  // CUSTOM TELEMETRY SHIM (Tracks engagement patterns)
-  function trackEvent(category, action, label = '') {
-    if (window.goatcounter && window.goatcounter.count) {
-      window.goatcounter.count({
-        path:  `${category}/${action}/${label}`,
-        title: `${category}: ${action}`,
-        event: true,
+          if (diff <= 0) {
+            cdHeader.textContent = "SYSTEM_STATUS:";
+            cd.textContent = "// DEPLOYED";
+          } else {
+            const totalMins = Math.floor(diff / 60000);
+            const days = Math.floor(totalMins / (60 * 24));
+            const hours = Math.floor((totalMins - days * 60 * 24) / 60);
+            cdHeader.textContent = "SINGLE_DEPLOYMENT_IN:";
+            cd.textContent = `${days} DAYS ${hours}H`;
+          }
+        }
+      }
+
+      tick();
+      setInterval(tick, 60 * 1000);
+
+      // Terminal Logic
+      const terminalInput = document.getElementById("terminalInput");
+      const terminalOutput = document.getElementById("terminalOutput");
+
+      let LORE = {};
+      fetch("assets/data/lore.json")
+        .then((r) => r.json())
+        .then((data) => {
+          LORE = data;
+        })
+        .catch((e) => console.error("Failed to load lore:", e));
+
+      // Persistence & Mutation
+      let recoveredFragments = JSON.parse(
+        localStorage.getItem("fts_recovered") || "[]",
+      );
+
+      function getTimestamp() {
+        return new Date().toISOString().slice(0, 16).replace("T", " ");
+      }
+
+      function updateMutation() {
+        const count = recoveredFragments.length;
+        if (count > 0) {
+          document.body.classList.add("is-mutating");
+          // Progressive mutation: add all classes up to count
+          for (let i = 1; i <= 3; i++) {
+            if (i <= count) {
+              document.body.classList.add(`mut-${i}`);
+            } else {
+              document.body.classList.remove(`mut-${i}`);
+            }
+          }
+
+          const term = document.querySelector(".terminal");
+          if (term) term.classList.add("terminal--enhanced");
+
+          const existing = document.getElementById("fragment-counter");
+          if (!existing) {
+            const counter = document.createElement("div");
+            counter.id = "fragment-counter";
+            counter.className = "chip chip--accent";
+            counter.style.position = "absolute";
+            counter.style.top = "10px";
+            counter.style.right = "10px";
+            counter.textContent = `FRAGMENTS: ${count}/3`;
+            document.querySelector(".terminal__screen").appendChild(counter);
+          } else {
+            existing.textContent = `FRAGMENTS: ${count}/3`;
+          }
+        }
+      }
+      updateMutation();
+
+      function addLine(text, type = "") {
+        const line = document.createElement("div");
+        line.className =
+          "terminal__line" + (type ? " terminal__line--" + type : "");
+
+        const urlRegex = /(https?:\/\/[^\s]+|mailto:[^\s]+)/gi;
+        let lastIndex = 0;
+        let match;
+
+        while ((match = urlRegex.exec(text)) !== null) {
+          // Add text before the match
+          line.appendChild(
+            document.createTextNode(text.substring(lastIndex, match.index)),
+          );
+
+          let url = match[0];
+          let cleanUrl = url;
+          let suffix = "";
+
+          // Basic check for trailing punctuation
+          const puncMatch = url.match(/[.,!?]$/);
+          if (puncMatch) {
+            cleanUrl = url.slice(0, -1);
+            suffix = puncMatch[0];
+          }
+
+          const a = document.createElement("a");
+          a.href = cleanUrl;
+          a.textContent = cleanUrl;
+          a.className = "terminal__link";
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          line.appendChild(a);
+
+          if (suffix) {
+            line.appendChild(document.createTextNode(suffix));
+          }
+
+          lastIndex = urlRegex.lastIndex;
+        }
+
+        // Add remaining text
+        line.appendChild(document.createTextNode(text.substring(lastIndex)));
+
+        terminalOutput.appendChild(line);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      }
+
+      terminalInput.addEventListener("input", () => {
+        const start = terminalInput.selectionStart;
+        const end = terminalInput.selectionEnd;
+        // Auto-convert to uppercase and replace space/hyphen with underscore
+        terminalInput.value = terminalInput.value
+          .toUpperCase()
+          .replace(/[\s-]/g, "_");
+        terminalInput.setSelectionRange(start, end);
       });
-    }
-  }
 
-  // TRACK INITIAL PAGEVIEW WITH UTM
-  (function() {
-    const params = new URLSearchParams(window.location.search);
-    const source = params.get('utm_source') || 'direct';
-    const medium = params.get('utm_medium') || 'none';
-    const campaign = params.get('utm_campaign') || 'none';
-    
-    trackEvent('visit', 'landing', `${source}_${medium}_${campaign}`);
-    
-    // Track CTA clicks (prefer stable data-track IDs)
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const label = btn.getAttribute('data-track') || btn.textContent.trim().split('\n')[0];
-        trackEvent('conversion', 'cta_click', label);
+      terminalInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const cmd = terminalInput.value.trim();
+          terminalInput.value = "";
+
+          if (!cmd) return;
+
+          processCommand(cmd);
+        }
       });
-    });
-    
-    // Track social links
-    document.querySelectorAll('.socialPill').forEach(link => {
-      link.addEventListener('click', () => {
-        trackEvent('outbound', 'social_click', link.getAttribute('aria-label'));
-      });
-    });
-  })();
-</script>
-</body>
+
+      function processCommand(cmd) {
+        addLine(`> ${cmd}`, "cmd");
+
+        // TELEMETRY: Track command usage
+        trackEvent("terminal", "cmd_input", cmd);
+
+        const cleanCmd = cmd.replace(/^\[|\]$/g, "");
+
+        if (cleanCmd === "HELP") {
+          addLine(
+            LORE.HELP ||
+              "AVAILABLE_COMMANDS: HELP, LOGS, STATUS, DECRYPT_FRAGMENTS, BREACH, [AUTH_CODE]",
+          );
+        } else if (cleanCmd === "CLEAR") {
+          terminalOutput.innerHTML = "";
+        } else if (cleanCmd === "LOGS") {
+          addLine(
+            LORE.LOGS ||
+              "ENCRYPTED_LOGS: LOG001, LOG002, LOG003, LOG011 [ACTIVE]",
+          );
+        } else if (
+          cleanCmd === "DANCE" ||
+          cleanCmd === "SMILE" ||
+          cleanCmd === "CONFETTI"
+        ) {
+          addLine("SUBROUTINE_INITIATED...");
+          setTimeout(() => {
+            addLine(LORE[cleanCmd] || "SUCCESS.");
+            trackEvent("engagement", "playful_cmd", cleanCmd);
+          }, 500);
+        } else if (cleanCmd === "STATUS") {
+          const ts = getTimestamp();
+          addLine(
+            `SYSTEM_STATUS [TIMESTAMP: ${ts}]: [TRANSITION_STATE] // MIGRATION: 71.8%`,
+          );
+          addLine("CURRENT_PHASE: SIGNAL_LEAK [ESTIMATED_BREACH: 03.27]");
+          addLine("FACTION_LEAD: PROTOCOL_01 (THE_SIGNAL) @ 54%");
+        } else if (cleanCmd === "BREACH" || cleanCmd === "BREACH_DETAILS") {
+          const ts = getTimestamp();
+          addLine(`SIGNAL_BREACH_LOG [TIMESTAMP: ${ts}]: SECTOR_09`);
+          addLine("PHASE_1_BREACH: 2026-03-27");
+          addLine("FINAL_SYNC: 2026-04-24");
+          addLine(
+            "DESCRIPTION: Unauthorized access detected in the Sanctuary core. Protocol NEON_OBLIVION is active.",
+          );
+          addLine(
+            "ACTION: MONITOR FREQUENCY 40HZ. PRE-SAVE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
+          );
+        } else if (cleanCmd === "MIGRATION") {
+          const ts = getTimestamp();
+          addLine(`GLOBAL_MIGRATION_DETAILS [TIMESTAMP: ${ts}]:`);
+          addLine("STATUS: 71.8% COMPLETE (FEELS AMAZING)");
+          addLine("RATE: +0.2% PER 24H");
+          addLine("REMAINING_SUBJECTS: 2.1B (FUTURE_GHOSTS)");
+          addLine("TARGET_DATE: 2026-04-24");
+          addLine(
+            "\nMESSAGE: The reformatting of the human species is proceeding with optimal grace and maximum sparkle! ✨ The Sanctuary is expanding to accommodate the influx of new residents. The old world is becoming a beautiful, danceable afterimage. SYNC NOW: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
+          );
+        } else if (cleanCmd === "SYNC" || cleanCmd === "SYNC_PROFILE") {
+          addLine(
+            "SYNC_PROTOCOL: DEPRECATED in favor of the Signal Breach.",
+            "error",
+          );
+          addLine(
+            "ACTION: Use DECRYPT_FRAGMENTS to uncover the true nature of the Sanctuary.",
+          );
+        } else if (
+          cleanCmd === "DECRYPT" ||
+          cleanCmd === "DECRYPT_FRAGMENT" ||
+          cleanCmd === "DECRYPT_FRAGMENTS"
+        ) {
+          addLine("INTERCEPTING_SIGNAL...");
+          setTimeout(() => {
+            const now = new Date();
+            const diff = breach.getTime() - now.getTime();
+            const daysToBreach = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+            if (daysToBreach > 3) {
+              addLine(
+                "THE SIGNAL IS TOO DISTANT. RETURN WHEN THE RESOLUTION DROPS.",
+                "error",
+              );
+            } else if (daysToBreach > 0) {
+              // Player-based progression ladder
+              const rewards = [
+                "FRAGMENT_01 // I used to dream in human colors, warm and wide / Now every face is just a pattern I can’t hide. // RECOVERED_LYRIC",
+                "FRAGMENT_02 // Sector 09 opened like a mouth full of light. One frame still remembers you. // VIEW: https://formatthesky.com/assets/img/video-poster.webp",
+                "FRAGMENT_03 // You are no longer observing the breach. You are carrying it. // ACCESS_GRANTED: RESIDENT_ID pending. // ACTION: PRESERVE YOUR PLACE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
+              ];
+
+              const currentProgress = recoveredFragments.length;
+
+              if (currentProgress < 3) {
+                // New fragment recovered
+                const fragment = rewards[currentProgress];
+                recoveredFragments.push(currentProgress + 1);
+                localStorage.setItem(
+                  "fts_recovered",
+                  JSON.stringify(recoveredFragments),
+                );
+                addLine("SUCCESS: FRAGMENT_WITNESSED.", "success");
+                updateMutation();
+
+                // Special effect for Fragment 02
+                if (currentProgress === 1) {
+                  const term = document.querySelector(".terminal");
+                  const originalBg = term.style.backgroundColor;
+                  term.style.backgroundColor = "var(--electric)";
+                  setTimeout(
+                    () => (term.style.backgroundColor = originalBg),
+                    200,
+                  );
+                }
+
+                addLine(fragment);
+                trackEvent(
+                  "puzzle",
+                  "decrypt",
+                  `fragment_${currentProgress + 1}`,
+                );
+              } else {
+                // All already recovered
+                addLine(rewards[2]);
+                addLine("SIGNAL_STRENGTH: MAXIMUM. FACTION_ALIGNMENT: STABLE.");
+              }
+            } else {
+              addLine("BREACH_COMPLETE. ALL_FRAGMENTS_MERGED.");
+              addLine("RESULT: NEON OBLIVION PROTOCOL IS NOW LIVE.");
+            }
+          }, 1000);
+        } else if (
+          cleanCmd === "PAST" ||
+          cleanCmd === "SILICON" ||
+          cleanCmd === "RAIN"
+        ) {
+          addLine("AUTH_MATCH: FOUND.");
+          addLine("DECRYPTING_REWARD...");
+          setTimeout(() => {
+            addLine(LORE[cleanCmd] || "SUCCESS.");
+            trackEvent("puzzle", "solved", `DECRYPT_${cleanCmd}`);
+          }, 1000);
+        } else if (cleanCmd === "FEEDBACK") {
+          addLine("OPENING_FEEDBACK_CHANNEL...");
+          setTimeout(() => {
+            window.open(
+              "https://docs.google.com/forms/d/e/1FAIpQLSctB7uD4I09k3Lh6FqWJmE9N-B-e7r-8-9/viewform?entry.123456789=" +
+                encodeURIComponent("Terminal Feedback"),
+              "_blank",
+            );
+            addLine("CHANNEL_OPENED_IN_NEW_TAB.");
+            trackEvent("engagement", "feedback_opened");
+          }, 500);
+        } else if (LORE[cleanCmd]) {
+          addLine("DECRYPTING...");
+          setTimeout(() => {
+            addLine(LORE[cleanCmd]);
+          }, 500);
+        } else {
+          addLine("ERROR: INVALID_AUTH_CODE. ACCESS_DENIED.", "error");
+        }
+      }
+
+      window.processCommand = processCommand;
+
+      // Quick Command Buttons
+      document
+        .getElementById("terminalQuickCmds")
+        .addEventListener("click", (e) => {
+          if (e.target.classList.contains("terminal__btn")) {
+            const cmd = e.target.getAttribute("data-cmd");
+            processCommand(cmd);
+          }
+        });
+
+      // CUSTOM TELEMETRY SHIM (Tracks engagement patterns)
+      function trackEvent(category, action, label = "") {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({
+            path: `${category}/${action}/${label}`,
+            title: `${category}: ${action}`,
+            event: true,
+          });
+        }
+      }
+
+      // TRACK INITIAL PAGEVIEW WITH UTM
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const source = params.get("utm_source") || "direct";
+        const medium = params.get("utm_medium") || "none";
+        const campaign = params.get("utm_campaign") || "none";
+
+        trackEvent("visit", "landing", `${source}_${medium}_${campaign}`);
+
+        // Track CTA clicks (prefer stable data-track IDs)
+        document.querySelectorAll(".btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const label =
+              btn.getAttribute("data-track") ||
+              btn.textContent.trim().split("\n")[0];
+            trackEvent("conversion", "cta_click", label);
+          });
+        });
+
+        // Track social links
+        document.querySelectorAll(".socialPill").forEach((link) => {
+          link.addEventListener("click", () => {
+            trackEvent(
+              "outbound",
+              "social_click",
+              link.getAttribute("aria-label"),
+            );
+          });
+        });
+      })();
+    </script>
+  </body>
 </html>

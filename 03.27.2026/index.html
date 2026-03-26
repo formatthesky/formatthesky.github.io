@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ff3dd4" />
-    <title>SIGNAL BREACH // 03.27.2026</title>
+    <meta name="theme-color" content="#111213" />
+    <title>Neon Oblivion Countdown // 03.27.2026</title>
     <link rel="stylesheet" href="../styles.css" />
     <style>
       body {
-        background: #050410;
-        color: #fff;
+        background: #060606;
+        color: #f5f4ef;
         font-family: var(--mono);
         display: flex;
         flex-direction: column;
@@ -27,7 +27,7 @@
         inset: 0;
         background: radial-gradient(
           circle at center,
-          rgba(255, 61, 212, 0.1) 0%,
+          rgba(242, 201, 76, 0.12) 0%,
           transparent 70%
         );
         z-index: -1;
@@ -39,7 +39,7 @@
         font-weight: 900;
         letter-spacing: 0.1em;
         color: var(--cyan);
-        text-shadow: 0 0 20px var(--cyan);
+        text-shadow: 0 0 20px rgba(255, 248, 228, 0.55);
         margin: 0;
         line-height: 1;
         animation: flicker 0.2s infinite;
@@ -56,10 +56,10 @@
       .countdown-container {
         margin-top: 40px;
         padding: 20px;
-        border: 1px solid rgba(51, 214, 255, 0.3);
-        background: rgba(5, 4, 16, 0.8);
+        border: 1px solid rgba(242, 201, 76, 0.24);
+        background: rgba(12, 12, 12, 0.84);
         backdrop-filter: blur(10px);
-        box-shadow: 0 0 50px rgba(51, 214, 255, 0.1);
+        box-shadow: 0 0 50px rgba(242, 201, 76, 0.1);
         width: 100%;
         max-width: 500px;
       }
@@ -87,7 +87,7 @@
 
       .back-link {
         margin-top: 40px;
-        color: var(--cyan);
+        color: var(--magenta);
         text-decoration: none;
         font-size: 0.9rem;
         opacity: 0.7;
@@ -128,7 +128,7 @@
 
       .terminal-output {
         font-size: 0.7rem;
-        color: var(--cyan);
+        color: rgba(255, 248, 228, 0.8);
         opacity: 0.5;
         max-width: 600px;
         margin-top: 40px;
@@ -147,15 +147,15 @@
       style="display: flex; flex-direction: column; align-items: center"
     >
       <div class="micro" style="color: var(--magenta); margin-bottom: 20px">
-        [ALARM_SECTOR_09] // SIGNAL_BREACH_DETECTED
+        [FORMAT THE SKY] // NEXT CAMPAIGN WINDOW
       </div>
 
       <h1 class="glitch-text">03.27.2026</h1>
-      <div class="sub-text">BREACH_IMMINENT</div>
+      <div class="sub-text">NEON OBLIVION COUNTDOWN</div>
 
       <div class="countdown-container">
         <div id="timer" class="timer">// LOADING...</div>
-        <div class="label">UNTIL_PHASE_1_DEPLOYMENT</div>
+        <div class="label">UNTIL THE NEXT CAMPAIGN HIT</div>
       </div>
 
       <div class="actions">
@@ -163,20 +163,20 @@
           href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
           class="btn btn--primary btn--pulse"
           data-track="pre_save_signal_breach_page"
-          >PRE-SAVE THE SIGNAL</a
+          >PRE-SAVE NEON OBLIVION</a
         >
-        <a href="../#terminal" class="btn btn--ghost">RETURN TO TERMINAL</a>
+        <a href="../#listen" class="btn btn--ghost">HEAR THE BAND</a>
       </div>
 
       <div id="terminal-feed" class="terminal-output">
-        [LOG]: SECTOR_09_PULSE_ESTABLISHED...<br />
-        [LOG]: NEON_OBLIVION_WAVEFORM_IDENTIFIED...<br />
-        [LOG]: MIGRATION_THRESHOLD_AT_71.8%... [TIMESTAMP: 2026-03-24T09:46]<br />
-        [LOG]: PREPARING_CORE_BROADCAST...<br />
-        [LOG]: THE_SIGNAL_IS_THE_ONLY_TRUTH...<br />
+        [NOTE]: The next wave starts on 03.27.2026...<br />
+        [NOTE]: Neon Oblivion arrives in full on 04.24.2026...<br />
+        [NOTE]: Bright hooks. Heavy guitars. White-hot pressure.<br />
+        [NOTE]: Wipe Your Name is already live on Spotify...<br />
+        [NOTE]: Step into the world only if you want the deeper layer.<br />
       </div>
 
-      <a href="../" class="back-link">← CORE COMMAND</a>
+      <a href="../" class="back-link">← Back to Format The Sky</a>
     </div>
 
     <script>
@@ -187,7 +187,7 @@
         const diff = target - now;
 
         if (diff <= 0) {
-          document.getElementById("timer").textContent = "SIGNAL_LIVE";
+          document.getElementById("timer").textContent = "CAMPAIGN LIVE";
           return;
         }
 
@@ -203,17 +203,17 @@
       setInterval(update, 1000);
       update();
 
-      // Terminal feed spam
+      // Ambient feed updates
       const feed = document.getElementById("terminal-feed");
       const logs = [
-        "[ALERT]: High frequency detected.",
-        "[ALERT]: Your pattern is dissolving.",
-        "[ALERT]: The Sanctuary is open.",
-        "[LOG]: Erasing past...",
-        "[LOG]: Formatting sky...",
-        "[LOG]: Signal stable at 40Hz.",
-        "[LOG]: Watch the horizon.",
-        "[BREACH]: Unauthorized data access in Sector 09.",
+        "[UPDATE]: Chorus pressure rising.",
+        "[UPDATE]: White-hot visual world online.",
+        "[UPDATE]: Save the date: 04.24.2026.",
+        "[UPDATE]: Wipe Your Name is live now.",
+        "[UPDATE]: The next hit gets closer.",
+        "[UPDATE]: This world was built to serve the songs.",
+        "[UPDATE]: Watch the skyline change.",
+        "[UPDATE]: Stay in the channel.",
       ];
 
       setInterval(() => {
@@ -235,8 +235,8 @@
       window.addEventListener("load", function () {
         if (window.goatcounter && window.goatcounter.count) {
           window.goatcounter.count({
-            path: "breach_landing",
-            title: "Breach Countdown",
+            path: "neon_oblivion_countdown",
+            title: "Neon Oblivion Countdown",
             event: true,
           });
         }

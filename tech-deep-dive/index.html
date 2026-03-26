@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#05040a" />
+    <meta name="theme-color" content="#111213" />
     <title>Tech Deep-Dive // Format The Sky</title>
     <meta
       name="description"
-      content="Technical breakdown of the AGE Pipeline (Automated Glitch Era) - How we automated the visual identity of Format The Sky."
+      content="Technical breakdown of the AGE Pipeline and how Format The Sky turns songs into short-form visuals with repeatable quality control."
     />
     <link rel="stylesheet" href="../styles.css" />
 
@@ -35,13 +35,13 @@
 
         <div class="status">
           <span class="status__dot"></span>
-          <span class="status__text">AGE_PIPELINE: v1.0.42</span>
+          <span class="status__text">AGE PIPELINE: LIVE</span>
         </div>
 
         <nav class="nav">
-          <a href="../#listen">Release</a>
-          <a href="../#terminal">Terminal</a>
-          <a href="../#sync">Social</a>
+          <a href="../#listen">Music</a>
+          <a href="../#terminal">World</a>
+          <a href="../#watch">Video</a>
         </nav>
       </div>
     </header>
@@ -50,8 +50,8 @@
       <section class="section">
         <div class="wrap">
           <div class="section__head">
-            <h1 class="h2 glitch-hover">TECH_DEEP_DIVE_01: AGE_PIPELINE</h1>
-            <p class="sub">"How we built the end of the world."</p>
+            <h1 class="h2 glitch-hover">TECH DEEP-DIVE: THE AGE PIPELINE</h1>
+            <p class="sub">How the band turns songs into high-energy visual campaigns.</p>
             <div class="cta" style="margin-top: 20px">
               <a
                 class="btn btn--primary"
@@ -65,7 +65,7 @@
                 data-track="enter_terminal_tech_deep_dive"
                 href="../#terminal"
               >
-                RETURN_TO_SYSTEM
+                BACK TO THE BAND
               </a>
             </div>
           </div>
@@ -75,10 +75,9 @@
               <div class="card__body">
                 <h2 class="h3">Background</h2>
                 <p class="body">
-                  Format The Sky is not just a band; it's a living digital
-                  ecosystem. To maintain a consistent, high-frequency presence
-                  on short-form video platforms (TikTok, IG Reels, YT Shorts)
-                  without burning out the human producer, we built the
+                  Format The Sky is a band with a strong visual world. To keep
+                  that world active across TikTok, Reels, and Shorts without
+                  burning out the human production side, we built the
                   <strong>AGE Pipeline</strong> (Automated Glitch Era).
                 </p>
 
@@ -86,7 +85,7 @@
 
                 <div class="grid grid--2" style="margin-top: 30px">
                   <div>
-                    <h3 class="h4">1. Section Inference (The "Pulse")</h3>
+                    <h3 class="h4">1. Section Inference (The Pulse)</h3>
                     <p class="body small">
                       The pipeline starts by analyzing the raw audio of our
                       tracks. We use an LLM-based inference system to identify
@@ -94,9 +93,9 @@
                     </p>
                     <ul class="list">
                       <li>
-                        <strong>Timestamping:</strong> Chorus (Catchy/High
-                        Energy), Verse (Atmospheric/Low Energy), Breakdown
-                        (Intense/Chaotic).
+                        <strong>Timestamping:</strong> Chorus, verse,
+                        breakdown, and other song sections are tagged for
+                        energy, mood, and visual fit.
                       </li>
                       <li>
                         <strong>BPM Sync:</strong> All visual pulses are
@@ -106,7 +105,7 @@
                     </ul>
                   </div>
                   <div>
-                    <h3 class="h4">2. CLIP Indexing (Semantic Discovery)</h3>
+                    <h3 class="h4">2. Clip Indexing (Semantic Discovery)</h3>
                     <p class="body small">
                       We maintain a library of 100+ raw high-quality 4k video
                       clips. These are pre-processed through
@@ -117,8 +116,9 @@
                     </p>
                     <ul class="list">
                       <li>
-                        <strong>Searchable Attributes:</strong> "Neon rain,"
-                        "Cybernetic eye," "Analog glitch," "Chrome textures."
+                        <strong>Searchable Attributes:</strong> "tower
+                        skyline," "performance corridor," "sparks," "chrome
+                        textures," "storm light."
                       </li>
                       <li>
                         <strong>AssetLibrary:</strong> A custom TypeScript class
@@ -130,12 +130,13 @@
                 </div>
 
                 <h3 class="h3" style="margin-top: 40px">
-                  3. SYSTEM_SYNTHESIS: Applying "The Erasure"
+                  3. Visual Synthesis
                 </h3>
                 <p class="body">
-                  This is where the latent space is shaped into our visual
-                  reality. We use <strong>ComfyUI</strong> workflows (via its
-                  API) to apply "The Erasure" aesthetic.
+                  This is where the song becomes a visual sequence. We use
+                  <strong>ComfyUI</strong> workflows (via its API) to generate
+                  start frames, animate fragments, and assemble campaign-ready
+                  clips.
                 </p>
                 <ul class="list">
                   <li>
@@ -144,9 +145,9 @@
                     (ControlNet, IP-Adapter, AnimateDiff).
                   </li>
                   <li>
-                    <strong>Style Injection:</strong> We inject "Format The Sky"
-                    brand elements (magenta/cyan color palettes, CRT scanlines,
-                    glitch displacement) into every frame.
+                    <strong>Style Injection:</strong> We reinforce the band
+                    world with white-hot lighting, yellow energy accents,
+                    chrome depth, and controlled glitch texture where it helps.
                   </li>
                   <li>
                     <strong>Model Orchestration:</strong> We use
@@ -156,12 +157,13 @@
                 </ul>
 
                 <h3 class="h3" style="margin-top: 40px">
-                  4. Hybrid Vision QC (The "Gatekeeper")
+                  4. Hybrid Vision QC
                 </h3>
                 <p class="body">
                   Automation requires accountability. Before any asset is
                   finalized, it must pass a dual-model Quality Control check to
-                  ensure it meets our "Beauty + Threat" brand criteria:
+                  ensure it meets our quality bar for identity, motion, and
+                  postability:
                 </p>
                 <ul class="list">
                   <li>
@@ -169,10 +171,9 @@
                     objective description.
                   </li>
                   <li>
-                    <strong>Qwen 2.5:</strong> Acts as a "Devil's Advocate,"
-                    reviewing the description for static imagery, brand
-                    inconsistency, or technical glitches that don't look
-                    "intentional."
+                    <strong>Qwen 2.5:</strong> Reviews the description for weak
+                    hooks, static imagery, brand drift, or technical glitches
+                    that would make a social post feel cheap.
                   </li>
                 </ul>
 
@@ -180,25 +181,25 @@
                   class="box glitch-hover"
                   style="
                     margin-top: 40px;
-                    background: rgba(51, 214, 255, 0.05);
-                    border: 1px dashed var(--cyan);
+                    background: rgba(242, 201, 76, 0.06);
+                    border: 1px dashed rgba(242, 201, 76, 0.48);
                     padding: 20px;
                     border-radius: 12px;
                   "
                 >
-                  <h3 class="h4" style="color: var(--cyan)">
-                    Join the Erasure
+                  <h3 class="h4" style="color: var(--magenta)">
+                    Build With Us
                   </h3>
                   <p class="body small">
                     If you're a developer or AI artist, we want to hear from
-                    you. The AGE Pipeline is evolving, and we're looking for new
-                    ways to "format the sky."
+                    you. The AGE Pipeline is evolving, and we're always looking
+                    for better ways to turn songs into visual momentum.
                   </p>
                   <a
                     class="btn btn--small btn--primary"
                     data-track="email_contact_tech_deep_dive"
                     href="mailto:hello@formatthesky.com"
-                    >CONTACT_SYSTEM →</a
+                    >CONTACT US →</a
                   >
                 </div>
               </div>
@@ -209,7 +210,7 @@
             class="section__foot"
             style="margin-top: 60px; text-align: center"
           >
-            <a class="btn btn--ghost" href="../#terminal">RETURN_TO_TERMINAL</a>
+            <a class="btn btn--ghost" href="../#terminal">OPEN THE WORLD</a>
           </div>
         </div>
       </section>
@@ -217,7 +218,7 @@
       <footer class="footer">
         <div class="wrap footer__inner">
           <p class="micro muted">
-            © 2026 Format The Sky // THE_SYSTEM_PERSISTS
+            © 2026 Format The Sky // BRIGHT. HEAVY. ALIVE.
           </p>
         </div>
       </footer>

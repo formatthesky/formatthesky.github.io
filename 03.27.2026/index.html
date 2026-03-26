@@ -22,6 +22,10 @@
         padding: 20px;
       }
 
+      .wrap {
+        width: min(100%, 760px);
+      }
+
       .breach-bg {
         position: absolute;
         inset: 0;
@@ -54,7 +58,7 @@
       }
 
       .countdown-container {
-        margin-top: 40px;
+        margin-top: 28px;
         padding: 20px;
         border: 1px solid rgba(242, 201, 76, 0.24);
         background: rgba(12, 12, 12, 0.84);
@@ -62,6 +66,55 @@
         box-shadow: 0 0 50px rgba(242, 201, 76, 0.1);
         width: 100%;
         max-width: 500px;
+      }
+
+      .cover-frame {
+        margin-top: 22px;
+        width: min(240px, 58vw);
+        aspect-ratio: 1 / 1;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(242, 201, 76, 0.3);
+        box-shadow:
+          0 32px 80px rgba(0, 0, 0, 0.6),
+          0 0 40px rgba(242, 201, 76, 0.18);
+      }
+
+      .cover-frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .support-copy {
+        margin-top: 22px;
+        max-width: 620px;
+        color: rgba(245, 244, 239, 0.92);
+        line-height: 1.65;
+      }
+
+      .support-copy strong {
+        color: #fff;
+      }
+
+      .service-pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .service-pill {
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(245, 244, 239, 0.82);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
       .timer {
@@ -77,12 +130,19 @@
       }
 
       .actions {
-        margin-top: 40px;
+        margin-top: 28px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         width: 100%;
         max-width: 400px;
+      }
+
+      .trust-note {
+        color: rgba(245, 244, 239, 0.72);
+        font-size: 0.78rem;
+        line-height: 1.5;
+        margin-top: 2px;
       }
 
       .back-link {
@@ -137,6 +197,23 @@
         height: 100px;
         overflow: hidden;
       }
+
+      @media (max-width: 540px) {
+        body {
+          justify-content: flex-start;
+          overflow-y: auto;
+          padding: 28px 16px 36px;
+        }
+
+        .sub-text {
+          letter-spacing: 0.28em;
+          font-size: 0.95rem;
+        }
+
+        .countdown-container {
+          padding: 16px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -147,15 +224,34 @@
       style="display: flex; flex-direction: column; align-items: center"
     >
       <div class="micro" style="color: var(--magenta); margin-bottom: 20px">
-        [FORMAT THE SKY] // NEXT CAMPAIGN WINDOW
+        [FORMAT THE SKY] // NEW SINGLE PRE-SAVE
       </div>
 
       <h1 class="glitch-text">03.27.2026</h1>
-      <div class="sub-text">NEON OBLIVION COUNTDOWN</div>
+      <div class="sub-text">NEON OBLIVION // PRE-SAVE NOW</div>
+
+      <div class="cover-frame">
+        <img
+          src="../assets/img/cover-neon-oblivion.webp"
+          alt="Neon Oblivion cover art"
+        />
+      </div>
+
+      <div class="support-copy">
+        <strong>New single out April 24, 2026.</strong> Pre-save
+        <strong>Neon Oblivion</strong> now to get it into your library the
+        moment it drops. Bright hooks. Heavy guitars. White-hot pressure.
+      </div>
+
+      <div class="service-pills" aria-label="Supported services">
+        <div class="service-pill">Spotify</div>
+        <div class="service-pill">Apple Music</div>
+        <div class="service-pill">Release: 04.24.2026</div>
+      </div>
 
       <div class="countdown-container">
         <div id="timer" class="timer">// LOADING...</div>
-        <div class="label">UNTIL THE NEXT CAMPAIGN HIT</div>
+        <div class="label">UNTIL THE SIGNAL GOES LIVE</div>
       </div>
 
       <div class="actions">
@@ -163,17 +259,23 @@
           href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
           class="btn btn--primary btn--pulse"
           data-track="pre_save_signal_breach_page"
-          >PRE-SAVE NEON OBLIVION</a
+          target="_blank"
+          rel="noopener noreferrer"
+          >PRE-SAVE ON SPOTIFY + APPLE MUSIC</a
         >
-        <a href="../#listen" class="btn btn--ghost">HEAR THE BAND</a>
+        <div class="trust-note">
+          Opens the official DistroKid HyperFollow page in a new tab.
+        </div>
+        <a href="../#listen" class="btn btn--ghost">HEAR THE BAND FIRST</a>
       </div>
 
       <div id="terminal-feed" class="terminal-output">
-        [NOTE]: The next wave starts on 03.27.2026...<br />
+        [NOTE]: New single pre-save is live now...<br />
         [NOTE]: Neon Oblivion arrives in full on 04.24.2026...<br />
+        [NOTE]: Pre-save supports Spotify and Apple Music...<br />
         [NOTE]: Bright hooks. Heavy guitars. White-hot pressure.<br />
-        [NOTE]: Wipe Your Name is already live on Spotify...<br />
-        [NOTE]: Step into the world only if you want the deeper layer.<br />
+        [NOTE]: Hear Wipe Your Name first if you want the band before the
+        drop.<br />
       </div>
 
       <a href="../" class="back-link">← Back to Format The Sky</a>
@@ -206,13 +308,13 @@
       // Ambient feed updates
       const feed = document.getElementById("terminal-feed");
       const logs = [
-        "[UPDATE]: Chorus pressure rising.",
-        "[UPDATE]: White-hot visual world online.",
+        "[UPDATE]: Pre-save is live now.",
+        "[UPDATE]: Official HyperFollow opens in a new tab.",
         "[UPDATE]: Save the date: 04.24.2026.",
         "[UPDATE]: Wipe Your Name is live now.",
-        "[UPDATE]: The next hit gets closer.",
-        "[UPDATE]: This world was built to serve the songs.",
-        "[UPDATE]: Watch the skyline change.",
+        "[UPDATE]: Bright hooks. Heavy guitars.",
+        "[UPDATE]: This page leads to the single.",
+        "[UPDATE]: Start here, then hear the band.",
         "[UPDATE]: Stay in the channel.",
       ];
 

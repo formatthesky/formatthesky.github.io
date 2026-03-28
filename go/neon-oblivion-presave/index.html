@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#05040a" />
+    <title>Routing to Neon Oblivion Pre-save</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <script
+      data-goatcounter="https://formatthesky.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+  <body>
+    <main
+      class="section section--pane section--euphoria"
+      style="min-height: 100vh; display: flex; align-items: center"
+    >
+      <div class="section__paneBg" aria-hidden="true"></div>
+      <div class="wrap" style="max-width: 760px">
+        <article class="card">
+          <div class="card__body" style="text-align: center">
+            <p class="sub">FORMAT THE SKY // ROUTING</p>
+            <h1 class="h2">Opening the official pre-save page…</h1>
+            <p class="body" style="max-width: 560px; margin: 0 auto 20px">
+              You are being routed to the official DistroKid HyperFollow page
+              for <strong>Neon Oblivion</strong>.
+            </p>
+            <div class="chips" style="justify-content: center">
+              <span class="chip">TRACKED_REDIRECT</span>
+              <span class="chip">NEON_OBLIVION</span>
+              <span class="chip">PRE_SAVE</span>
+            </div>
+            <div
+              class="card__actions"
+              style="justify-content: center; margin-top: 24px"
+            >
+              <a
+                class="btn btn--primary"
+                href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
+                data-track="pre_save_redirect_continue"
+                rel="noopener"
+              >
+                CONTINUE NOW
+                <span class="btn__sub">// OFFICIAL PRE-SAVE</span>
+              </a>
+              <a
+                class="btn btn--ghost btn--small"
+                href="../../#signal-alerts"
+                data-track="signal_alerts_redirect_fallback"
+              >
+                GET THE DROP ALERT
+                <span class="btn__sub">// LOWER-FRICTION OPTION</span>
+              </a>
+            </div>
+            <p class="micro" style="margin-top: 18px; opacity: 0.82">
+              If nothing happens automatically, use the button above.
+            </p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <script>
+      const destination =
+        "https://distrokid.com/hyperfollow/formatthesky/neon-oblivion";
+
+      function trackRedirectView() {
+        if (!window.goatcounter || !window.goatcounter.count) return;
+        window.goatcounter.count({
+          path: "conversion/presave_redirect_view/neon_oblivion",
+          title: "conversion: presave redirect view",
+          event: true,
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        trackRedirectView();
+        window.setTimeout(() => {
+          window.location.replace(destination);
+        }, 900);
+      });
+    </script>
+  </body>
+</html>

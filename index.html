@@ -199,6 +199,17 @@
               release day and helps the song arrive with a stronger first push.
             </p>
 
+            <div class="signalMicroCta">
+              <a
+                class="btn btn--ghost btn--small"
+                data-track="signal_alerts_hero"
+                href="#signal-alerts"
+              >
+                GET THE DROP ALERT
+                <span class="btn__sub">// LOWER-FRICTION OPTION</span>
+              </a>
+            </div>
+
             <div class="platforms platforms--presave" aria-label="Availability">
               <span class="pill pill--static" aria-label="Streaming status">
                 <span class="pill__icon" aria-hidden="true"></span>
@@ -358,6 +369,13 @@
                     href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
                     >RESERVE THE EUPHORIA
                     <span class="btn__sub">// PRE-SAVE</span></a
+                  >
+                  <a
+                    class="btn btn--ghost btn--small"
+                    data-track="signal_alerts_release_card"
+                    href="#signal-alerts"
+                    >GET THE DROP ALERT
+                    <span class="btn__sub">// EMAIL OPTION</span></a
                   >
                 </div>
               </div>
@@ -707,13 +725,21 @@
                     padding-top: 20px;
                   "
                 >
-                  <a
-                    href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
-                    class="btn btn--primary btn--pulse"
-                    data-track="pre_save_about_section"
-                    style="padding: 14px 24px; font-size: 14px"
-                    >PRE-SAVE NEON OBLIVION →</a
-                  >
+                  <div class="card__actions">
+                    <a
+                      href="https://distrokid.com/hyperfollow/formatthesky/neon-oblivion"
+                      class="btn btn--primary btn--pulse"
+                      data-track="pre_save_about_section"
+                      style="padding: 14px 24px; font-size: 14px"
+                      >PRE-SAVE NEON OBLIVION →</a
+                    >
+                    <a
+                      href="#signal-alerts"
+                      class="btn btn--ghost btn--small"
+                      data-track="signal_alerts_about_section"
+                      >GET THE DROP ALERT</a
+                    >
+                  </div>
                 </div>
               </div>
             </article>
@@ -781,6 +807,100 @@
                 "
               >
                 WORLD ICON: WHITE-HOT // BRIGHT // HEAVY
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIGNAL ALERTS -->
+      <section
+        id="signal-alerts"
+        class="section section--pane section--euphoria"
+      >
+        <div class="section__paneBg" aria-hidden="true"></div>
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">SIGNAL ALERTS</h2>
+            <p class="sub">
+              LOWER-FRICTION CAPTURE
+              <span class="muted">// if you're not ready to pre-save</span>
+            </p>
+          </div>
+
+          <div class="grid grid--2">
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">GET THE DROP, NOT THE SPAM</h3>
+                <p class="body">
+                  If you want <strong>Neon Oblivion</strong> when it lands but
+                  do not want the pre-save step right now, get the direct alert
+                  instead.
+                </p>
+                <p class="body">
+                  One release alert. One next-signal update. Then back to the
+                  music.
+                </p>
+                <div class="chips" aria-label="Signal Alerts promises">
+                  <span class="chip">DROP_ALERT</span>
+                  <span class="chip">MUSIC_FIRST</span>
+                  <span class="chip">LOW_FRICTION</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body">
+                <form id="signalAlertsForm" class="signalAlertsForm" novalidate>
+                  <label class="signalAlertsForm__label" for="signalAlertsEmail"
+                    >EMAIL</label
+                  >
+                  <input
+                    id="signalAlertsEmail"
+                    name="email"
+                    class="signalAlertsForm__input"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="company"
+                    class="signalAlertsForm__honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                  />
+                  <p class="signalAlertsForm__note">
+                    Primary path is still pre-save. This is the easier fallback
+                    if you just want the release signal.
+                  </p>
+                  <div class="signalAlertsForm__actions">
+                    <button
+                      class="btn btn--primary"
+                      type="submit"
+                      data-track="signal_alerts_submit"
+                    >
+                      GET THE DROP ALERT
+                      <span class="btn__sub">// EMAIL ME WHEN IT LANDS</span>
+                    </button>
+                    <a
+                      class="btn btn--ghost btn--small"
+                      href="https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm"
+                      data-track="signal_alerts_listen_current_single"
+                    >
+                      START WITH WIPE YOUR NAME
+                    </a>
+                  </div>
+                  <div
+                    id="signalAlertsMessage"
+                    class="signalAlertsForm__message"
+                    role="status"
+                    aria-live="polite"
+                  ></div>
+                </form>
               </div>
             </article>
           </div>
@@ -952,12 +1072,41 @@
       const terminalOutput = document.getElementById("terminalOutput");
 
       let LORE = {};
+      let SITE_CONFIG = {
+        signalAlerts: {
+          mode: "mailto",
+          endpoint: null,
+          method: "POST",
+          notifyEmail: "hello@formatthesky.com",
+          successPrimary:
+            "You're in. We'll send the signal when Neon Oblivion goes live.",
+          successSecondary: "While you wait, start with Wipe Your Name.",
+          handoffPrimary:
+            "Your email app should open with the Signal Alerts request prefilled.",
+          handoffSecondary:
+            "If it doesn't, email hello@formatthesky.com with subject: Signal Alerts",
+          sourceTag: "website_signal_alerts",
+        },
+      };
       fetch("assets/data/lore.json")
         .then((r) => r.json())
         .then((data) => {
           LORE = data;
         })
         .catch((e) => console.error("Failed to load lore:", e));
+      fetch("assets/data/site-config.json")
+        .then((r) => r.json())
+        .then((data) => {
+          SITE_CONFIG = {
+            ...SITE_CONFIG,
+            ...data,
+            signalAlerts: {
+              ...SITE_CONFIG.signalAlerts,
+              ...(data.signalAlerts || {}),
+            },
+          };
+        })
+        .catch((e) => console.error("Failed to load site config:", e));
 
       // Persistence & Mutation
       let recoveredFragments = JSON.parse(
@@ -1303,6 +1452,91 @@
         });
       }
 
+      function setSignalAlertsMessage(message, tone = "default") {
+        const node = document.getElementById("signalAlertsMessage");
+        if (!node) return;
+        node.textContent = message;
+        node.dataset.tone = tone;
+      }
+
+      function bindSignalAlertsForm() {
+        const form = document.getElementById("signalAlertsForm");
+        const emailInput = document.getElementById("signalAlertsEmail");
+        if (!form || !emailInput) return;
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const email = emailInput.value.trim();
+          const honeypot = form.elements.company?.value?.trim?.() || "";
+          if (honeypot) return;
+
+          if (!email || !email.includes("@")) {
+            setSignalAlertsMessage(
+              "Enter a valid email to get the drop alert.",
+              "error",
+            );
+            return;
+          }
+
+          trackEvent("owned_audience", "signup_start", "signal_alerts");
+
+          const config = SITE_CONFIG.signalAlerts || {};
+          const payload = {
+            email,
+            source: config.sourceTag || "website_signal_alerts",
+            page: window.location.pathname,
+            release: "Neon Oblivion",
+            campaign: "The Signal",
+          };
+
+          if (config.endpoint) {
+            try {
+              const response = await fetch(config.endpoint, {
+                method: config.method || "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+              });
+
+              if (!response.ok) {
+                throw new Error(`Endpoint returned ${response.status}`);
+              }
+
+              trackEvent("owned_audience", "signup_success", "signal_alerts");
+              setSignalAlertsMessage(
+                `${config.successPrimary} ${config.successSecondary}`,
+                "success",
+              );
+              form.reset();
+              return;
+            } catch (error) {
+              console.error("Signal Alerts endpoint failed:", error);
+              setSignalAlertsMessage(
+                "Signal Alerts endpoint failed. Falling back to email handoff.",
+                "warning",
+              );
+            }
+          }
+
+          const notifyEmail = config.notifyEmail || "hello@formatthesky.com";
+          const subject = encodeURIComponent("Signal Alerts");
+          const body = encodeURIComponent(
+            `Please add ${email} to Signal Alerts for Neon Oblivion.\n\nSource: ${
+              config.sourceTag || "website_signal_alerts"
+            }\nPage: ${window.location.href}`,
+          );
+
+          trackEvent("owned_audience", "signup_handoff", "signal_alerts");
+          setSignalAlertsMessage(
+            `${config.handoffPrimary} ${config.handoffSecondary}`,
+            "success",
+          );
+          window.location.href = `mailto:${notifyEmail}?subject=${subject}&body=${body}`;
+        });
+      }
+
       // TRACK INITIAL PAGEVIEW WITH UTM
       (function () {
         const params = new URLSearchParams(window.location.search);
@@ -1313,6 +1547,7 @@
         trackEvent("visit", "landing", `${source}_${medium}_${campaign}`);
         bindGoatcounterClickEvents();
         bindTrackedButtonClicks();
+        bindSignalAlertsForm();
 
         // Track social links
         document.querySelectorAll(".socialPill").forEach((link) => {

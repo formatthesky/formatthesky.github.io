@@ -1,0 +1,13 @@
+{
+  "signalAlerts": {
+    "mode": "mailto",
+    "endpoint": null,
+    "method": "POST",
+    "notifyEmail": "hello@formatthesky.com",
+    "successPrimary": "You're in. We'll send the signal when Neon Oblivion goes live.",
+    "successSecondary": "While you wait, start with Wipe Your Name.",
+    "handoffPrimary": "Your email app should open with the Signal Alerts request prefilled.",
+    "handoffSecondary": "If it doesn't, email hello@formatthesky.com with subject: Signal Alerts",
+    "sourceTag": "website_signal_alerts"
+  }
+}

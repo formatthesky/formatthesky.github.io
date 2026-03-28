@@ -68,20 +68,46 @@
         "https://distrokid.com/hyperfollow/formatthesky/neon-oblivion";
 
       function trackRedirectView() {
-        if (!window.goatcounter || !window.goatcounter.count) return;
+        if (!window.goatcounter || !window.goatcounter.count) return false;
         window.goatcounter.count({
           path: "conversion/presave_redirect_view/neon_oblivion",
           title: "conversion: presave redirect view",
           event: true,
         });
+        return true;
       }
 
-      window.addEventListener("DOMContentLoaded", () => {
-        trackRedirectView();
-        window.setTimeout(() => {
-          window.location.replace(destination);
-        }, 900);
-      });
+      function redirectNow() {
+        window.location.replace(destination);
+      }
+
+      function startRedirectFlow() {
+        const startedAt = Date.now();
+        const maxWaitMs = 1800;
+        const postTrackDelayMs = 250;
+
+        const interval = window.setInterval(() => {
+          const tracked = trackRedirectView();
+          if (tracked) {
+            window.clearInterval(interval);
+            window.setTimeout(redirectNow, postTrackDelayMs);
+            return;
+          }
+
+          if (Date.now() - startedAt >= maxWaitMs) {
+            window.clearInterval(interval);
+            redirectNow();
+          }
+        }, 100);
+      }
+
+      if (document.readyState === "loading") {
+        window.addEventListener("DOMContentLoaded", startRedirectFlow, {
+          once: true,
+        });
+      } else {
+        startRedirectFlow();
+      }
     </script>
   </body>
 </html>

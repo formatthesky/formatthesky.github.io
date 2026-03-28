@@ -266,7 +266,12 @@
         <div class="trust-note">
           Opens the official DistroKid HyperFollow page in a new tab.
         </div>
-        <a href="../#listen" class="btn btn--ghost">HEAR THE BAND FIRST</a>
+        <a
+          href="../#listen"
+          class="btn btn--ghost"
+          data-track="hear_band_signal_breach_page"
+          >HEAR THE BAND FIRST</a
+        >
       </div>
 
       <div id="terminal-feed" class="terminal-output">
@@ -334,7 +339,25 @@
       src="//gc.zgo.at/count.js"
     ></script>
     <script>
+      function bindGoatcounterClickEvents() {
+        if (!window.goatcounter || !window.goatcounter.bind_events) return;
+
+        document.querySelectorAll("[data-track]").forEach((element) => {
+          const trackId = element.getAttribute("data-track");
+          if (!trackId) return;
+
+          element.setAttribute("data-goatcounter-click", `click_${trackId}`);
+          element.setAttribute(
+            "data-goatcounter-title",
+            `Click: ${trackId.replaceAll("_", " ")}`,
+          );
+        });
+
+        window.goatcounter.bind_events();
+      }
+
       window.addEventListener("load", function () {
+        bindGoatcounterClickEvents();
         if (window.goatcounter && window.goatcounter.count) {
           window.goatcounter.count({
             path: "neon_oblivion_countdown",

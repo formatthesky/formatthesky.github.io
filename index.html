@@ -22,13 +22,7 @@
       async
       src="//gc.zgo.at/count.js"
     ></script>
-  
-  
-
-  
-
-  
-</head>
+  </head>
 
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -167,9 +161,7 @@
                   gap: 15px;
                 "
               >
-                <span style="color: var(--magenta)"
-                  >CAMPAIGN: 2026-03-27</span
-                >
+                <span style="color: var(--magenta)">CAMPAIGN: 2026-03-27</span>
                 <span>SINGLE: 2026-04-24 (RELEASE)</span>
               </div>
             </div>
@@ -275,12 +267,16 @@
               <div class="terminal__output" id="terminalOutput">
                 <div class="terminal__line">READY: MUSIC FIRST</div>
                 <div class="terminal__line">WORLD: OPTIONAL, BUT OPEN</div>
-                <div class="terminal__line">STATUS: THE STORY STARTS AFTER THE HOOK</div>
+                <div class="terminal__line">
+                  STATUS: THE STORY STARTS AFTER THE HOOK
+                </div>
                 <div class="terminal__line accent">
-                  ACTION: Use 'DECRYPT' if you want to open the archive fragments.
+                  ACTION: Use 'DECRYPT' if you want to open the archive
+                  fragments.
                 </div>
                 <div class="terminal__line muted">
-                  The songs stand on their own. This section is just the deeper layer.
+                  The songs stand on their own. This section is just the deeper
+                  layer.
                 </div>
               </div>
               <div class="terminal__input-line">
@@ -435,7 +431,8 @@
           <div class="section__head">
             <h2 class="h2">WATCH THE BAND WORLD</h2>
             <p class="sub">
-              HIGH-ENERGY VISUALS <span class="muted">// latest drops live</span>
+              HIGH-ENERGY VISUALS
+              <span class="muted">// latest drops live</span>
             </p>
           </div>
 
@@ -451,7 +448,7 @@
                   border-radius: 12px;
                   overflow: hidden;
                   border: 1px solid rgba(242, 201, 76, 0.24);
-                  box-shadow: 0 0 40px rgba(242, 201, 76, 0.10);
+                  box-shadow: 0 0 40px rgba(242, 201, 76, 0.1);
                 "
               >
                 <picture style="position: absolute; inset: 0; z-index: 0">
@@ -796,7 +793,9 @@
         <div class="wrap">
           <div class="section__head">
             <h2 class="h2">CONTACT</h2>
-            <p class="sub">Booking // press // licensing // creative inquiries</p>
+            <p class="sub">
+              Booking // press // licensing // creative inquiries
+            </p>
           </div>
 
           <div class="card">
@@ -842,7 +841,8 @@
         <div class="wrap footer__inner">
           <div class="footer__brand">
             <p class="micro muted">
-              © <span id="year">2026</span> Format The Sky // BRIGHT. HEAVY. ALIVE.
+              © <span id="year">2026</span> Format The Sky // BRIGHT. HEAVY.
+              ALIVE.
             </p>
           </div>
           <div class="footer__links">
@@ -919,7 +919,8 @@
           cd.textContent = "MOMENT ACTIVE";
           cd.classList.add("btn--pulse"); // Constant pulse
           cd.style.color = "#fff";
-          cd.style.textShadow = "0 0 20px var(--magenta), 0 0 40px rgba(255, 248, 228, 0.4)";
+          cd.style.textShadow =
+            "0 0 20px var(--magenta), 0 0 40px rgba(255, 248, 228, 0.4)";
         }
         // PHASE 4: After Breach (Countdown to Release)
         else {
@@ -1128,13 +1129,8 @@
             "\nMESSAGE: The goal is simple: make songs people want to replay, then give them a world worth stepping into. PRE-SAVE: https://distrokid.com/hyperfollow/formatthesky/neon-oblivion",
           );
         } else if (cleanCmd === "SYNC" || cleanCmd === "SYNC_PROFILE") {
-          addLine(
-            "SYNC_PROFILE: RETIRED.",
-            "error",
-          );
-          addLine(
-            "ACTION: Use DECRYPT to open the world fragments instead.",
-          );
+          addLine("SYNC_PROFILE: RETIRED.", "error");
+          addLine("ACTION: Use DECRYPT to open the world fragments instead.");
         } else if (
           cleanCmd === "DECRYPT" ||
           cleanCmd === "DECRYPT_FRAGMENT" ||
@@ -1254,6 +1250,35 @@
         }
       }
 
+      function bindGoatcounterClickEvents() {
+        if (!window.goatcounter || !window.goatcounter.bind_events) return;
+
+        document.querySelectorAll("[data-track]").forEach((element) => {
+          const trackId = element.getAttribute("data-track");
+          if (!trackId) return;
+
+          element.setAttribute("data-goatcounter-click", `click_${trackId}`);
+          element.setAttribute(
+            "data-goatcounter-title",
+            `Click: ${trackId.replaceAll("_", " ")}`,
+          );
+        });
+
+        document.querySelectorAll(".socialPill[aria-label]").forEach((link) => {
+          const label = link
+            .getAttribute("aria-label")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "_")
+            .replace(/^_+|_+$/g, "");
+          if (!label) return;
+
+          link.setAttribute("data-goatcounter-click", `social_click_${label}`);
+          link.setAttribute("data-goatcounter-title", `Social click: ${label}`);
+        });
+
+        window.goatcounter.bind_events();
+      }
+
       // TRACK INITIAL PAGEVIEW WITH UTM
       (function () {
         const params = new URLSearchParams(window.location.search);
@@ -1262,16 +1287,7 @@
         const campaign = params.get("utm_campaign") || "none";
 
         trackEvent("visit", "landing", `${source}_${medium}_${campaign}`);
-
-        // Track CTA clicks (prefer stable data-track IDs)
-        document.querySelectorAll(".btn").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const label =
-              btn.getAttribute("data-track") ||
-              btn.textContent.trim().split("\n")[0];
-            trackEvent("conversion", "cta_click", label);
-          });
-        });
+        bindGoatcounterClickEvents();
 
         // Track social links
         document.querySelectorAll(".socialPill").forEach((link) => {

@@ -1279,6 +1279,30 @@
         window.goatcounter.bind_events();
       }
 
+      function bindTrackedButtonClicks() {
+        document.querySelectorAll(".btn[data-track]").forEach((btn) => {
+          btn.addEventListener("click", (event) => {
+            const trackId = btn.getAttribute("data-track");
+            if (!trackId) return;
+
+            trackEvent("conversion", "cta_click", trackId);
+
+            const href = btn.getAttribute("href");
+            if (!href || href.startsWith("#") || href.startsWith("mailto:"))
+              return;
+            if (btn.getAttribute("target") === "_blank") return;
+
+            const destination = new URL(href, window.location.href);
+            if (destination.origin === window.location.origin) return;
+
+            event.preventDefault();
+            window.setTimeout(() => {
+              window.location.href = destination.toString();
+            }, 180);
+          });
+        });
+      }
+
       // TRACK INITIAL PAGEVIEW WITH UTM
       (function () {
         const params = new URLSearchParams(window.location.search);
@@ -1288,6 +1312,7 @@
 
         trackEvent("visit", "landing", `${source}_${medium}_${campaign}`);
         bindGoatcounterClickEvents();
+        bindTrackedButtonClicks();
 
         // Track social links
         document.querySelectorAll(".socialPill").forEach((link) => {

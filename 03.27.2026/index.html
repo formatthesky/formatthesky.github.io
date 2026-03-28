@@ -356,8 +356,25 @@
         window.goatcounter.bind_events();
       }
 
+      function bindTrackedButtonClicks() {
+        document.querySelectorAll(".btn[data-track]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const trackId = btn.getAttribute("data-track");
+            if (!trackId || !window.goatcounter || !window.goatcounter.count)
+              return;
+
+            window.goatcounter.count({
+              path: `conversion/cta_click/${trackId}`,
+              title: `conversion: cta_click`,
+              event: true,
+            });
+          });
+        });
+      }
+
       window.addEventListener("load", function () {
         bindGoatcounterClickEvents();
+        bindTrackedButtonClicks();
         if (window.goatcounter && window.goatcounter.count) {
           window.goatcounter.count({
             path: "neon_oblivion_countdown",

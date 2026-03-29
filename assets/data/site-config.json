@@ -1,7 +1,9 @@
 {
   "signalAlerts": {
-    "mode": "mailto",
-    "endpoint": null,
+    "mode": "endpoint",
+    "provider": "cloudflare_worker_kv",
+    "endpoint": "https://format-the-sky-signal-alerts.formatthesky.workers.dev/subscribe",
+    "healthUrl": "https://format-the-sky-signal-alerts.formatthesky.workers.dev/health",
     "method": "POST",
     "bodyFormat": "json",
     "headers": {},

@@ -845,7 +845,14 @@
                   <span class="chip">DROP_ALERT</span>
                   <span class="chip">MUSIC_FIRST</span>
                   <span class="chip">LOW_FRICTION</span>
+                  <span class="chip" id="signalAlertsModeChip">
+                    EMAIL_HANDOFF_ACTIVE
+                  </span>
                 </div>
+                <p class="micro muted" id="signalAlertsModeNote">
+                  Signal Alerts is currently in quick email handoff mode until a
+                  direct capture endpoint is connected.
+                </p>
               </div>
             </article>
 
@@ -877,16 +884,23 @@
                     Primary path is still pre-save. This is the easier fallback
                     if you just want the release signal.
                   </p>
+                  <p class="signalAlertsForm__privacy" id="signalAlertsPrivacy">
+                    One release alert. One next-signal update. No spam.
+                  </p>
                   <div class="signalAlertsForm__actions">
                     <button
+                      id="signalAlertsSubmitButton"
                       class="btn btn--primary"
                       type="submit"
                       data-track="signal_alerts_submit"
                     >
                       GET THE DROP ALERT
-                      <span class="btn__sub">// EMAIL ME WHEN IT LANDS</span>
+                      <span class="btn__sub" id="signalAlertsSubmitSubcopy"
+                        >// EMAIL ME WHEN IT LANDS</span
+                      >
                     </button>
                     <a
+                      id="signalAlertsListenLink"
                       class="btn btn--ghost btn--small"
                       href="https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm"
                       data-track="signal_alerts_listen_current_single"
@@ -1077,14 +1091,19 @@
           mode: "mailto",
           endpoint: null,
           method: "POST",
+          bodyFormat: "json",
+          headers: {},
+          staticFields: {},
           notifyEmail: "hello@formatthesky.com",
           successPrimary:
             "You're in. We'll send the signal when Neon Oblivion goes live.",
           successSecondary: "While you wait, start with Wipe Your Name.",
           handoffPrimary:
-            "Your email app should open with the Signal Alerts request prefilled.",
+            "Signal Alerts is still in quick email handoff mode.",
           handoffSecondary:
-            "If it doesn't, email hello@formatthesky.com with subject: Signal Alerts",
+            "Use the email link below if you want the drop alert right now.",
+          privacyLine: "One release alert. One next-signal update. No spam.",
+          listenUrl: "https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm",
           sourceTag: "website_signal_alerts",
         },
       };
@@ -1455,14 +1474,148 @@
       function setSignalAlertsMessage(message, tone = "default") {
         const node = document.getElementById("signalAlertsMessage");
         if (!node) return;
-        node.textContent = message;
+        node.innerHTML = message;
         node.dataset.tone = tone;
+      }
+
+      const signalAlertsState = {
+        completed: false,
+        viewTracked: false,
+      };
+
+      function getSignalAlertsConfig() {
+        return SITE_CONFIG.signalAlerts || {};
+      }
+
+      function signalAlertsHasEndpoint(config) {
+        return Boolean(config && config.endpoint);
+      }
+
+      function renderSignalAlertsMode() {
+        const config = getSignalAlertsConfig();
+        const hasEndpoint = signalAlertsHasEndpoint(config);
+        const modeChip = document.getElementById("signalAlertsModeChip");
+        const modeNote = document.getElementById("signalAlertsModeNote");
+        const privacy = document.getElementById("signalAlertsPrivacy");
+        const submitSubcopy = document.getElementById("signalAlertsSubmitSubcopy");
+
+        if (modeChip) {
+          modeChip.textContent = hasEndpoint
+            ? "DIRECT_CAPTURE_READY"
+            : "EMAIL_HANDOFF_ACTIVE";
+        }
+
+        if (modeNote) {
+          modeNote.textContent = hasEndpoint
+            ? "Direct capture is active. Use the fallback if pre-save feels like too much friction right now."
+            : "Signal Alerts is still in quick email handoff mode until a direct capture endpoint is connected.";
+        }
+
+        if (privacy) {
+          privacy.textContent =
+            config.privacyLine ||
+            "One release alert. One next-signal update. No spam.";
+        }
+
+        if (submitSubcopy) {
+          submitSubcopy.textContent = hasEndpoint
+            ? "// JOIN THE ALERT LIST"
+            : "// OPEN EMAIL HANDOFF";
+        }
+      }
+
+      function trackSignalAlertsView() {
+        if (signalAlertsState.viewTracked) return;
+        signalAlertsState.viewTracked = true;
+        trackEvent("owned_audience", "signup_view", "signal_alerts");
+      }
+
+      function bindSignalAlertsViewTracking() {
+        const section = document.getElementById("signal-alerts");
+        if (!section) return;
+
+        if (!("IntersectionObserver" in window)) {
+          trackSignalAlertsView();
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const entry = entries.find((item) => item.isIntersecting);
+            if (!entry) return;
+            trackSignalAlertsView();
+            observer.disconnect();
+          },
+          {
+            threshold: 0.35,
+          },
+        );
+
+        observer.observe(section);
+      }
+
+      function bindSignalAlertsListenTracking() {
+        const link = document.getElementById("signalAlertsListenLink");
+        if (!link) return;
+
+        link.addEventListener("click", () => {
+          if (!signalAlertsState.completed) return;
+          trackEvent("owned_audience", "listen_after_signup", "signal_alerts");
+        });
+      }
+
+      function buildSignalAlertsMailtoUrl(config, email) {
+        const notifyEmail = config.notifyEmail || "hello@formatthesky.com";
+        const subject = encodeURIComponent("Signal Alerts");
+        const body = encodeURIComponent(
+          `Please add ${email} to Signal Alerts for Neon Oblivion.\n\nSource: ${
+            config.sourceTag || "website_signal_alerts"
+          }\nPage: ${window.location.href}`,
+        );
+
+        return `mailto:${notifyEmail}?subject=${subject}&body=${body}`;
+      }
+
+      function buildSignalAlertsRequest(config, payload) {
+        const staticFields = config.staticFields || {};
+        const finalPayload = {
+          ...payload,
+          ...staticFields,
+        };
+
+        const headers = {
+          ...(config.headers || {}),
+        };
+
+        if ((config.bodyFormat || "json") === "form") {
+          return {
+            method: config.method || "POST",
+            headers,
+            body: new URLSearchParams(
+              Object.entries(finalPayload).reduce((acc, [key, value]) => {
+                if (value == null) return acc;
+                acc[key] = String(value);
+                return acc;
+              }, {}),
+            ),
+          };
+        }
+
+        return {
+          method: config.method || "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...headers,
+          },
+          body: JSON.stringify(finalPayload),
+        };
       }
 
       function bindSignalAlertsForm() {
         const form = document.getElementById("signalAlertsForm");
         const emailInput = document.getElementById("signalAlertsEmail");
-        if (!form || !emailInput) return;
+        const submitButton = document.getElementById("signalAlertsSubmitButton");
+        if (!form || !emailInput || !submitButton) return;
 
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
@@ -1492,24 +1645,39 @@
 
           if (config.endpoint) {
             try {
-              const response = await fetch(config.endpoint, {
-                method: config.method || "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
-              });
+              submitButton.setAttribute("disabled", "true");
+
+              const response = await fetch(
+                config.endpoint,
+                buildSignalAlertsRequest(config, payload),
+              );
 
               if (!response.ok) {
                 throw new Error(`Endpoint returned ${response.status}`);
               }
 
+              signalAlertsState.completed = true;
               trackEvent("owned_audience", "signup_success", "signal_alerts");
               setSignalAlertsMessage(
-                `${config.successPrimary} ${config.successSecondary}`,
+                `${config.successPrimary} ${config.successSecondary} <a class="link" href="${
+                  config.listenUrl ||
+                  "https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm"
+                }" id="signalAlertsSuccessListenLink">Start with Wipe Your Name.</a>`,
                 "success",
               );
               form.reset();
+              const successListenLink = document.getElementById(
+                "signalAlertsSuccessListenLink",
+              );
+              if (successListenLink) {
+                successListenLink.addEventListener("click", () => {
+                  trackEvent(
+                    "owned_audience",
+                    "listen_after_signup",
+                    "signal_alerts",
+                  );
+                });
+              }
               return;
             } catch (error) {
               console.error("Signal Alerts endpoint failed:", error);
@@ -1517,23 +1685,18 @@
                 "Signal Alerts endpoint failed. Falling back to email handoff.",
                 "warning",
               );
+            } finally {
+              submitButton.removeAttribute("disabled");
             }
           }
 
-          const notifyEmail = config.notifyEmail || "hello@formatthesky.com";
-          const subject = encodeURIComponent("Signal Alerts");
-          const body = encodeURIComponent(
-            `Please add ${email} to Signal Alerts for Neon Oblivion.\n\nSource: ${
-              config.sourceTag || "website_signal_alerts"
-            }\nPage: ${window.location.href}`,
-          );
-
           trackEvent("owned_audience", "signup_handoff", "signal_alerts");
+          signalAlertsState.completed = true;
+          const mailtoUrl = buildSignalAlertsMailtoUrl(config, email);
           setSignalAlertsMessage(
-            `${config.handoffPrimary} ${config.handoffSecondary}`,
+            `${config.handoffPrimary} ${config.handoffSecondary} <a class="link" href="${mailtoUrl}">Email hello@formatthesky.com now.</a>`,
             "success",
           );
-          window.location.href = `mailto:${notifyEmail}?subject=${subject}&body=${body}`;
         });
       }
 
@@ -1547,6 +1710,9 @@
         trackEvent("visit", "landing", `${source}_${medium}_${campaign}`);
         bindGoatcounterClickEvents();
         bindTrackedButtonClicks();
+        renderSignalAlertsMode();
+        bindSignalAlertsViewTracking();
+        bindSignalAlertsListenTracking();
         bindSignalAlertsForm();
 
         // Track social links

@@ -3,11 +3,16 @@
     "mode": "mailto",
     "endpoint": null,
     "method": "POST",
+    "bodyFormat": "json",
+    "headers": {},
+    "staticFields": {},
     "notifyEmail": "hello@formatthesky.com",
     "successPrimary": "You're in. We'll send the signal when Neon Oblivion goes live.",
     "successSecondary": "While you wait, start with Wipe Your Name.",
-    "handoffPrimary": "Your email app should open with the Signal Alerts request prefilled.",
-    "handoffSecondary": "If it doesn't, email hello@formatthesky.com with subject: Signal Alerts",
+    "handoffPrimary": "Signal Alerts is still in quick email handoff mode.",
+    "handoffSecondary": "Use the email link below if you want the drop alert right now.",
+    "privacyLine": "One release alert. One next-signal update. No spam.",
+    "listenUrl": "https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm",
     "sourceTag": "website_signal_alerts"
   }
 }

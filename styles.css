@@ -912,10 +912,6 @@ a {
   }
 }
 
-.signalMicroCta {
-  margin-top: 16px;
-}
-
 .signalAlertsForm {
   display: grid;
   gap: 14px;
@@ -996,6 +992,27 @@ a {
 
 .signalAlertsForm__message[data-tone="error"] {
   color: #ffb4a7;
+}
+
+.conversionNote {
+  margin-top: 14px;
+  margin-bottom: 0;
+  max-width: 52ch;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.conversionNote a {
+  color: rgba(255, 248, 228, 0.96);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.conversionNote--hero {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* SECTIONS */

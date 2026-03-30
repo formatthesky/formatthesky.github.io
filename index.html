@@ -177,11 +177,11 @@
               </a>
               <a
                 class="btn btn--ghost"
-                data-track="hear_the_band_hero"
-                href="#listen"
+                data-track="signal_alerts_hero"
+                href="#signal-alerts"
               >
-                HEAR THE BAND
-                <span class="btn__sub">// START WITH WIPE YOUR NAME</span>
+                GET THE DROP ALERT
+                <span class="btn__sub">// IF PRE-SAVE FEELS LIKE TOO MUCH ASK</span>
               </a>
             </div>
 
@@ -198,17 +198,13 @@
               Pre-save adds <strong>Neon Oblivion</strong> to your library on
               release day and helps the song arrive with a stronger first push.
             </p>
-
-            <div class="signalMicroCta">
-              <a
-                class="btn btn--ghost btn--small"
-                data-track="signal_alerts_hero"
-                href="#signal-alerts"
+            <p class="micro muted conversionNote conversionNote--hero">
+              New here?
+              <a class="link" data-track="hear_the_band_hero" href="#listen"
+                >Start with Wipe Your Name</a
               >
-                GET THE DROP ALERT
-                <span class="btn__sub">// LOWER-FRICTION OPTION</span>
-              </a>
-            </div>
+              before you decide.
+            </p>
 
             <div class="platforms platforms--presave" aria-label="Availability">
               <span class="pill pill--static" aria-label="Streaming status">
@@ -367,17 +363,19 @@
                     class="btn btn--primary btn--pulse"
                     data-track="pre_save_release_card"
                     href="/go/neon-oblivion-presave/"
-                    >RESERVE THE EUPHORIA
-                    <span class="btn__sub">// PRE-SAVE</span></a
-                  >
-                  <a
-                    class="btn btn--ghost btn--small"
-                    data-track="signal_alerts_release_card"
-                    href="#signal-alerts"
-                    >GET THE DROP ALERT
-                    <span class="btn__sub">// EMAIL OPTION</span></a
+                    >PRE-SAVE NEON OBLIVION
+                    <span class="btn__sub">// ADD IT ON RELEASE DAY</span></a
                   >
                 </div>
+                <p class="micro muted conversionNote">
+                  If you want the drop without the extra step, use
+                  <a
+                    class="link"
+                    data-track="signal_alerts_release_card"
+                    href="#signal-alerts"
+                    >Signal Alerts instead</a
+                  >.
+                </p>
               </div>
             </article>
 
@@ -733,13 +731,16 @@
                       style="padding: 14px 24px; font-size: 14px"
                       >PRE-SAVE NEON OBLIVION →</a
                     >
-                    <a
-                      href="#signal-alerts"
-                      class="btn btn--ghost btn--small"
-                      data-track="signal_alerts_about_section"
-                      >GET THE DROP ALERT</a
-                    >
                   </div>
+                  <p class="micro muted conversionNote">
+                    Too much ask right now?
+                    <a
+                      class="link"
+                      data-track="signal_alerts_about_section"
+                      href="#signal-alerts"
+                      >Get the release alert instead</a
+                    >.
+                  </p>
                 </div>
               </div>
             </article>
@@ -823,35 +824,37 @@
           <div class="section__head">
             <h2 class="h2">SIGNAL ALERTS</h2>
             <p class="sub">
-              LOWER-FRICTION CAPTURE
-              <span class="muted">// if you're not ready to pre-save</span>
+              RELEASE ALERT FALLBACK
+              <span class="muted"
+                >// for people who want the drop without the extra step</span
+              >
             </p>
           </div>
 
           <div class="grid grid--2">
             <article class="card">
               <div class="card__body">
-                <h3 class="h3">GET THE DROP, NOT THE SPAM</h3>
+                <h3 class="h3">LOWER THE ASK, KEEP THE INTENT</h3>
                 <p class="body">
                   If you want <strong>Neon Oblivion</strong> when it lands but
-                  do not want the pre-save step right now, get the direct alert
-                  instead.
+                  do not want to commit through a pre-save flow yet, get the
+                  direct release alert instead.
                 </p>
                 <p class="body">
-                  One release alert. One next-signal update. Then back to the
-                  music.
+                  One email field. One release alert. One next-signal update.
+                  Then back to the music.
                 </p>
                 <div class="chips" aria-label="Signal Alerts promises">
                   <span class="chip">DROP_ALERT</span>
                   <span class="chip">MUSIC_FIRST</span>
                   <span class="chip">LOW_FRICTION</span>
                   <span class="chip" id="signalAlertsModeChip">
-                    EMAIL_HANDOFF_ACTIVE
+                    DIRECT_CAPTURE_READY
                   </span>
                 </div>
                 <p class="micro muted" id="signalAlertsModeNote">
-                  Signal Alerts is currently in quick email handoff mode until a
-                  direct capture endpoint is connected.
+                  Direct capture is active. Use this when pre-save feels like
+                  too much friction right now.
                 </p>
               </div>
             </article>
@@ -881,8 +884,8 @@
                     aria-hidden="true"
                   />
                   <p class="signalAlertsForm__note">
-                    Primary path is still pre-save. This is the easier fallback
-                    if you just want the release signal.
+                    Use this when you want the release alert without leaving the
+                    page for a pre-save flow.
                   </p>
                   <p class="signalAlertsForm__privacy" id="signalAlertsPrivacy">
                     One release alert. One next-signal update. No spam.

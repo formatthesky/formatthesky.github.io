@@ -11,8 +11,8 @@
     "notifyEmail": "hello@formatthesky.com",
     "successPrimary": "You're in. We'll send the signal when Neon Oblivion goes live.",
     "successSecondary": "While you wait, start with Wipe Your Name.",
-    "handoffPrimary": "Signal Alerts is still in quick email handoff mode.",
-    "handoffSecondary": "Use the email link below if you want the drop alert right now.",
+    "handoffPrimary": "Direct capture is temporarily unavailable.",
+    "handoffSecondary": "Use the email fallback below if you still want the drop alert right now.",
     "privacyLine": "One release alert. One next-signal update. No spam.",
     "listenUrl": "https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm",
     "sourceTag": "website_signal_alerts"

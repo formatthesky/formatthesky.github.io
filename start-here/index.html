@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#05040a" />
+    <title>Start Here | Format The Sky</title>
+    <meta
+      name="description"
+      content="Start here if you found Format The Sky through a Short: hear the project in plain language, pre-save Neon Oblivion, or get the drop alert."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      href="../assets/favicon/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <script
+      data-goatcounter="https://formatthesky.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+    <style>
+      .startHereHero {
+        padding-top: clamp(88px, 12vw, 132px);
+      }
+
+      .startHereGrid {
+        display: grid;
+        gap: 24px;
+      }
+
+      .startHereHero__layout {
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+      }
+
+      .startHereHero__copy {
+        max-width: 720px;
+      }
+
+      .startHereEyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+        color: var(--magenta);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .startHereEyebrow::before {
+        content: "";
+        width: 42px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(242, 201, 76, 0),
+          rgba(242, 201, 76, 0.9)
+        );
+      }
+
+      .startHereTitle {
+        margin: 0;
+        max-width: 12ch;
+        font-size: clamp(42px, 8.2vw, 88px);
+        line-height: 0.94;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+      }
+
+      .startHereLead {
+        margin: 22px 0 0;
+        max-width: 60ch;
+        font-size: clamp(18px, 1.8vw, 22px);
+        color: rgba(245, 244, 239, 0.9);
+      }
+
+      .startHereDetail {
+        margin: 18px 0 0;
+        max-width: 58ch;
+      }
+
+      .startHereActions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .startHereProof {
+        overflow: hidden;
+      }
+
+      .startHereProof__media {
+        position: relative;
+        aspect-ratio: 4 / 5;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(242, 201, 76, 0.1),
+            rgba(0, 0, 0, 0.4)
+          ),
+          #05040a;
+        box-shadow: var(--shadow);
+      }
+
+      .startHereProof__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .startHereProof__caption {
+        position: absolute;
+        inset: auto 16px 16px 16px;
+        margin: 0;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(6, 6, 6, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .startHereList {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .startHereList li {
+        position: relative;
+        margin-top: 14px;
+        padding-left: 18px;
+        color: rgba(245, 244, 239, 0.88);
+      }
+
+      .startHereList li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.68em;
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--magenta), var(--electric));
+        box-shadow: 0 0 10px rgba(249, 255, 0, 0.25);
+      }
+
+      .startHereSupport {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+      }
+
+      .startHereSupport .card__body {
+        height: 100%;
+      }
+
+      .startHereStack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .startHereQuote {
+        margin: 18px 0 0;
+        padding: 18px 20px;
+        border-left: 2px solid rgba(242, 201, 76, 0.75);
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(245, 244, 239, 0.86);
+      }
+
+      .startHereMeta {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .startHereMetaRow {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 12px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .startHereMetaRow:first-child {
+        border-top: 0;
+      }
+
+      .startHereMetaLabel {
+        color: rgba(245, 244, 239, 0.62);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .startHereMetaValue {
+        text-align: right;
+        font-weight: 700;
+      }
+
+      .startHereFooter {
+        padding-bottom: 56px;
+      }
+
+      @media (max-width: 920px) {
+        .startHereHero__layout,
+        .startHereSupport {
+          grid-template-columns: 1fr;
+        }
+
+        .startHereTitle {
+          max-width: 14ch;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .startHereHero {
+          padding-top: 72px;
+        }
+
+        .startHereActions {
+          flex-direction: column;
+        }
+
+        .startHereMetaRow {
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .startHereMetaValue {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="../" aria-label="Format The Sky home">
+          <img
+            class="brand__logo"
+            src="../assets/logo/logo.svg"
+            alt="Format The Sky"
+          />
+        </a>
+        <div class="status" aria-live="polite">
+          <span class="status__dot" aria-hidden="true"></span>
+          <span>SHORTS VISITOR ROUTE</span>
+          <span class="status__sep">//</span>
+          <span>NEON OBLIVION 2026-04-24</span>
+        </div>
+        <nav class="nav" aria-label="Start here navigation">
+          <a class="nav__secondary" href="#orientation">Orientation</a>
+          <a class="nav__secondary" href="#signal-alerts">Drop Alert</a>
+          <a class="nav__pill" href="../">Full Site</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section
+        class="section section--pane section--euphoria startHereHero"
+        aria-labelledby="start-here-title"
+      >
+        <div class="section__paneBg" aria-hidden="true"></div>
+        <div class="wrap startHereGrid startHereHero__layout">
+          <div class="startHereHero__copy">
+            <div class="startHereEyebrow">Found us through a Short?</div>
+            <h1 id="start-here-title" class="startHereTitle">
+              Start with the music, not the mystery.
+            </h1>
+            <p class="startHereLead">
+              Format The Sky makes human-built synthetic pop-metal: bright
+              hooks, heavy guitars, female-chorus lift, and machine-pressure
+              energy inside a beautiful end-times world.
+            </p>
+            <p class="body startHereDetail">
+              If a Short pulled you in, this page is the fast orientation
+              route. Hear what the project is, take the current release action,
+              and keep the next step simple.
+            </p>
+            <div class="chips" aria-label="Route traits">
+              <span class="chip">SHORTS_VISITOR_ROUTE</span>
+              <span class="chip">MUSIC_FIRST</span>
+              <span class="chip">LOW_FRICTION</span>
+            </div>
+            <div class="startHereActions">
+              <a
+                class="btn btn--primary btn--pulse"
+                href="../go/neon-oblivion-presave/"
+                data-track="pre_save_start_here_hero"
+              >
+                PRE-SAVE NEON OBLIVION
+                <span class="btn__sub">// CURRENT RELEASE PATH</span>
+              </a>
+              <a
+                class="btn btn--ghost"
+                href="#signal-alerts"
+                data-track="signal_alerts_start_here_hero"
+              >
+                GET THE DROP ALERT
+                <span class="btn__sub">// IF PRE-SAVE FEELS LIKE TOO MUCH ASK</span>
+              </a>
+            </div>
+            <p class="micro muted conversionNote" style="margin-top: 18px">
+              Not ready to decide from one clip? Scroll once, then
+              <a href="#first-listen" data-track="first_listen_start_here_inline"
+                >start with Wipe Your Name</a
+              >.
+            </p>
+          </div>
+
+          <aside class="card startHereProof" aria-label="Current discovery proof">
+            <div class="card__body">
+              <div class="startHereProof__media">
+                <picture>
+                  <source
+                    srcset="../assets/img/video-poster.avif"
+                    type="image/avif"
+                  />
+                  <img
+                    src="../assets/img/video-poster.webp"
+                    alt="Format The Sky performance-world still from the current short-form visual lane"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
+                <p class="startHereProof__caption micro">
+                  The page stays in the same visual world as the discovery
+                  Shorts lane, but the copy shifts from cryptic atmosphere to
+                  direct listener orientation.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        id="orientation"
+        class="section section--alt"
+        aria-labelledby="orientation-title"
+      >
+        <div class="wrap">
+          <div class="section__head">
+            <h2 id="orientation-title" class="h2">What You're Actually Hearing</h2>
+            <p class="sub">SHORTS CONTEXT // FAST ORIENTATION</p>
+          </div>
+
+          <div class="grid grid--2">
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">Song First</h3>
+                <p class="body">
+                  The pitch is not "generic AI mood content." The project works
+                  when the hook is immediate and the world-building sharpens the
+                  conflict instead of hiding it.
+                </p>
+                <p class="micro muted">
+                  Current repo evidence still favors direct, human-readable
+                  premise framing over abstract campaign language for cold
+                  viewers.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">The World</h3>
+                <p class="body">
+                  Think bright pop pressure, heavy guitars, synthetic glamour,
+                  and a city that still glows while the system tightens around
+                  it.
+                </p>
+                <ul class="startHereList micro">
+                  <li>groove-forward pop-metal</li>
+                  <li>female-led chorus authority</li>
+                  <li>end-times spectacle with real song hooks</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">Why the Shorts Look Like That</h3>
+                <p class="body">
+                  The short-form lane is selling a clean conflict: a seductive,
+                  glossy future that keeps tipping into machine control,
+                  ceremony, or extinction pressure.
+                </p>
+                <p class="micro muted">
+                  The site should make that conflict legible before it asks for
+                  a conversion step.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">What To Do Next</h3>
+                <p class="body">
+                  If you already want the next release in your library, pre-save
+                  <strong>Neon Oblivion</strong>. If you want the drop without a
+                  release-service step, use <strong>Signal Alerts</strong>.
+                </p>
+                <p class="micro muted">
+                  Everything else on this page is support, not a competing
+                  funnel.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="first-listen"
+        class="section section--pane"
+        aria-labelledby="first-listen-title"
+      >
+        <div class="section__paneBg" aria-hidden="true"></div>
+        <div class="wrap">
+          <div class="section__head">
+            <h2 id="first-listen-title" class="h2">Start with Wipe Your Name</h2>
+            <p class="sub">SUPPORT ACTION // NOT A CO-EQUAL CTA</p>
+          </div>
+
+          <div class="startHereGrid startHereSupport">
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">If the Short Clicked but the Project Still Feels Larger</h3>
+                <p class="body">
+                  Start with the current single that best introduces the band
+                  without making you decode the campaign first.
+                </p>
+                <blockquote class="startHereQuote">
+                  "Bright hooks, heavy guitars, and polished near-future
+                  pressure" is still the cleanest short explanation of the lane.
+                </blockquote>
+                <div class="card__actions" style="margin-top: 24px">
+                  <a
+                    class="btn btn--primary"
+                    href="https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm"
+                    data-track="listen_wipe_your_name_start_here_spotify"
+                    rel="noopener"
+                  >
+                    START WITH WIPE YOUR NAME
+                    <span class="btn__sub">// SPOTIFY</span>
+                  </a>
+                  <a
+                    class="btn btn--ghost btn--small"
+                    href="https://distrokid.com/hyperfollow/formatthesky/wipe-your-name"
+                    data-track="listen_wipe_your_name_start_here_smart_link"
+                    rel="noopener"
+                  >
+                    OPEN SMART LINK
+                    <span class="btn__sub">// ALL PLATFORMS</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body">
+                <h3 class="h3">Quick Trust Block</h3>
+                <div class="startHereMeta">
+                  <div class="startHereMetaRow">
+                    <div class="startHereMetaLabel">Artist</div>
+                    <div class="startHereMetaValue">Format The Sky</div>
+                  </div>
+                  <div class="startHereMetaRow">
+                    <div class="startHereMetaLabel">Current Release</div>
+                    <div class="startHereMetaValue">Neon Oblivion</div>
+                  </div>
+                  <div class="startHereMetaRow">
+                    <div class="startHereMetaLabel">Release Date</div>
+                    <div class="startHereMetaValue">2026-04-24</div>
+                  </div>
+                  <div class="startHereMetaRow">
+                    <div class="startHereMetaLabel">Sound</div>
+                    <div class="startHereMetaValue">
+                      Groove-forward pop-metal with bright chorus lift
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="signal-alerts"
+        class="section section--alt"
+        aria-labelledby="signal-alerts-title"
+      >
+        <div class="wrap">
+          <div class="section__head">
+            <h2 id="signal-alerts-title" class="h2">Get the Drop Alert</h2>
+            <p class="sub">LOWER-FRICTION FALLBACK // SAME WEBSITE</p>
+          </div>
+
+          <div class="startHereGrid startHereSupport">
+            <article class="card">
+              <div class="card__body">
+                <div class="chips" style="margin-bottom: 18px">
+                  <span class="chip">LOW_FRICTION</span>
+                  <span class="chip">OWNED_AUDIENCE</span>
+                  <span class="chip" id="signalAlertsModeChip">DIRECT_CAPTURE_READY</span>
+                </div>
+                <p class="body">
+                  Use this when you want the release alert without leaving the
+                  page for a pre-save flow.
+                </p>
+                <p id="signalAlertsModeNote" class="micro muted">
+                  Direct capture is active. Use this when pre-save feels like
+                  too much friction right now.
+                </p>
+                <form id="signalAlertsForm" class="signalAlertsForm" novalidate>
+                  <label class="signalAlertsForm__label" for="signalAlertsEmail"
+                    >Email</label
+                  >
+                  <input
+                    id="signalAlertsEmail"
+                    name="email"
+                    class="signalAlertsForm__input"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="company"
+                    class="signalAlertsForm__honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                  />
+                  <p class="signalAlertsForm__note">
+                    One release alert. One next-signal update. No spam.
+                  </p>
+                  <p class="signalAlertsForm__privacy" id="signalAlertsPrivacy">
+                    One release alert. One next-signal update. No spam.
+                  </p>
+                  <div class="signalAlertsForm__actions">
+                    <button
+                      id="signalAlertsSubmitButton"
+                      class="btn btn--primary"
+                      type="submit"
+                      data-track="signal_alerts_submit_start_here"
+                    >
+                      GET THE DROP ALERT
+                      <span class="btn__sub" id="signalAlertsSubmitSubcopy"
+                        >// EMAIL ME WHEN IT LANDS</span
+                      >
+                    </button>
+                    <a
+                      id="signalAlertsListenLink"
+                      class="btn btn--ghost btn--small"
+                      href="https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm"
+                      data-track="signal_alerts_listen_current_single_start_here"
+                      rel="noopener"
+                    >
+                      START WITH WIPE YOUR NAME
+                    </a>
+                  </div>
+                  <div
+                    id="signalAlertsMessage"
+                    class="signalAlertsForm__message"
+                    role="status"
+                    aria-live="polite"
+                  ></div>
+                </form>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card__body startHereStack">
+                <div>
+                  <h3 class="h3">Keep the Hierarchy Clean</h3>
+                  <p class="body">
+                    This page does not add a new funnel. It keeps the same
+                    release stack the homepage already uses.
+                  </p>
+                </div>
+                <div>
+                  <p class="micro muted" style="margin: 0 0 8px">
+                    Primary action
+                  </p>
+                  <p class="body" style="margin: 0">
+                    Pre-save <strong>Neon Oblivion</strong> through the tracked
+                    redirect.
+                  </p>
+                </div>
+                <div>
+                  <p class="micro muted" style="margin: 0 0 8px">
+                    Secondary action
+                  </p>
+                  <p class="body" style="margin: 0">
+                    Get the drop alert if the release-service step feels like
+                    too much friction.
+                  </p>
+                </div>
+                <div>
+                  <p class="micro muted" style="margin: 0 0 8px">
+                    Support action
+                  </p>
+                  <p class="body" style="margin: 0">
+                    Start with <strong>Wipe Your Name</strong> to hear the band
+                    before deciding.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section startHereFooter">
+        <div class="wrap">
+          <div class="card">
+            <div class="card__body">
+              <h2 class="h3">Need the full world instead?</h2>
+              <p class="body">
+                The main site keeps the larger release surface, the broader
+                world cues, and the current campaign layout.
+              </p>
+              <div class="card__actions" style="margin-top: 20px">
+                <a class="btn btn--ghost" href="../" data-track="return_home_start_here">
+                  OPEN THE FULL SITE
+                  <span class="btn__sub">// FORMATTHESKY.COM</span>
+                </a>
+                <a
+                  class="btn btn--ghost btn--small"
+                  href="../tech-deep-dive/"
+                  data-track="tech_deep_dive_start_here"
+                >
+                  TECH DEEP DIVE
+                  <span class="btn__sub">// OPTIONAL CONTEXT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let SITE_CONFIG = {
+        signalAlerts: {
+          mode: "mailto",
+          endpoint: null,
+          method: "POST",
+          bodyFormat: "json",
+          headers: {},
+          staticFields: {},
+          notifyEmail: "hello@formatthesky.com",
+          successPrimary:
+            "You're in. We'll send the signal when Neon Oblivion goes live.",
+          successSecondary: "While you wait, start with Wipe Your Name.",
+          handoffPrimary: "Direct capture is temporarily unavailable.",
+          handoffSecondary:
+            "Use the email fallback below if you still want the drop alert right now.",
+          privacyLine: "One release alert. One next-signal update. No spam.",
+          listenUrl: "https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm",
+          sourceTag: "website_signal_alerts",
+        },
+      };
+
+      const signalAlertsState = {
+        viewTracked: false,
+        completed: false,
+      };
+
+      fetch("../assets/data/site-config.json")
+        .then((response) => response.json())
+        .then((data) => {
+          SITE_CONFIG = {
+            ...SITE_CONFIG,
+            ...data,
+            signalAlerts: {
+              ...SITE_CONFIG.signalAlerts,
+              ...(data.signalAlerts || {}),
+            },
+          };
+          renderSignalAlertsMode();
+        })
+        .catch((error) => {
+          console.error("Failed to load site config:", error);
+          renderSignalAlertsMode();
+        });
+
+      function trackEvent(category, action, label = "") {
+        if (!window.goatcounter || !window.goatcounter.count) return;
+        window.goatcounter.count({
+          path: `${category}/${action}/${label || "none"}`,
+          title: `${category}: ${action}${label ? ` (${label})` : ""}`,
+          event: true,
+        });
+      }
+
+      function bindGoatcounterClickEvents() {
+        if (!window.goatcounter || !window.goatcounter.bind_events) return;
+        document.querySelectorAll("[data-track]").forEach((element) => {
+          const trackId = element.getAttribute("data-track");
+          if (!trackId) return;
+          element.setAttribute("data-goatcounter-click", `click_${trackId}`);
+          element.setAttribute(
+            "data-goatcounter-title",
+            `Tracked click: ${trackId}`,
+          );
+        });
+        window.goatcounter.bind_events();
+      }
+
+      function bindTrackedClicks() {
+        document.querySelectorAll("[data-track]").forEach((element) => {
+          element.addEventListener("click", () => {
+            const trackId = element.getAttribute("data-track");
+            if (!trackId) return;
+            trackEvent("conversion", "cta_click", trackId);
+          });
+        });
+      }
+
+      function getSignalAlertsConfig() {
+        return SITE_CONFIG.signalAlerts || {};
+      }
+
+      function signalAlertsHasEndpoint(config) {
+        return Boolean(config && config.endpoint);
+      }
+
+      function renderSignalAlertsMode() {
+        const config = getSignalAlertsConfig();
+        const hasEndpoint = signalAlertsHasEndpoint(config);
+        const modeChip = document.getElementById("signalAlertsModeChip");
+        const modeNote = document.getElementById("signalAlertsModeNote");
+        const privacy = document.getElementById("signalAlertsPrivacy");
+        const submitSubcopy = document.getElementById(
+          "signalAlertsSubmitSubcopy",
+        );
+
+        if (modeChip) {
+          modeChip.textContent = hasEndpoint
+            ? "DIRECT_CAPTURE_READY"
+            : "EMAIL_HANDOFF_ACTIVE";
+        }
+
+        if (modeNote) {
+          modeNote.textContent = hasEndpoint
+            ? "Direct capture is active. Use this when pre-save feels like too much friction right now."
+            : "Signal Alerts is still in quick email handoff mode until direct capture is reachable again.";
+        }
+
+        if (privacy) {
+          privacy.textContent =
+            config.privacyLine ||
+            "One release alert. One next-signal update. No spam.";
+        }
+
+        if (submitSubcopy) {
+          submitSubcopy.textContent = hasEndpoint
+            ? "// EMAIL ME WHEN IT LANDS"
+            : "// EMAIL HANDOFF FALLBACK";
+        }
+      }
+
+      function setSignalAlertsMessage(message, tone) {
+        const messageNode = document.getElementById("signalAlertsMessage");
+        if (!messageNode) return;
+        messageNode.innerHTML = message;
+        messageNode.dataset.tone = tone;
+      }
+
+      function trackSignalAlertsView() {
+        if (signalAlertsState.viewTracked) return;
+        signalAlertsState.viewTracked = true;
+        trackEvent("owned_audience", "signup_view", "signal_alerts");
+      }
+
+      function bindSignalAlertsViewTracking() {
+        const section = document.getElementById("signal-alerts");
+        if (!section) return;
+
+        if (!("IntersectionObserver" in window)) {
+          trackSignalAlertsView();
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries.find((entry) => entry.isIntersecting);
+            if (!visible) return;
+            trackSignalAlertsView();
+            observer.disconnect();
+          },
+          { threshold: 0.35 },
+        );
+
+        observer.observe(section);
+      }
+
+      function bindSignalAlertsListenTracking() {
+        const link = document.getElementById("signalAlertsListenLink");
+        if (!link) return;
+
+        link.addEventListener("click", () => {
+          if (!signalAlertsState.completed) return;
+          trackEvent("owned_audience", "listen_after_signup", "signal_alerts");
+        });
+      }
+
+      function buildSignalAlertsMailtoUrl(config, email) {
+        const notifyEmail = config.notifyEmail || "hello@formatthesky.com";
+        const subject = encodeURIComponent("Signal Alerts");
+        const body = encodeURIComponent(
+          `Please add ${email} to Signal Alerts for Neon Oblivion.\n\nSource: ${
+            config.sourceTag || "website_signal_alerts"
+          }\nPage: ${window.location.href}`,
+        );
+
+        return `mailto:${notifyEmail}?subject=${subject}&body=${body}`;
+      }
+
+      function buildSignalAlertsRequest(config, payload) {
+        const staticFields = config.staticFields || {};
+        const finalPayload = {
+          ...payload,
+          ...staticFields,
+        };
+
+        if ((config.bodyFormat || "json") === "form") {
+          const body = new URLSearchParams();
+          Object.entries(finalPayload).forEach(([key, value]) => {
+            body.append(key, String(value));
+          });
+          return {
+            method: config.method || "POST",
+            headers: {
+              ...(config.headers || {}),
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body,
+          };
+        }
+
+        return {
+          method: config.method || "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(config.headers || {}),
+          },
+          body: JSON.stringify(finalPayload),
+        };
+      }
+
+      function bindSignalAlertsForm() {
+        const form = document.getElementById("signalAlertsForm");
+        const emailInput = document.getElementById("signalAlertsEmail");
+        const submitButton = document.getElementById("signalAlertsSubmitButton");
+        if (!form || !emailInput || !submitButton) return;
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const email = emailInput.value.trim();
+          const honeypot = form.elements.company?.value?.trim?.() || "";
+          if (honeypot) return;
+
+          if (!email || !email.includes("@")) {
+            setSignalAlertsMessage(
+              "Enter a valid email to get the drop alert.",
+              "error",
+            );
+            return;
+          }
+
+          trackEvent("owned_audience", "signup_start", "signal_alerts");
+
+          const config = getSignalAlertsConfig();
+          const payload = {
+            email,
+            source: config.sourceTag || "website_signal_alerts",
+            page: window.location.pathname,
+            release: "Neon Oblivion",
+            campaign: "The Signal",
+          };
+
+          if (config.endpoint) {
+            try {
+              submitButton.setAttribute("disabled", "true");
+              const response = await fetch(
+                config.endpoint,
+                buildSignalAlertsRequest(config, payload),
+              );
+
+              if (!response.ok) {
+                throw new Error(`Endpoint returned ${response.status}`);
+              }
+
+              signalAlertsState.completed = true;
+              trackEvent("owned_audience", "signup_success", "signal_alerts");
+              setSignalAlertsMessage(
+                `${config.successPrimary} ${config.successSecondary} <a class="link" href="${
+                  config.listenUrl ||
+                  "https://open.spotify.com/track/7trfGOiMVf9wRZiVZucpmm"
+                }" id="signalAlertsSuccessListenLink">Start with Wipe Your Name.</a>`,
+                "success",
+              );
+              form.reset();
+              const successListenLink = document.getElementById(
+                "signalAlertsSuccessListenLink",
+              );
+              if (successListenLink) {
+                successListenLink.addEventListener("click", () => {
+                  trackEvent(
+                    "owned_audience",
+                    "listen_after_signup",
+                    "signal_alerts",
+                  );
+                });
+              }
+              return;
+            } catch (error) {
+              console.error("Signal Alerts endpoint failed:", error);
+              setSignalAlertsMessage(
+                "Signal Alerts endpoint failed. Falling back to email handoff.",
+                "warning",
+              );
+            } finally {
+              submitButton.removeAttribute("disabled");
+            }
+          }
+
+          trackEvent("owned_audience", "signup_handoff", "signal_alerts");
+          signalAlertsState.completed = true;
+          const mailtoUrl = buildSignalAlertsMailtoUrl(config, email);
+          setSignalAlertsMessage(
+            `${config.handoffPrimary} ${config.handoffSecondary} <a class="link" href="${mailtoUrl}">Email hello@formatthesky.com now.</a>`,
+            "success",
+          );
+        });
+      }
+
+      function trackLandingVisit() {
+        const params = new URLSearchParams(window.location.search);
+        const source = params.get("utm_source") || "direct";
+        const medium = params.get("utm_medium") || "none";
+        const campaign = params.get("utm_campaign") || "start_here";
+        trackEvent("visit", "landing", `start_here_${source}_${medium}_${campaign}`);
+      }
+
+      function bootStartHerePage() {
+        trackLandingVisit();
+        bindGoatcounterClickEvents();
+        bindTrackedClicks();
+        renderSignalAlertsMode();
+        bindSignalAlertsViewTracking();
+        bindSignalAlertsListenTracking();
+        bindSignalAlertsForm();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bootStartHerePage, {
+          once: true,
+        });
+      } else {
+        bootStartHerePage();
+      }
+    </script>
+  </body>
+</html>

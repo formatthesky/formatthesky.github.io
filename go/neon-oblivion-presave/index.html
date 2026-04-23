@@ -58,7 +58,10 @@
             <p class="micro" style="margin-top: 18px; opacity: 0.82">
               If nothing happens automatically, use the button above.
             </p>
-            <p class="micro muted conversionNote" style="margin-left: auto; margin-right: auto">
+            <p
+              class="micro muted conversionNote"
+              style="margin-left: auto; margin-right: auto"
+            >
               If the pre-save flow feels like too much friction, Signal Alerts
               lets you stay on the website and still get the release drop.
             </p>
@@ -71,14 +74,100 @@
       const destination =
         "https://distrokid.com/hyperfollow/formatthesky/neon-oblivion";
 
-      function trackRedirectView() {
+      function sanitizeAttributionValue(value, fallback) {
+        if (typeof value !== "string" || !value.trim()) {
+          return fallback;
+        }
+
+        return (
+          value
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "_")
+            .replace(/^_+|_+$/g, "") || fallback
+        );
+      }
+
+      function readRedirectAttribution() {
+        const params = new URLSearchParams(window.location.search);
+        const referrerUrl = document.referrer
+          ? new URL(document.referrer, window.location.href)
+          : null;
+        const referrerSource =
+          referrerUrl && referrerUrl.origin === window.location.origin
+            ? "site"
+            : "direct";
+
+        return {
+          source: sanitizeAttributionValue(
+            params.get("utm_source"),
+            referrerSource,
+          ),
+          medium: sanitizeAttributionValue(params.get("utm_medium"), "none"),
+          campaign: sanitizeAttributionValue(
+            params.get("utm_campaign"),
+            "neon_oblivion",
+          ),
+          content: sanitizeAttributionValue(params.get("utm_content"), "none"),
+          term: sanitizeAttributionValue(params.get("utm_term"), "none"),
+          cta: sanitizeAttributionValue(params.get("cta"), "direct_redirect"),
+        };
+      }
+
+      function buildAttributionQuery(attribution) {
+        return new URLSearchParams({
+          source: attribution.source,
+          medium: attribution.medium,
+          campaign: attribution.campaign,
+          content: attribution.content,
+          term: attribution.term,
+          cta: attribution.cta,
+        }).toString();
+      }
+
+      function trackAttributedEvent(eventName, attribution) {
         if (!window.goatcounter || !window.goatcounter.count) return false;
+
+        const query = buildAttributionQuery(attribution);
         window.goatcounter.count({
-          path: "conversion/presave_redirect_view/neon_oblivion",
-          title: "conversion: presave redirect view",
+          path: `conversion/${eventName}/neon_oblivion?${query}`,
+          title: `conversion: ${eventName} (${attribution.source}/${attribution.medium})`,
           event: true,
         });
         return true;
+      }
+
+      function preserveFallbackAttribution(attribution) {
+        const fallbackLink = document.querySelector(
+          '[data-track="signal_alerts_redirect_fallback"]',
+        );
+        if (!(fallbackLink instanceof HTMLAnchorElement)) return;
+
+        const fallbackUrl = new URL(fallbackLink.href, window.location.href);
+        fallbackUrl.searchParams.set("utm_source", attribution.source);
+        fallbackUrl.searchParams.set("utm_medium", attribution.medium);
+        fallbackUrl.searchParams.set("utm_campaign", attribution.campaign);
+        fallbackUrl.searchParams.set(
+          "utm_content",
+          "presave_redirect_fallback",
+        );
+        if (attribution.term !== "none") {
+          fallbackUrl.searchParams.set("utm_term", attribution.term);
+        }
+        fallbackLink.href = fallbackUrl.toString();
+      }
+
+      function bindRedirectChoiceTracking(attribution) {
+        document.querySelectorAll("[data-track]").forEach((link) => {
+          link.addEventListener("click", () => {
+            const trackId = link.getAttribute("data-track");
+            if (!trackId) return;
+            trackAttributedEvent(trackId, attribution);
+          });
+        });
+      }
+
+      function trackRedirectView(attribution) {
+        return trackAttributedEvent("presave_redirect_view", attribution);
       }
 
       function redirectNow() {
@@ -86,12 +175,16 @@
       }
 
       function startRedirectFlow() {
+        const attribution = readRedirectAttribution();
         const startedAt = Date.now();
         const maxWaitMs = 1800;
         const postTrackDelayMs = 250;
 
+        preserveFallbackAttribution(attribution);
+        bindRedirectChoiceTracking(attribution);
+
         const interval = window.setInterval(() => {
-          const tracked = trackRedirectView();
+          const tracked = trackRedirectView(attribution);
           if (tracked) {
             window.clearInterval(interval);
             window.setTimeout(redirectNow, postTrackDelayMs);

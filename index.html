@@ -181,7 +181,9 @@
                 href="#signal-alerts"
               >
                 GET THE DROP ALERT
-                <span class="btn__sub">// IF PRE-SAVE FEELS LIKE TOO MUCH ASK</span>
+                <span class="btn__sub"
+                  >// IF PRE-SAVE FEELS LIKE TOO MUCH ASK</span
+                >
               </a>
             </div>
 
@@ -1101,8 +1103,7 @@
           successPrimary:
             "You're in. We'll send the signal when Neon Oblivion goes live.",
           successSecondary: "While you wait, start with Wipe Your Name.",
-          handoffPrimary:
-            "Signal Alerts is still in quick email handoff mode.",
+          handoffPrimary: "Signal Alerts is still in quick email handoff mode.",
           handoffSecondary:
             "Use the email link below if you want the drop alert right now.",
           privacyLine: "One release alert. One next-signal update. No spam.",
@@ -1421,6 +1422,52 @@
         }
       }
 
+      function buildCurrentAttributionParams() {
+        const params = new URLSearchParams(window.location.search);
+        const attribution = new URLSearchParams();
+        [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+        ].forEach((key) => {
+          const value = params.get(key);
+          if (value) {
+            attribution.set(key, value);
+          }
+        });
+        return attribution;
+      }
+
+      function preserveRedirectAttribution() {
+        const currentAttribution = buildCurrentAttributionParams();
+
+        document
+          .querySelectorAll('a[href*="/go/neon-oblivion-presave"]')
+          .forEach((link) => {
+            const href = link.getAttribute("href");
+            if (!href) return;
+
+            const destination = new URL(href, window.location.href);
+            if (destination.origin !== window.location.origin) return;
+
+            currentAttribution.forEach((value, key) => {
+              if (!destination.searchParams.has(key)) {
+                destination.searchParams.set(key, value);
+              }
+            });
+
+            const trackId = link.getAttribute("data-track");
+            if (trackId && !destination.searchParams.has("cta")) {
+              destination.searchParams.set("cta", trackId);
+            }
+
+            const relativeHref = `${destination.pathname}${destination.search}${destination.hash}`;
+            link.setAttribute("href", relativeHref);
+          });
+      }
+
       function bindGoatcounterClickEvents() {
         if (!window.goatcounter || !window.goatcounter.bind_events) return;
 
@@ -1500,7 +1547,9 @@
         const modeChip = document.getElementById("signalAlertsModeChip");
         const modeNote = document.getElementById("signalAlertsModeNote");
         const privacy = document.getElementById("signalAlertsPrivacy");
-        const submitSubcopy = document.getElementById("signalAlertsSubmitSubcopy");
+        const submitSubcopy = document.getElementById(
+          "signalAlertsSubmitSubcopy",
+        );
 
         if (modeChip) {
           modeChip.textContent = hasEndpoint
@@ -1617,7 +1666,9 @@
       function bindSignalAlertsForm() {
         const form = document.getElementById("signalAlertsForm");
         const emailInput = document.getElementById("signalAlertsEmail");
-        const submitButton = document.getElementById("signalAlertsSubmitButton");
+        const submitButton = document.getElementById(
+          "signalAlertsSubmitButton",
+        );
         if (!form || !emailInput || !submitButton) return;
 
         form.addEventListener("submit", async (event) => {
@@ -1711,6 +1762,7 @@
         const campaign = params.get("utm_campaign") || "none";
 
         trackEvent("visit", "landing", `${source}_${medium}_${campaign}`);
+        preserveRedirectAttribution();
         bindGoatcounterClickEvents();
         bindTrackedButtonClicks();
         renderSignalAlertsMode();

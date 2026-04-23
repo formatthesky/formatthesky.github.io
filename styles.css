@@ -955,6 +955,93 @@ a {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.signalAlertsIntent {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(242, 201, 76, 0.24);
+  background:
+    linear-gradient(135deg, rgba(242, 201, 76, 0.12), transparent 58%),
+    rgba(5, 4, 10, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.signalAlertsIntent[hidden] {
+  display: none;
+}
+
+.signalAlertsIntent__eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 800;
+}
+
+.signalAlertsIntent__question {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 248, 228, 0.96);
+  font-weight: 700;
+}
+
+.signalAlertsIntent__choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.signalAlertsIntent__choice {
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  padding: 14px 15px;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background 120ms ease,
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.signalAlertsIntent__choice:hover,
+.signalAlertsIntent__choice:focus-visible {
+  border-color: rgba(242, 201, 76, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.signalAlertsIntent__choice[aria-pressed="true"] {
+  border-color: rgba(242, 201, 76, 0.68);
+  background: rgba(242, 201, 76, 0.14);
+  box-shadow: 0 0 22px rgba(242, 201, 76, 0.12);
+}
+
+.signalAlertsIntent__choiceTitle {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.signalAlertsIntent__choiceCopy {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .signalAlertsForm__privacy {
   margin: -4px 0 0;
   font-size: 12px;

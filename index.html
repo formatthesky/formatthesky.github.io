@@ -885,10 +885,83 @@
                     autocomplete="off"
                     aria-hidden="true"
                   />
+                  <input
+                    type="hidden"
+                    name="listenerIntent"
+                    id="signalAlertsIntent"
+                  />
                   <p class="signalAlertsForm__note">
                     Use this when you want the release alert without leaving the
                     page for a pre-save flow.
                   </p>
+                  <div
+                    id="signalAlertsIntentCard"
+                    class="signalAlertsIntent"
+                    hidden
+                  >
+                    <p class="signalAlertsIntent__eyebrow">
+                      OPTIONAL INTENT PULSE // ONE TAP
+                    </p>
+                    <p class="signalAlertsIntent__question">
+                      What should this alert help you do?
+                    </p>
+                    <div class="signalAlertsIntent__choices">
+                      <button
+                        class="signalAlertsIntent__choice"
+                        type="button"
+                        data-listener-intent="drop_alert"
+                        aria-pressed="false"
+                      >
+                        <span class="signalAlertsIntent__choiceTitle"
+                          >Release Ping</span
+                        >
+                        <span class="signalAlertsIntent__choiceCopy"
+                          >Tell me when Neon Oblivion actually lands.</span
+                        >
+                      </button>
+                      <button
+                        class="signalAlertsIntent__choice"
+                        type="button"
+                        data-listener-intent="pre_save_too_much"
+                        aria-pressed="false"
+                      >
+                        <span class="signalAlertsIntent__choiceTitle"
+                          >Skip The Extra Step</span
+                        >
+                        <span class="signalAlertsIntent__choiceCopy"
+                          >I want the alert, not another account flow.</span
+                        >
+                      </button>
+                      <button
+                        class="signalAlertsIntent__choice"
+                        type="button"
+                        data-listener-intent="future_releases"
+                        aria-pressed="false"
+                      >
+                        <span class="signalAlertsIntent__choiceTitle"
+                          >Future Signals</span
+                        >
+                        <span class="signalAlertsIntent__choiceCopy"
+                          >Keep me posted when the next Format The Sky drop
+                          hits.</span
+                        >
+                      </button>
+                      <button
+                        class="signalAlertsIntent__choice"
+                        type="button"
+                        data-listener-intent="creator_sync_interest"
+                        aria-pressed="false"
+                      >
+                        <span class="signalAlertsIntent__choiceTitle"
+                          >Use / Share Angle</span
+                        >
+                        <span class="signalAlertsIntent__choiceCopy"
+                          >I may use this project, soundtrack it, or pass it
+                          along.</span
+                        >
+                      </button>
+                    </div>
+                  </div>
                   <p class="signalAlertsForm__privacy" id="signalAlertsPrivacy">
                     One release alert. One next-signal update. No spam.
                   </p>
@@ -1531,6 +1604,7 @@
       const signalAlertsState = {
         completed: false,
         viewTracked: false,
+        intentPromptShown: false,
       };
 
       function getSignalAlertsConfig() {
@@ -1616,13 +1690,78 @@
         });
       }
 
-      function buildSignalAlertsMailtoUrl(config, email) {
+      function formatListenerIntentLabel(value) {
+        const labels = {
+          drop_alert: "Tell me when Neon Oblivion drops",
+          pre_save_too_much: "I want the alert, not another account step",
+          future_releases: "Send future Format The Sky releases too",
+          creator_sync_interest:
+            "I may use, soundtrack, or share this project somewhere",
+        };
+
+        return labels[value] || value;
+      }
+
+      function revealSignalAlertsIntentCard() {
+        if (signalAlertsState.intentPromptShown) return;
+
+        const card = document.getElementById("signalAlertsIntentCard");
+        if (!card) return;
+
+        signalAlertsState.intentPromptShown = true;
+        card.hidden = false;
+        trackEvent("owned_audience", "intent_prompt_view", "signal_alerts");
+      }
+
+      function bindSignalAlertsIntentCard() {
+        const emailInput = document.getElementById("signalAlertsEmail");
+        const intentInput = document.getElementById("signalAlertsIntent");
+        const intentButtons = Array.from(
+          document.querySelectorAll("[data-listener-intent]"),
+        );
+
+        if (!emailInput || !intentInput || intentButtons.length === 0) return;
+
+        const syncPressedState = (selectedValue = "") => {
+          intentButtons.forEach((button) => {
+            const isSelected =
+              button.getAttribute("data-listener-intent") === selectedValue;
+            button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+          });
+        };
+
+        const setIntent = (value) => {
+          intentInput.value = value;
+          syncPressedState(value);
+          trackEvent("owned_audience", "intent_selected", value);
+        };
+
+        const revealCard = () => {
+          revealSignalAlertsIntentCard();
+        };
+
+        emailInput.addEventListener("focus", revealCard);
+        emailInput.addEventListener("pointerdown", revealCard);
+
+        intentButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            revealSignalAlertsIntentCard();
+            setIntent(button.getAttribute("data-listener-intent") || "");
+          });
+        });
+      }
+
+      function buildSignalAlertsMailtoUrl(config, email, listenerIntent) {
         const notifyEmail = config.notifyEmail || "hello@formatthesky.com";
         const subject = encodeURIComponent("Signal Alerts");
         const body = encodeURIComponent(
           `Please add ${email} to Signal Alerts for Neon Oblivion.\n\nSource: ${
             config.sourceTag || "website_signal_alerts"
-          }\nPage: ${window.location.href}`,
+          }\nPage: ${window.location.href}${
+            listenerIntent
+              ? `\nListener intent: ${formatListenerIntentLabel(listenerIntent)}`
+              : ""
+          }`,
         );
 
         return `mailto:${notifyEmail}?subject=${subject}&body=${body}`;
@@ -1666,10 +1805,11 @@
       function bindSignalAlertsForm() {
         const form = document.getElementById("signalAlertsForm");
         const emailInput = document.getElementById("signalAlertsEmail");
+        const intentInput = document.getElementById("signalAlertsIntent");
         const submitButton = document.getElementById(
           "signalAlertsSubmitButton",
         );
-        if (!form || !emailInput || !submitButton) return;
+        if (!form || !emailInput || !intentInput || !submitButton) return;
 
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
@@ -1695,6 +1835,7 @@
             page: window.location.pathname,
             release: "Neon Oblivion",
             campaign: "The Signal",
+            listenerIntent: intentInput.value || null,
           };
 
           if (config.endpoint) {
@@ -1746,7 +1887,11 @@
 
           trackEvent("owned_audience", "signup_handoff", "signal_alerts");
           signalAlertsState.completed = true;
-          const mailtoUrl = buildSignalAlertsMailtoUrl(config, email);
+          const mailtoUrl = buildSignalAlertsMailtoUrl(
+            config,
+            email,
+            intentInput.value || null,
+          );
           setSignalAlertsMessage(
             `${config.handoffPrimary} ${config.handoffSecondary} <a class="link" href="${mailtoUrl}">Email hello@formatthesky.com now.</a>`,
             "success",
@@ -1768,6 +1913,7 @@
         renderSignalAlertsMode();
         bindSignalAlertsViewTracking();
         bindSignalAlertsListenTracking();
+        bindSignalAlertsIntentCard();
         bindSignalAlertsForm();
 
         // Track social links

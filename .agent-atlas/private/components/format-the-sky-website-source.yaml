@@ -1,0 +1,18 @@
+id: component:format-the-sky-website-source
+kind: component
+title: "format-the-sky website Source Surface"
+summary: "Main source, configuration, scripts, docs, and tests agents should inspect before broad repository search."
+status: active
+visibility: private
+code:
+  paths:
+    - "*"
+relations:
+  - type: part-of
+    target: domain:format-the-sky-website-local
+  - type: tested-by
+    target: test-scope:format-the-sky-website-verification
+agent:
+  load_when:
+    - Changing source, scripts, docs, tests, or repo-level configuration.
+  token_budget_hint: 600

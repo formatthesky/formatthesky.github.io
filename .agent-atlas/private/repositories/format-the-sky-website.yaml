@@ -1,0 +1,14 @@
+id: repository:format-the-sky-website
+kind: repository
+title: "format-the-sky website"
+summary: "Static website surface for format-the-sky."
+status: active
+visibility: private
+uri: repo://format-the-sky-website
+relations:
+  - type: related-to
+    target: domain:format-the-sky-website-local
+agent:
+  load_when:
+    - Orienting in this repository or building a repo-local context pack.
+  token_budget_hint: 300

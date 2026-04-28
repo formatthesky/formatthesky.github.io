@@ -1,0 +1,9 @@
+id: domain:format-the-sky-website-local
+kind: domain
+title: "format-the-sky website Local Surface"
+summary: "Repo-local architecture, docs, and verification surfaces for format-the-sky website."
+status: active
+visibility: private
+relations:
+  - type: contains
+    target: repository:format-the-sky-website

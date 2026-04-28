@@ -1,0 +1,10 @@
+id: test-scope:format-the-sky-website-verification
+kind: test-scope
+title: "format-the-sky website Verification"
+summary: "Narrow default verification commands for repo-local changes; prefer more specific tests when the task identifies them."
+status: active
+visibility: private
+commands: []
+relations:
+  - type: verifies
+    target: component:format-the-sky-website-source

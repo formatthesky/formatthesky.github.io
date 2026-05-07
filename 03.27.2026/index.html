@@ -224,11 +224,11 @@
       style="display: flex; flex-direction: column; align-items: center"
     >
       <div class="micro" style="color: var(--magenta); margin-bottom: 20px">
-        [FORMAT THE SKY] // NEW SINGLE PRE-SAVE
+        [FORMAT THE SKY] // NEON OBLIVION // LIVE NOW
       </div>
 
       <h1 class="glitch-text">03.27.2026</h1>
-      <div class="sub-text">NEON OBLIVION // PRE-SAVE NOW</div>
+      <div class="sub-text">NEON OBLIVION // STREAM NOW</div>
 
       <div class="cover-frame">
         <img
@@ -238,20 +238,20 @@
       </div>
 
       <div class="support-copy">
-        <strong>New single out April 24, 2026.</strong> Pre-save
-        <strong>Neon Oblivion</strong> now to get it into your library the
-        moment it drops. Bright hooks. Heavy guitars. White-hot pressure.
+        <strong>Out now.</strong> Stream
+        <strong>Neon Oblivion</strong> on Spotify and Apple Music. Bright hooks.
+        Heavy guitars. White-hot pressure.
       </div>
 
       <div class="service-pills" aria-label="Supported services">
         <div class="service-pill">Spotify</div>
         <div class="service-pill">Apple Music</div>
-        <div class="service-pill">Release: 04.24.2026</div>
+        <div class="service-pill">Released: 04.24.2026</div>
       </div>
 
       <div class="countdown-container">
-        <div id="timer" class="timer">// LOADING...</div>
-        <div class="label">UNTIL THE SIGNAL GOES LIVE</div>
+        <div id="timer" class="timer">SIGNAL LIVE</div>
+        <div class="label">NEON OBLIVION // STREAM NOW</div>
       </div>
 
       <div class="actions">
@@ -267,7 +267,7 @@
           Opens the official stream page on Spotify.
         </div>
         <div class="trust-note">
-          Want alerts for the next drop?
+          Want alerts for the next release?
           <a
             href="../#signal-alerts"
             data-track="signal_alerts_signal_breach_page"
@@ -275,60 +275,28 @@
             >GET EARLY ACCESS</a
           >
         </div>
-        <a
-          href="../#listen"
-          class="btn btn--ghost"
-          data-track="hear_band_signal_breach_page"
-          >HEAR THE BAND FIRST</a
-        >
       </div>
 
       <div id="terminal-feed" class="terminal-output">
-        [NOTE]: New single pre-save is live now...<br />
-        [NOTE]: Neon Oblivion arrives in full on 04.24.2026...<br />
-        [NOTE]: Pre-save supports Spotify and Apple Music...<br />
+        [NOTE]: Neon Oblivion is live now...<br />
+        [NOTE]: Stream on Spotify and Apple Music...<br />
         [NOTE]: Bright hooks. Heavy guitars. White-hot pressure.<br />
-        [NOTE]: Hear Wipe Your Name first if you want the band before the
-        drop.<br />
+        [NOTE]: Get early access to the next release via Signal Alerts...<br />
       </div>
 
       <a href="../" class="back-link">← Back to Format The Sky</a>
     </div>
 
     <script>
-      const target = new Date("2026-03-27T00:00:00Z").getTime();
-
-      function update() {
-        const now = new Date().getTime();
-        const diff = target - now;
-
-        if (diff <= 0) {
-          document.getElementById("timer").textContent = "CAMPAIGN LIVE";
-          return;
-        }
-
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById("timer").textContent =
-          `${d}D : ${h}H : ${m}M : ${s}S`;
-      }
-
-      setInterval(update, 1000);
-      update();
-
       // Ambient feed updates
       const feed = document.getElementById("terminal-feed");
       const logs = [
-        "[UPDATE]: Pre-save is live now.",
-        "[UPDATE]: Official HyperFollow opens in a new tab.",
-        "[UPDATE]: Save the date: 04.24.2026.",
-        "[UPDATE]: Wipe Your Name is live now.",
+        "[UPDATE]: Neon Oblivion is live now.",
+        "[UPDATE]: Stream on Spotify and Apple Music.",
         "[UPDATE]: Bright hooks. Heavy guitars.",
+        "[UPDATE]: White-hot pressure. One minute in.",
+        "[UPDATE]: Signal Alerts open for the next drop.",
         "[UPDATE]: This page leads to the single.",
-        "[UPDATE]: Start here, then hear the band.",
         "[UPDATE]: Stay in the channel.",
       ];
 
